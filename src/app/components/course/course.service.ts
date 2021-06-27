@@ -109,6 +109,16 @@ export class CourseService{
             isFree: false,
             price:130000,
             level: levelGrade.grade10
+        },
+        {
+            id:11,
+            name: "Toán tổng hợp",
+            teacher:"Lê Văn Tâm",
+            views:150,
+            users: 10,
+            isFree: false,
+            price:130000,
+            level: levelGrade.grade10
         }
     ];
 
