@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+.hotest-course {
+    background: #F4F4F4;
+    /* box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.25); */
+    padding-bottom: 10px;
+    margin-top: 15px;
+}
+
+.grade-course {
+    display: flex;
+    flex: content;
+    justify-content: space-between;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 29px;
+    color: #F8931C;
+    text-transform: uppercase;
+}

@@ -1,0 +1,6 @@
+<div class="hotest-course">
+    <p class="title">{{getLevelGradeName()}}</p>
+    <div class="grade-course">
+        <app-small-course *ngFor="let item of smallCourses" [course]="item"></app-small-course>
+    </div>
+</div>

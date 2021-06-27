@@ -1,0 +1,25 @@
+.filter-button {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.filter-button button {
+    width: 142px;
+    background: #E1604E;
+    border-radius: 10px;
+    margin-left: 5px;
+    padding: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+.filter-button button:nth-child(2) {
+    width: fit-content !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
