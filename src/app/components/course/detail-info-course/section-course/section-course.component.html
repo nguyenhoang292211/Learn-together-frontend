@@ -1,0 +1,23 @@
+<div class="single-section">
+    <a class="section-name-p" data-bs-toggle="collapse" [href]=" '#section' +section" role="button" [attr.aria-controls]="'section' +section" aria-expanded="false">
+        <a class="section-name">
+            <i class="fa fa-caret-down"></i> Section {{section}}
+        </a>
+    </a>
+
+    <div class="collapse" [id]="'section'+ section">
+        <div class="lecturre-list">
+            <ul>
+                <li>Lecture 1
+                    <h6><i class="bi bi-clock-fill"></i>1:30</h6>
+                </li>
+                <li>Lecture 2
+                    <h6><i class="bi bi-clock-fill"></i>1:30</h6>
+                </li>
+                <li>Lecture 3
+                    <h6><i class="bi bi-clock-fill"></i>1:30</h6>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

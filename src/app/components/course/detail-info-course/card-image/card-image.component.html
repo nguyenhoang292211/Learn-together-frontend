@@ -1,0 +1,12 @@
+<div class="card image-card">
+    <img class="image-thumbnail img-course" src="../../../../../assets/images/img1.jpg" alt="">
+    <p class="price"> {{handlePriceFormat(course.price)}} </p>
+    <div *ngIf=" isBought() ; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <button class="btn-go-course ">Go to course</button>
+    </ng-template>
+    <ng-template #elseBlock>
+        <button class="btn-go-course "> <i class="bi bi-cart "></i> Buy now</button>
+    </ng-template>
+
+</div>

@@ -135,4 +135,9 @@ export class CourseService{
         const courses= this.courses;
         return of(courses);
     }
+
+    getCourseById(id : number):Observable<Course>{
+        const course = this.courses.find(cour => cour.id==id)!;
+        return of(course);
+    }
 }
