@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GradeCourseComponent } from './components/course/grade-course/grade-course.component';
@@ -9,6 +9,11 @@ import { HomeScreenComponent } from './page/home-screen/home-screen.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginScreenComponent } from './page/login-screen/login-screen.component';
+import { DetailCourseScreenComponent } from './page/detail-course-screen/detail-course-screen.component';
+import { DetailInfoCourseComponent } from './components/course/detail-info-course/detail-info-course.component';
+import { CardImageComponent } from './components/course/detail-info-course/card-image/card-image.component';
+import { SectionCourseComponent } from './components/course/detail-info-course/section-course/section-course.component';
+import { ContentCourseComponent } from './components/course/detail-info-course/content-course/content-course.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +23,17 @@ import { LoginScreenComponent } from './page/login-screen/login-screen.component
     HomeScreenComponent,
     NavbarComponent,
     FooterComponent,
-    LoginScreenComponent
+    LoginScreenComponent,
+    DetailCourseScreenComponent,
+    DetailInfoCourseComponent,
+    CardImageComponent,
+    SectionCourseComponent,
+    ContentCourseComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
