@@ -1,0 +1,13 @@
+.coins-main{
+   
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.btn{
+    background-color: #4EBEE1;
+    color: aliceblue;
+    font-weight: 600;
+    border-radius: 15px;
+    border-color: none !important;
+}

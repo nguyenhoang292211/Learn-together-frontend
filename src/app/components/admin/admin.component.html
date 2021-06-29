@@ -1,30 +1,33 @@
 <div class="container admin-main">
     <div class="option">
         <div class="row">
-            <div class="col-md-3">
-                <button class = "btn ">
+            <div class="col-md-3" >
+                <button class = "btn " (click) = "setChooseOption(0)">
                     Learner Managerment
                 </button>
             </div>
             <div class="col-md-3">
-                <button class = "btn ">
-                    Learner Managerment
+                <button class = "btn " (click) = "setChooseOption(1)">
+                    Lecturer Managerment
                 </button>
             </div>
             <div class="col-md-3">
-                <button class = "btn">
-                    Learner Managerment
+                <button class = "btn" (click) = "setChooseOption(2)">
+                    Learner Payment
                 </button>
             </div>
             <div class="col-md-3">
-                <button class = "btn">
-                    Learner Managerment
+                <button class = "btn" (click) = "setChooseOption(3)">
+                    Admin wallet
                 </button>
             </div>
         </div>
     </div>
     <div class="table-detail">
-        <app-table-learner></app-table-learner>
+        <app-table-learner *ngIf = "isUseOptionAdmin(0)"></app-table-learner>
+        <app-table-lecturer *ngIf = "isUseOptionAdmin(1)"></app-table-lecturer>
+        <app-table-learner-payment *ngIf = "isUseOptionAdmin(2)"></app-table-learner-payment>
+        <app-admin-wallet-screen *ngIf = "isUseOptionAdmin(3)"></app-admin-wallet-screen>
     </div>
     
 </div>

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { learner } from 'src/app/models/learner.model';
-
 @Component({
-  selector: 'app-table-learner',
-  templateUrl: './table-learner.component.html',
-  styleUrls: ['./table-learner.component.css']
+  selector: 'app-table-learner-payment',
+  templateUrl: './table-learner-payment.component.html',
+  styleUrls: ['./table-learner-payment.component.css']
 })
-export class TableLearnerComponent implements OnInit {
+export class TableLearnerPaymentComponent implements OnInit {
 
   listLearner: learner[] = [];
 
