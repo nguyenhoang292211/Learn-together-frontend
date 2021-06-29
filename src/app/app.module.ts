@@ -26,6 +26,11 @@ import { CourseLearningScreenComponent } from './page/course-learning-screen/cou
 import { CommentComponent } from './components/comment/comment/comment.component';
 import { SingleCommentComponent } from './components/comment/single-comment/single-comment.component';
 import { WalletScreenComponent } from './page/wallet-screen/wallet-screen.component';
+import { TableLecturerComponent } from './components/admin/table-lecturer/table-lecturer.component';
+import { TableLearnerPaymentComponent } from './components/admin/table-learner-payment/table-learner-payment.component';
+import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
+import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
+import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +56,12 @@ import { WalletScreenComponent } from './page/wallet-screen/wallet-screen.compon
     CourseLearningScreenComponent,
     CommentComponent,
     SingleCommentComponent,
-    WalletScreenComponent
+    WalletScreenComponent,
+    TableLecturerComponent,
+    TableLearnerPaymentComponent,
+    TableAdminWalletComponent,
+    AdminWalletScreenComponent,
+    AdminWalletCoinsComponent
   ],
   imports: [
     BrowserModule,
