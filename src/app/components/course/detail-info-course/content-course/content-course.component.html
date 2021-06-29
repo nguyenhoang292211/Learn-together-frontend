@@ -1,10 +1,8 @@
-<div class="containter row">
-    <div class="col-md-2"></div>
-    <div class="col-md-7 content-course">
-        <h4>Content</h4>
-        <div *ngFor="let section of listSection" class="content-list">
-            <app-section-course [section]="section"></app-section-course>
+<div class="row content-area">
+    <div class="content-course">
+        <h4>Course Content</h4>
+        <div class="content-list">
+            <app-section-course *ngFor="let section of listSection" [section]="section"></app-section-course>
         </div>
     </div>
-    <div class="col-md-3"></div>
 </div>

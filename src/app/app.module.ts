@@ -22,6 +22,10 @@ import { ItemFilterComponent } from './components/course/search/filter/item-filt
 import { AdminComponent } from './components/admin/admin.component';
 import { TableLearnerComponent } from './components/admin/table-learner/table-learner.component';
 
+import { CourseLearningScreenComponent } from './page/course-learning-screen/course-learning-screen.component';
+import { CommentComponent } from './components/comment/comment/comment.component';
+import { SingleCommentComponent } from './components/comment/single-comment/single-comment.component';
+import { WalletScreenComponent } from './page/wallet-screen/wallet-screen.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { TableLearnerComponent } from './components/admin/table-learner/table-le
     FilterComponent,
     ItemFilterComponent,
     AdminComponent,
-    TableLearnerComponent
+    TableLearnerComponent,
+    CourseLearningScreenComponent,
+    CommentComponent,
+    SingleCommentComponent,
+    WalletScreenComponent
   ],
   imports: [
     BrowserModule,
