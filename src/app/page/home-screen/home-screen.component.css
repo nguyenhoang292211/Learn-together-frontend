@@ -1,14 +1,8 @@
-.home-screen {
-    margin-top: 55px;
-}
-
 .filter-button {
     display: flex;
     justify-content: space-evenly;
     padding-top: 20px;
-    padding-bottom: 30px;
-    margin-left: 50px;
-    margin-right: 50px;
+    padding-bottom: 20px;
 }
 
 .filter-button button {
@@ -28,4 +22,8 @@
     width: fit-content !important;
     padding-left: 5px !important;
     padding-right: 5px !important;
+}
+
+.home-screen {
+    margin-top: 50px;
 }

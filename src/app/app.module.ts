@@ -14,6 +14,10 @@ import { DetailInfoCourseComponent } from './components/course/detail-info-cours
 import { CardImageComponent } from './components/course/detail-info-course/card-image/card-image.component';
 import { SectionCourseComponent } from './components/course/detail-info-course/section-course/section-course.component';
 import { ContentCourseComponent } from './components/course/detail-info-course/content-course/content-course.component';
+import { CourseLearningScreenComponent } from './page/course-learning-screen/course-learning-screen.component';
+import { CommentComponent } from './components/comment/comment/comment.component';
+import { SingleCommentComponent } from './components/comment/single-comment/single-comment.component';
+import { WalletScreenComponent } from './page/wallet-screen/wallet-screen.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { ContentCourseComponent } from './components/course/detail-info-course/c
     DetailInfoCourseComponent,
     CardImageComponent,
     SectionCourseComponent,
-    ContentCourseComponent
+    ContentCourseComponent,
+    CourseLearningScreenComponent,
+    CommentComponent,
+    SingleCommentComponent,
+    WalletScreenComponent
   ],
   imports: [
     BrowserModule,

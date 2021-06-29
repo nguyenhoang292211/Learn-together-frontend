@@ -1,0 +1,49 @@
+.deposit {
+    margin-top: 80px;
+    margin-bottom: 200px;
+}
+
+.wallet {
+    margin-top: 20px;
+}
+
+.wallet h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+.wallet p {
+    margin-top: 15px;
+}
+
+.btn-deposit {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background-color: #4EBEE1;
+    font-weight: 500;
+    height: 30px;
+    width: 120px;
+    margin-left: 100px;
+}
+
+.deposit-history {
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: #E5E5E5;
+}
+
+.table-history {
+    width: 100%;
+}
+
+.table-history tr td {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
