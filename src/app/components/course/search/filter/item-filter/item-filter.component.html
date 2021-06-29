@@ -1,0 +1,43 @@
+<!-- <div class="container">
+    <div class = "filter-search-component">
+   
+        <div class="selected" (click) = 'showMenu()'>
+            {{filterCategory}}
+          </div>
+          
+        <div class="options-container">
+            <div class="option" *ngFor = "let item of listFilterOfCategory">
+                <input type="radio" class="radio" id="grate-filter" name="category" />
+                <label for="grate-filter">{{item}}</label>
+              </div>
+             
+        </div>
+     
+    
+       
+    </div>
+    
+  
+    
+</div> -->
+
+<div class="single-filter">
+    <a class="filter-name-p" data-bs-toggle="collapse"  [href]=" '#category' +category" role="button" [attr.aria-controls]="'category' +category" aria-expanded="false">
+        <a class="filter-name">
+            <i class="fa fa-caret-down"></i> 
+            <span class = "filter-name-text">{{filterCategory}}</span>
+        </a>
+    </a>
+
+    <div class="collapse" [id]="'category'+ category">
+        <div class="grade-list">
+            <ul>
+                <li *ngFor = "let item of listFilterOfCategory">
+                    <input type="radio" class="radio" id="grate-filter" name="category" />
+                <label for="grate-filter">{{item}}</label>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>

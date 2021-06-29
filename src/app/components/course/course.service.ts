@@ -18,7 +18,9 @@ export class CourseService{
             users: 10,
             isFree: false,
             price:150000,
-            level: levelGrade.grade10
+            level: levelGrade.grade10,
+            totalLecture: 16,
+            description: "Description"
         },
         {
             id: 2,
@@ -28,7 +30,9 @@ export class CourseService{
             users: 30,
             isFree: false,
             price:170000,
-            level: levelGrade.grade10
+            level: levelGrade.grade10,
+            totalLecture: 16,
+            description: "Description"
         },
         {
             id: 3,
@@ -38,7 +42,9 @@ export class CourseService{
             users: 50,
             isFree: false,
             price:200000
-            ,level: levelGrade.grade11
+            ,level: levelGrade.grade11,
+            totalLecture: 16,
+            description: "Description"
         },
         {
             id: 4,
@@ -48,7 +54,9 @@ export class CourseService{
             users: 40,
             isFree: false,
             price:50000,
-            level: levelGrade.grade11
+            level: levelGrade.grade11,
+            totalLecture: 16,
+            description: "Description"
         },
         {
             id: 5,
@@ -58,7 +66,9 @@ export class CourseService{
             users: 100,
             isFree: false,
             price:80000,
-            level: levelGrade.grade12
+            level: levelGrade.grade12,
+            totalLecture: 16,
+            description: "Description"
         },
         {
             id: 6,
@@ -68,7 +78,9 @@ export class CourseService{
             users: 150,
             isFree: false,
             price:100000,
-            level: levelGrade.grade10
+            level: levelGrade.grade10,
+            totalLecture: 16,
+            description: "Description"
         },
         {
             id: 7,
@@ -78,7 +90,9 @@ export class CourseService{
             users: 30,
             isFree: false,
             price:90000,
-            level: levelGrade.grade11
+            level: levelGrade.grade11,
+            totalLecture: 16,
+            description: "Description"
         },
         {
             id: 8,
@@ -88,7 +102,9 @@ export class CourseService{
             users: 30,
             isFree: false,
             price:80000,
-            level: levelGrade.grade12
+            level: levelGrade.grade12,
+            totalLecture: 16,
+            description: "Description"
         },
         {
             id: 9,
@@ -98,7 +114,9 @@ export class CourseService{
             users: 170,
             isFree: false,
             price:80000,
-            level: levelGrade.grade11
+            level: levelGrade.grade11,
+            totalLecture: 16,
+            description: "Description"
         },
         {
             id:10,
@@ -108,7 +126,9 @@ export class CourseService{
             users: 10,
             isFree: false,
             price:130000,
-            level: levelGrade.grade10
+            level: levelGrade.grade10,
+            totalLecture: 16,
+            description: "Description"
         },
         {
             id:11,
@@ -118,7 +138,9 @@ export class CourseService{
             users: 10,
             isFree: false,
             price:130000,
-            level: levelGrade.grade10
+            level: levelGrade.grade10,
+            totalLecture: 16,
+            description: "Description"
         }
     ];
 
