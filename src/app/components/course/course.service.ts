@@ -30,7 +30,7 @@ export class CourseService{
             users: 30,
             isFree: false,
             price:170000,
-            level: levelGrade.grade10,
+            level: levelGrade.grade11,
             totalLecture: 16,
             description: "Description"
         },

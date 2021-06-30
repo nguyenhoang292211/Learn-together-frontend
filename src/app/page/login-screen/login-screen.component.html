@@ -2,8 +2,24 @@
     <div class="sign-in">
         <h3 class="app-title">CÙNG NHAU HỌC TOÁN</h3>
         <div class="btn">
-            <button class="btn-primary btn-signin"><i class="fa fa-globe"></i> Sign in with Google</button>
+            <button (click)="loginWithGoogle()" class="btn-primary btn-signin"><i class="fa fa-globe"></i> Sign in with Google</button>
             <button class="btn-primary btn-signup"><i class="fa fa-globe"></i> Sign up with Google</button>
+        </div>
+        <div *ngIf="isLoggedin === true">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" [value]="socialUser.firstName" id="firstname" readonly>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" [value]="socialUser.lastName" id="lastname" readonly>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" [value]="socialUser.email" id="email" readonly>
+            </div>
+
+            <button type="button" (click)="logOut()" class="btn btn-primary">Log Out</button>
         </div>
 
 
