@@ -1,0 +1,73 @@
+.edit-info{
+    margin-top: 20px;
+}
+.container{
+    display: flex;
+    margin-top: 55px;
+}
+.item-edit{
+    margin-top: 28px;
+}
+.edit-image{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    
+}
+.edit-description{
+    flex-grow: 10;
+}
+.delete{
+    flex-grow: 1;
+}
+.image-course{
+    border-radius: 10px;
+    height:160px;
+    width: 280px;
+}
+.btn-upload{
+    width: 200px;
+    background: rgb(64, 129, 250);;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: large;
+    padding: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    color: white;
+    border: solid 1px #ffff;
+}
+.btn-delete-course{
+    width: 180;
+    background: #E1604E;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: large;
+    padding: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px;
+    border: solid 1px #ffff;
+}
+.btn-delete-course:hover{
+    color: #E1604E;
+    border: solid 1px #E1604E ;
+    background: #ffff;
+}
+.btn-upload:hover{
+    color: rgb(64, 129, 250);
+    border: solid 1px rgb(64, 129, 250) ;
+    background: #ffff;
+}
+input[type='file']{
+    display: none;
+}

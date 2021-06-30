@@ -14,6 +14,15 @@ import { DetailInfoCourseComponent } from './components/course/detail-info-cours
 import { CardImageComponent } from './components/course/detail-info-course/card-image/card-image.component';
 import { SectionCourseComponent } from './components/course/detail-info-course/section-course/section-course.component';
 import { ContentCourseComponent } from './components/course/detail-info-course/content-course/content-course.component';
+import { LecturerHomeScreenComponent } from './page/lecturer/lecturer-home-screen/lecturer-home-screen.component';
+import { LecturerCardCourseComponent } from './components/course/small-course/lecturer-card-course/lecturer-card-course.component';
+import { EditCourseComponent } from './page/lecturer/edit-course/edit-course.component';
+import { CourseInfoComponent } from './components/course/full-course/course-info/course-info.component';
+import { CourseSectionComponent } from './components/course/full-course/course-section/course-section.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { UploadTaskComponent } from './components/course/full-course/course-section/upload-task/upload-task.component';
+import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/course/search/search.component';
 import { ItemSearchComponent } from './components/course/search/item-search/item-search.component';
 import { ListSearchComponent } from './components/course/search/list-search/list-search.component';
@@ -48,6 +57,14 @@ import { AlertComponent } from './components/admin/table-learner-payment/alert/a
     CardImageComponent,
     SectionCourseComponent,
     ContentCourseComponent,
+    LecturerHomeScreenComponent,
+    LecturerCardCourseComponent,
+    EditCourseComponent,
+    CourseInfoComponent,
+    CourseSectionComponent,
+    
+    UploadTaskComponent,
+   
     SearchComponent,
     ItemSearchComponent,
     ListSearchComponent,
@@ -70,7 +87,9 @@ import { AlertComponent } from './components/admin/table-learner-payment/alert/a
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule, 
+    NgbModule, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

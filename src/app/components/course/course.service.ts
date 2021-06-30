@@ -162,4 +162,7 @@ export class CourseService{
         const course = this.courses.find(cour => cour.id==id)!;
         return of(course);
     }
+    getCourses(){
+        return this.courses;
+    }
 }

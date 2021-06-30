@@ -1,0 +1,18 @@
+<div class="edit-screen container">
+  <app-course-info></app-course-info>
+
+  <app-course-section
+    *ngFor="let section of sections"
+    [section]="section"
+  ></app-course-section>
+  <ul>
+    <button class="btn-create-new">Create new Section</button>
+  </ul>
+  <br>
+  <div class="div-save">
+  <button class="btn-create-new btn-save">Save Change</button>
+  </div>
+  <br>
+  <br>
+  <br>
+</div>
