@@ -9,4 +9,7 @@ export class Course{
     isFree: boolean=false;
     price: number=0;
     level: levelGrade = levelGrade.grade10;
+    description: string = "Description";
+    totalLecture:number = 0;
+    
 }

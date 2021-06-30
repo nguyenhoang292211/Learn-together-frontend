@@ -1,0 +1,28 @@
+.search-main{
+    display: block;
+  
+}
+
+.list-search-main{
+   
+    margin-top: 100px;
+}
+
+.nav-search-blank{
+    background-color: white;
+    height: 100px;
+    width: 100%;
+    display: block;
+    position: fixed;
+    z-index: 10;
+    
+}
+
+.list-filter-main{
+    margin-top: 100px;
+}
+
+.search-screen{
+    display: block;
+    height: 350vh; 
+}
