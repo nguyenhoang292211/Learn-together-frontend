@@ -8,8 +8,13 @@ import { OptionAdmin } from 'src/app/models/optionAdmin';
 })
 export class AdminComponent implements OnInit {
 
-  options = OptionAdmin;
+  
+  chooseLearnerManagerment: number = OptionAdmin.LearnerManagerment;
+  chooseLecturerManagerment: number = OptionAdmin.LecturerManagerment;
+  chooseLearnerPayment: number = OptionAdmin.LearnerPayment;
+  chooseAdminWallet: number = OptionAdmin.AdminWallet;
   choose: number = 0;
+  
   constructor() { }
 
   ngOnInit(): void {

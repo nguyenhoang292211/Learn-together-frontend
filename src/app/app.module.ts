@@ -31,6 +31,8 @@ import { TableLearnerPaymentComponent } from './components/admin/table-learner-p
 import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
 import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
 import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
+import { FormSendCoinsComponent } from './components/admin/form-send-coins/form-send-coins.component';
+import { AlertComponent } from './components/admin/table-learner-payment/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins
     TableLearnerPaymentComponent,
     TableAdminWalletComponent,
     AdminWalletScreenComponent,
-    AdminWalletCoinsComponent
+    AdminWalletCoinsComponent,
+    FormSendCoinsComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

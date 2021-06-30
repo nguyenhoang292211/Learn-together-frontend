@@ -35,8 +35,8 @@
                         <td>61</td>
                         <td>61</td>
                         <td>
-                            <button class = "btn  btn-primary"> APPROVE</button>
-                            <button class = "btn  btn-danger"> DENY</button>
+                            <a type="button" class = "btn  btn-primary"  (click) = "isChooseChange()"> APPROVE</a>
+                            <a type="button" class = "btn  btn-danger"> DENY</a>
                         </td>
                        
                     </tr>
@@ -63,6 +63,10 @@
                    
                 </tbody>
             </table>
+
+             <app-alert [message] = "APPROVE" [actionToAlert] = "APPROVE" *ngIf = "show()" (close) = "onHandleError()">
+
+             </app-alert>
             <div class="row" *ngIf = "isPaging()">
                 <div class="col-sm-12 col-md-5">
                     <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to 10 of
@@ -96,3 +100,4 @@
         </div>
     </div>
 </div>
+

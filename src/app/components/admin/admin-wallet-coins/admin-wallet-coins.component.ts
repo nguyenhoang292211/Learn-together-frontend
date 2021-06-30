@@ -7,12 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminWalletCoinsComponent implements OnInit {
 
+  isShowTheSentCoins = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  chooseShowFormSentCoins(){
+    this.isShowTheSentCoins = true;
+  }
+
   showFormSentCoins(){
-    return false;
+    if(this.isShowTheSentCoins)
+      this.isShowTheSentCoins = false;
+    else
+      return this.isShowTheSentCoins;
+    return !this.isShowTheSentCoins;
   }
 }
