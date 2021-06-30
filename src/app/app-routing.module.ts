@@ -36,6 +36,7 @@ const routes: Routes = [
   },
   { path: 'lecturer', component: LecturerHomeScreenComponent },
   { path: 'edit', component: EditCourseComponent },
+  
 ];
 
 @NgModule({
