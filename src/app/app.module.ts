@@ -40,6 +40,7 @@ import { TableLearnerPaymentComponent } from './components/admin/table-learner-p
 import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
 import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
 import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
+import { SocialLoginModule } from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins
     AppRoutingModule,
     CommonModule, 
     NgbModule, 
-    FormsModule
+    FormsModule,
+    SocialLoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
