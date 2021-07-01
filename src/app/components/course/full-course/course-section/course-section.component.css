@@ -113,24 +113,4 @@
     background-color: #5cb3fd;
   }
   
-  input[type='file']{
-    display: none;
-}
-.btn-upload{
-    width: 200px;
-    background: rgb(64, 129, 250);;
-    border-radius: 10px;
-    margin-left: 5px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: large;
-    padding: 4px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    outline: none;
-    border: none;
-    color: white;
-}
-.url-video{
-    margin-left: 20px;
-}
+ 

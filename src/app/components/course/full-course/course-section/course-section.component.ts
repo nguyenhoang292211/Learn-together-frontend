@@ -2,7 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Upload } from 'src/app/models/file-upload';
+import { ModifyType } from 'src/app/models/ModifyType';
 import { Section } from 'src/app/models/section.model';
+import { VideoType } from 'src/app/models/VideoType.model';
+import { FullCourseService } from '../full-course.service';
 import { UploadService } from '../upload.service';
 @Component({
   selector: 'app-course-section',
@@ -11,19 +14,53 @@ import { UploadService } from '../upload.service';
 })
 export class CourseSectionComponent implements OnInit {
   @Input() section: Section = new Section('Thanh', []);
+  sectionId="hhddd"
   urlVideo = '../';
   files?: File;
   closeResult: string = '';
   fileToUpLoad: File = new File([], 'hinh-a');
-  constructor(private modalService: NgbModal) {}
-  ngOnInit(): void {}
-
-  onEditLession() {}
-
-  openXl(content: any) {
-    this.modalService.open(content, { centered: true });
+  constructor(private modalService: NgbModal,
+              private fullCourseService: FullCourseService) {}
+  ngOnInit(): void {
   }
 
+  onEditLession(id:string) {
+    this.fullCourseService.setSelection(id, VideoType.lession, ModifyType.edit);
+    this.fullCourseService.onEditContent();
+  }
+  onEditSection(){
+    this.fullCourseService.setSelection(this.sectionId, VideoType.section, ModifyType.edit);
+    this.fullCourseService.onEditContent();
+  }
+  onDeleteLession(id:string){
+    this.fullCourseService
+    .setSelection(id, VideoType.lession, ModifyType.delete);
+    this.fullCourseService.onDeleteContent();
+  }
+  onDeleteSection(){
+    this.fullCourseService.setSelection(this.sectionId, VideoType.lession, ModifyType.delete);
+    this.fullCourseService.onDeleteContent();
+  }
+  onCreateLession(){
+    //handle something
+    this.fullCourseService.setSelection("", VideoType.lession, ModifyType.new);
+    this.fullCourseService.onEditContent();
+  }
+  onUpSection(){
+    
+  }
+  onDownSection(){
+    
+  }
+  onUpLession(id:string){
+    
+  }
+  onDownLession(id:string){
+      
+  }
+  onDeleteCourse(){
+    
+  }
   handleFileInput(event: Event) {
     const element = event.currentTarget as HTMLInputElement;
     let fileList: FileList | null = element.files;
@@ -40,4 +77,5 @@ export class CourseSectionComponent implements OnInit {
       reader.readAsDataURL(this.fileToUpLoad);
     }
   }
+  
 }
