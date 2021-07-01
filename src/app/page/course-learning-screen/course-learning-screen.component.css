@@ -3,11 +3,10 @@
 }
 
 .video-area {
-    height: 500px;
+    height: 420px;
     width: 100%;
     margin: 10px;
     border-radius: 10px;
-    background-color: gray;
 }
 
 .comment-area {

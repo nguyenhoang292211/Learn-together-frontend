@@ -1,29 +1,43 @@
 <div class=" row deposit">
-    <div class="col-md-2"></div>
-    <div class="col-md-7 wallet">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 wallet">
         <h4>My coins: 10
-            <span><button class="btn-primary btn-deposit">Deposit more</button></span>
+            <span><button (click)="isHiden = !isHiden" class="btn-primary btn-deposit">Deposit coins</button></span>
         </h4>
+        <div class="transfer-information" [hidden]="isHiden">
+            <app-transfer-information></app-transfer-information>
+        </div>
+
         <p>Deposit history</p>
         <div class="deposit-history">
             <table class="table-light table-history">
+                <thead>
+                    <tr>
+                        <th>Date time</th>
+                        <th>Amount</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
-                        <td>6/25/2021 10:24 PM</td>
-                        <td>Depositing 10 coins</td>
+                        <td>
+                            6/25/2021 10:24 PM <br> Status: <span>Pending</span>
+                        </td>
+                        <td>100,000 VND</td>
+                        <td><button class="btn-view">View</button></td>
                     </tr>
                     <tr>
-                        <td>6/25/2021 10:24 PM</td>
-                        <td>Depositing 10 coins</td>
+                        <td>
+                            6/25/2021 10:24 PM <br> Status: <span>Confirmed at 6/30/2021 3:55:00 PM</span>
+                        </td>
+                        <td>100,000 VND</td>
+                        <td><button class="btn-vie w">View</button></td>
                     </tr>
-                    <tr>
-                        <td>6/25/2021 10:24 PM</td>
-                        <td>Depositing 10 coins</td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
 
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-1"></div>
 </div>

@@ -40,11 +40,13 @@ import { WalletComponent } from './components/admin/wallet/wallet.component';
 import { TableWalletAdminComponent } from './components/admin/wallet/table-wallet-admin/table-wallet-admin.component';
 import { BalanceWalletAdminComponent } from './components/admin/wallet/balance-wallet-admin/balance-wallet-admin.component';
 import { AlertViewImageComponent } from './components/admin/wallet/alert-view-image/alert-view-image.component';
-import { SocialLoginModule } from 'angularx-social-login';
 import { LearnerWalletComponent } from './components/learner-wallet/learner-wallet.component';
 import { TableWalletLearnerComponent } from './components/learner-wallet/table-wallet-learner/table-wallet-learner.component';
 import { LearnerPaymentManagermentComponent } from './components/admin/learner-payment-managerment/learner-payment-managerment.component';
 import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
+import { TransferInformationComponent } from './page/wallet-screen/transfer-information/transfer-information.component';
+
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 
 
 @NgModule({
@@ -88,7 +90,8 @@ import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.com
     LearnerWalletComponent,
     TableWalletLearnerComponent,
     LearnerPaymentManagermentComponent,
-    NavbarAdminComponent
+    NavbarAdminComponent,
+    TransferInformationComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +101,22 @@ import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.com
     FormsModule,
     SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              'Google-Client-ID-Goes-Here'
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

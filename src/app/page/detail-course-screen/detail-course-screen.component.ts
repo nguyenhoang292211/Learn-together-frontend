@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CourseService } from 'src/app/components/course/course.service';
 import { Course } from 'src/app/models/course.model';
 
@@ -9,12 +10,18 @@ import { Course } from 'src/app/models/course.model';
 })
 export class DetailCourseScreenComponent implements OnInit {
 
+  
   selectedCourse = new Course;
 
-  constructor(private service: CourseService) { }
+  constructor(
+    private service: CourseService,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
-   this.service.getCourseById(1).subscribe(course =>  this.selectedCourse= course);
+   
+    const id= Number(this.route.snapshot.paramMap.get('id'));
+   this.service.getCourseById(id).subscribe(course =>  this.selectedCourse= course);
   }
 
 }

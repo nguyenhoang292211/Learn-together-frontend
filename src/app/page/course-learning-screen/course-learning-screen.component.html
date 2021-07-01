@@ -1,7 +1,7 @@
 <div class="learning-course row">
     <div class="col-md-8">
         <div class="video-area">
-
+            <iframe style="width: 100%; height: 400px; " [src]="videoURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="comment-area">
             <h4>Comments</h4>
@@ -9,6 +9,6 @@
         </div>
     </div>
     <div class="col-md-4">
-        <app-content-course></app-content-course>
+        <app-content-course [current_course]="current_course"></app-content-course>
     </div>
 </div>

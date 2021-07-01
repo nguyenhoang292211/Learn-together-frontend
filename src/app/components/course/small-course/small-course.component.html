@@ -1,7 +1,10 @@
 <div class="card">
     <img class="img-fluid img-course" src="../../../assets/images/img1.jpg" alt="">
     <div class="info-course">
-        <a href="#" class="course-name">{{course.name}}</a>
+        <div class="name">
+            <a routerLink="/detail/{{course.id}}/{{course.name}}" class="course-name">{{course.name}}</a>
+
+        </div>
         <span class="teacher"> {{course.teacher}} </span>
         <div class="users-count">
             <i class="fa fa-user"></i><span> {{course.users}} </span>
