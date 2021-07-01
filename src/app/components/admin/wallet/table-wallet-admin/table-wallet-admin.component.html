@@ -8,11 +8,11 @@
                         <th>Date Time</th>
                         <th>Amount</th>
                         <th>Image</th>
-                        <th>Actions</th>
+                        <th *ngIf="isAdmin">Actions</th>
 
                     </tr>
                 </thead>
-                <tfoot>
+                <!-- <tfoot>
                     <tr>
                         <th>Date Time</th>
                         <th>Amount</th>
@@ -20,7 +20,7 @@
                         <th>Actions</th>
 
                     </tr>
-                </tfoot>
+                </tfoot> -->
                 <tbody>
                     <tr>
                         <td>
@@ -33,7 +33,7 @@
                             <div class="amount">0000</div>
                         </td>
                         <td><button class="btn-admin " (click)="showImg()"> View </button></td>
-                        <td>
+                        <td *ngIf="isAdmin">
                             <a type="button" class="btn-admin "> Confirm</a>
                             <a type="button" class="btn-admin  btn-deny"> Deny</a>
                         </td>

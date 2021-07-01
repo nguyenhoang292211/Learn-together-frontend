@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
 .deposit {
     margin-top: 80px;
-    margin-bottom: 200px;
+    margin-bottom: 10px;
 }
 
 .wallet {
@@ -11,8 +11,9 @@
 
 .wallet h4 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 1px;
 }
 
 .wallet p {
@@ -34,7 +35,7 @@
     font-weight: 500;
     height: 30px;
     width: 120px;
-    margin-left: 200px;
+    margin-left: 150px;
 }
 
 .deposit-history {
