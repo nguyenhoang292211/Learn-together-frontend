@@ -2,7 +2,7 @@
     <img class="img-fluid img-course" src="../../../assets/images/img1.jpg" alt="">
     <div class="info-course">
         <div class="name">
-            <a routerLink="/detail/{{course.id}}/{{course.name}}" class="course-name">{{course.name}}</a>
+            <a routerLink="/detail/{{course.id}}/{{course.name}}" class="course-name">{{course.name | shorten}}</a>
 
         </div>
         <span class="teacher"> {{course.teacher}} </span>

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CourseService } from 'src/app/components/course/course.service';
+import { CourseService } from 'src/app/service/course.service';
 import { Course } from 'src/app/models/course.model';
 
 @Component({

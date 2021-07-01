@@ -5,18 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GradeCourseComponent } from './components/course/grade-course/grade-course.component';
 import { SmallCourseComponent } from './components/course/small-course/small-course.component';
-import { HomeScreenComponent } from './page/home-screen/home-screen.component';
+import { HomeScreenComponent } from './screen/home-screen/home-screen.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoginScreenComponent } from './page/login-screen/login-screen.component';
-import { DetailCourseScreenComponent } from './page/detail-course-screen/detail-course-screen.component';
+import { LoginScreenComponent } from './screen/login-screen/login-screen.component';
+import { DetailCourseScreenComponent } from './screen/detail-course-screen/detail-course-screen.component';
 import { DetailInfoCourseComponent } from './components/course/detail-info-course/detail-info-course.component';
 import { CardImageComponent } from './components/course/detail-info-course/card-image/card-image.component';
 import { SectionCourseComponent } from './components/course/detail-info-course/section-course/section-course.component';
 import { ContentCourseComponent } from './components/course/detail-info-course/content-course/content-course.component';
-import { LecturerHomeScreenComponent } from './page/lecturer/lecturer-home-screen/lecturer-home-screen.component';
+import { LecturerHomeScreenComponent } from './screen/lecturer/lecturer-home-screen/lecturer-home-screen.component';
 import { LecturerCardCourseComponent } from './components/course/small-course/lecturer-card-course/lecturer-card-course.component';
-import { EditCourseComponent } from './page/lecturer/edit-course/edit-course.component';
+import { EditCourseComponent } from './screen/lecturer/edit-course/edit-course.component';
 import { CourseInfoComponent } from './components/course/full-course/course-info/course-info.component';
 import { CourseSectionComponent } from './components/course/full-course/course-section/course-section.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -30,10 +30,10 @@ import { FilterComponent } from './components/course/search/filter/filter.compon
 import { ItemFilterComponent } from './components/course/search/filter/item-filter/item-filter.component';
 import { AdminComponent } from './components/admin/admin.component';
 
-import { CourseLearningScreenComponent } from './page/course-learning-screen/course-learning-screen.component';
+import { CourseLearningScreenComponent } from './screen/course-learning-screen/course-learning-screen.component';
 import { CommentComponent } from './components/comment/comment/comment.component';
 import { SingleCommentComponent } from './components/comment/single-comment/single-comment.component';
-import { WalletScreenComponent } from './page/wallet-screen/wallet-screen.component';
+import { WalletScreenComponent } from './screen/wallet-screen/wallet-screen.component';
 import { TableLearnerPaymentComponent } from './components/admin/table-learner-payment/table-learner-payment.component';
 import { AlertComponent } from './components/admin/table-learner-payment/alert/alert.component';
 import { WalletComponent } from './components/admin/wallet/wallet.component';
@@ -44,9 +44,10 @@ import { LearnerWalletComponent } from './components/learner-wallet/learner-wall
 import { TableWalletLearnerComponent } from './components/learner-wallet/table-wallet-learner/table-wallet-learner.component';
 import { LearnerPaymentManagermentComponent } from './components/admin/learner-payment-managerment/learner-payment-managerment.component';
 import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
-import { TransferInformationComponent } from './page/wallet-screen/transfer-information/transfer-information.component';
+import { TransferInformationComponent } from './screen/wallet-screen/transfer-information/transfer-information.component';
 
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
+import { ShortenPipe } from './components/course/small-course/shorten.pipe';
 
 
 @NgModule({
@@ -91,7 +92,10 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 
     TableWalletLearnerComponent,
     LearnerPaymentManagermentComponent,
     NavbarAdminComponent,
-    TransferInformationComponent
+    TransferInformationComponent,
+   
+    TransferInformationComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,
@@ -110,7 +114,7 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              'Google-Client-ID-Goes-Here'
+              '395648515110-735vd1plqjqb5bp9ihrpdq78d9ro9it7.apps.googleusercontent.com'
             )
           }
         ]
