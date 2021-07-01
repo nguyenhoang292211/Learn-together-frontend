@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { learner } from 'src/app/models/learner.model';
+import { User } from 'src/app/models/user.model';
 @Component({
   selector: 'app-table-learner-payment',
   templateUrl: './table-learner-payment.component.html',
@@ -7,7 +7,7 @@ import { learner } from 'src/app/models/learner.model';
 })
 export class TableLearnerPaymentComponent implements OnInit {
 
-  listLearner: learner[] = [];
+  listLearner: User[] = [];
  @ViewChild('content') content:any;
  APPROVE: string = "error";
  isChange = false;

@@ -3,7 +3,7 @@
     <p class="price"> {{handlePriceFormat(course.price)}} </p>
     <div *ngIf=" isBought() ; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
-        <button (click)="goToCourse(course.id, course.name)" class="btn-go-course ">Go to course</button>
+        <button (click)="goToCourse(course.id, course.title)" class="btn-go-course ">Go to course</button>
     </ng-template>
     <ng-template #elseBlock>
         <button (click)="goToWallet()" class="btn-go-course "> <i class="bi bi-cart "></i> Buy now</button>

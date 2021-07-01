@@ -1,15 +1,15 @@
-import {levelGrade} from './levelGrade'
+import { COURSE_TYPE } from './course-type';
+import { GRADES } from './grades';
 export class Course{
 
-    id:number =0;
-    name:string="";
-    teacher:string ="";
-    views:number=0;
-    users: number=0;
-    isFree: boolean=false;
-    price: number=0;
-    level: levelGrade = levelGrade.grade10;
-    description: string = "Description";
-    totalLecture:number = 0;
-    
+    id:string ="";
+    title:string="";
+    description:string ="";
+    price: number = 0;
+    type: COURSE_TYPE = COURSE_TYPE.THEORY;
+    grade: GRADES = GRADES.GRADE10;
+    thumbnailUrl: string = "url";
+    createdAt: string = "";
+    updatedAt: string = "";
+    isHidden: boolean = false;
 }

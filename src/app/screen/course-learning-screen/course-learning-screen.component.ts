@@ -27,7 +27,7 @@ export class CourseLearningScreenComponent implements OnInit {
   ngOnInit(): void {
     const id= Number(this.route.snapshot.paramMap.get('id'));
     this.videoURL= this._sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/zcAalMeaKso");
-    this.courseService.getCourseById(id).subscribe(course => this.current_course= course);
+    // this.courseService.getCourseById(id).subscribe(course => this.current_course= course);
 
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
-import { levelGrade } from 'src/app/models/levelGrade';
+import { GRADES } from 'src/app/models/grades';
 
 @Component({
   selector: 'app-item-filter',
@@ -11,8 +11,8 @@ export class ItemFilterComponent implements OnInit {
 
   @Input() category :number=0; //enum category
   @Input() filterCategory: string = "Test"; // name category
-  listFilterOfCategory = [levelGrade[levelGrade.grade10], levelGrade[levelGrade.grade11], levelGrade[levelGrade.grade12],
-  levelGrade[levelGrade.hotestgrade]];
+  listFilterOfCategory = [GRADES[GRADES.GRADE10], GRADES[GRADES.GRADE11], GRADES[GRADES.GRADE12],
+  GRADES[GRADES.hotestgrade]];
  
   constructor() { 
    
