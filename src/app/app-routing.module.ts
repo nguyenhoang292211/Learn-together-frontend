@@ -8,6 +8,8 @@ import { CourseLearningScreenComponent } from './page/course-learning-screen/cou
 import { DetailCourseScreenComponent } from './page/detail-course-screen/detail-course-screen.component';
 
 import { WalletScreenComponent } from './page/wallet-screen/wallet-screen.component';
+import { LearnerPaymentManagermentComponent } from './components/admin/learner-payment-managerment/learner-payment-managerment.component';
+import { WalletComponent } from './components/admin/wallet/wallet.component';
 
 
 const routes: Routes = [
@@ -36,6 +38,9 @@ const routes: Routes = [
   },
   { path: 'lecturer', component: LecturerHomeScreenComponent },
   { path: 'edit', component: EditCourseComponent },
+  {path: 'admin/managerment/payment', component: LearnerPaymentManagermentComponent},
+  {path: 'admin/managerment/wallet', component: WalletComponent}
+  
   
 ];
 

@@ -24,9 +24,7 @@
         </div>
     </div>
     <div class="table-detail">
-        <app-table-learner *ngIf = "isUseOptionAdmin(chooseLearnerManagerment)"></app-table-learner>
-        <app-table-lecturer *ngIf = "isUseOptionAdmin(chooseLecturerManagerment)"></app-table-lecturer>
-        <app-table-learner-payment *ngIf = "isUseOptionAdmin(chooseLearnerPayment)"></app-table-learner-payment>
+        <app-learner-payment-managerment *ngIf = "isUseOptionAdmin(chooseLearnerPayment)"></app-learner-payment-managerment>
         <app-wallet *ngIf = "isUseOptionAdmin(chooseAdminWallet)"></app-wallet>
     </div>
     
