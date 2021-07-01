@@ -39,7 +39,7 @@ export class CardImageComponent implements OnInit {
     return price_format;
   }
 
-  goToCourse(id: number, name:string){
+  goToCourse(id: string, name:string){
     this.router.navigate(['/learning',id, name]);
   }
 

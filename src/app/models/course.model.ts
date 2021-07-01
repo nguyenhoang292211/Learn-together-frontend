@@ -10,6 +10,6 @@ export class Course{
     grade: GRADES = GRADES.GRADE10;
     thumbnailUrl: string = "url";
     createdAt: string = "";
-    updateAt: string = "";
-    idHidden: boolean = false;
+    updatedAt: string = "";
+    isHidden: boolean = false;
 }

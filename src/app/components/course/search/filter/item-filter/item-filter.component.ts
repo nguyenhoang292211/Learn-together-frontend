@@ -11,8 +11,8 @@ export class ItemFilterComponent implements OnInit {
 
   @Input() category :number=0; //enum category
   @Input() filterCategory: string = "Test"; // name category
-  listFilterOfCategory = [GRADES[GRADES.GRADE10], GRADES[GRADES.GRADE11], levelGrade[levelGrade.grade12],
-  levelGrade[levelGrade.hotestgrade]];
+  listFilterOfCategory = [GRADES[GRADES.GRADE10], GRADES[GRADES.GRADE11], GRADES[GRADES.GRADE12],
+  GRADES[GRADES.hotestgrade]];
  
   constructor() { 
    
