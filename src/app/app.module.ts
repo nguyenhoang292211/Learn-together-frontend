@@ -47,6 +47,8 @@ import { TableWalletAdminComponent } from './components/admin/wallet/table-walle
 import { BalanceWalletAdminComponent } from './components/admin/wallet/balance-wallet-admin/balance-wallet-admin.component';
 import { AlertViewImageComponent } from './components/admin/wallet/alert-view-image/alert-view-image.component';
 import { SocialLoginModule } from 'angularx-social-login';
+import { LearnerWalletComponent } from './components/learner-wallet/learner-wallet.component';
+import { TableWalletLearnerComponent } from './components/learner-wallet/table-wallet-learner/table-wallet-learner.component';
 
 
 @NgModule({
@@ -92,7 +94,9 @@ import { SocialLoginModule } from 'angularx-social-login';
     WalletComponent,
     TableWalletAdminComponent,
     BalanceWalletAdminComponent,
-    AlertViewImageComponent
+    AlertViewImageComponent,
+    LearnerWalletComponent,
+    TableWalletLearnerComponent
   ],
   imports: [
     BrowserModule,
