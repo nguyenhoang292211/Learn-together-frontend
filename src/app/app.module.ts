@@ -46,6 +46,8 @@ import { WalletComponent } from './components/admin/wallet/wallet.component';
 import { TableWalletAdminComponent } from './components/admin/wallet/table-wallet-admin/table-wallet-admin.component';
 import { BalanceWalletAdminComponent } from './components/admin/wallet/balance-wallet-admin/balance-wallet-admin.component';
 import { AlertViewImageComponent } from './components/admin/wallet/alert-view-image/alert-view-image.component';
+import { SocialLoginModule } from 'angularx-social-login';
+
 
 @NgModule({
   declarations: [
@@ -97,7 +99,8 @@ import { AlertViewImageComponent } from './components/admin/wallet/alert-view-im
     AppRoutingModule,
     CommonModule, 
     NgbModule, 
-    FormsModule
+    FormsModule,
+    SocialLoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
