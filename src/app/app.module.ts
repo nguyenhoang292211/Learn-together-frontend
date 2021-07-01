@@ -42,6 +42,10 @@ import { AdminWalletScreenComponent } from './components/admin/admin-wallet-scre
 import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
 import { FormSendCoinsComponent } from './components/admin/form-send-coins/form-send-coins.component';
 import { AlertComponent } from './components/admin/table-learner-payment/alert/alert.component';
+import { WalletComponent } from './components/admin/wallet/wallet.component';
+import { TableWalletAdminComponent } from './components/admin/wallet/table-wallet-admin/table-wallet-admin.component';
+import { BalanceWalletAdminComponent } from './components/admin/wallet/balance-wallet-admin/balance-wallet-admin.component';
+import { AlertViewImageComponent } from './components/admin/wallet/alert-view-image/alert-view-image.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +86,11 @@ import { AlertComponent } from './components/admin/table-learner-payment/alert/a
     AdminWalletScreenComponent,
     AdminWalletCoinsComponent,
     FormSendCoinsComponent,
-    AlertComponent
+    AlertComponent,
+    WalletComponent,
+    TableWalletAdminComponent,
+    BalanceWalletAdminComponent,
+    AlertViewImageComponent
   ],
   imports: [
     BrowserModule,
