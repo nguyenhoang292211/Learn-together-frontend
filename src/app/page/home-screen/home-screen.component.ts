@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { levelGrade } from 'src/app/models/levelGrade';
+import { GRADES } from 'src/app/models/grades';
 
 @Component({
   selector: 'app-home-screen',
@@ -8,9 +8,9 @@ import { levelGrade } from 'src/app/models/levelGrade';
 })
 export class HomeScreenComponent implements OnInit {
 
-  grade10:levelGrade =levelGrade.grade10;
-  grade11:levelGrade= levelGrade.grade11;
-  grade12:levelGrade= levelGrade.grade12;
+  grade10:GRADES =GRADES.GRADE10;
+  grade11:GRADES= GRADES.GRADE11;
+  grade12:GRADES= GRADES.GRADE12;
   constructor() { }
 
   ngOnInit(): void {

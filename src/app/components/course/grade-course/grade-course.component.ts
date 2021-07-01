@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Course } from 'src/app/models/course.model';
-import { levelGrade } from 'src/app/models/levelGrade';
+import { GRADES } from 'src/app/models/grades';
 import { CourseService } from 'src/app/components/course/course.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { CourseService } from 'src/app/components/course/course.service';
 })
 export class GradeCourseComponent implements OnInit {
 
-  @Input() grade:levelGrade=levelGrade.grade10;
+  @Input() grade:GRADES=GRADES.GRADE10;
   smallCourses:Course[]=[];
   constructor(private CourseService:CourseService) { }
 
@@ -19,7 +19,7 @@ export class GradeCourseComponent implements OnInit {
   }
 
   getLevelGradeName():any{
-    return levelGrade[this.grade];
+    return GRADES[this.grade];
   }
 
 

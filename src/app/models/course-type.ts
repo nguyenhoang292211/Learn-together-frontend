@@ -1,0 +1,4 @@
+export enum COURSE_TYPE {
+    THEORY,
+    EXAMINATION_SOLVING
+  }
