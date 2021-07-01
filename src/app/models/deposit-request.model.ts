@@ -1,4 +1,4 @@
-import { STATUSES } from "./STATUSES";
+import { STATUSES } from "./statuses";
 
 export class DepositRequest{
     learnerId: string = "";
