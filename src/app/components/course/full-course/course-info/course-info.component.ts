@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import { ViewChild } from '@angular/core';
+import { Form, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-course-info',
   templateUrl: './course-info.component.html',
@@ -12,6 +13,7 @@ export class CourseInfoComponent implements OnInit {
     price:'030000',
     url:'../../../assets/images/img1.jpg'
   }
+  @ViewChild('infoCourse', { read: NgForm }) infoCourse!: any;
   fileToUpLoad:File  =new File([],"hinh-a"); 
   constructor() { }
 
@@ -30,10 +32,11 @@ export class CourseInfoComponent implements OnInit {
     reader.onload= (event:any)=>{
       this.lessionInfo.url= event.target.result;
     }
-
     reader.readAsDataURL(this.fileToUpLoad)
     }
-    
-
   }
+  btnDelete(){
+    console.log(this.infoCourse.value);
+  }
+  
 }

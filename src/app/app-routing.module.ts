@@ -13,9 +13,11 @@ import { LoginScreenComponent } from './screen/login-screen/login-screen.compone
 import { WalletScreenComponent } from './screen/wallet-screen/wallet-screen.component';
 
 
+
 const routes: Routes = [
-  
- 
+
+  {path:'admin/login', component:LoginScreenComponent},
+  {path:'admin/home', component:LecturerHomeScreenComponent},
   {
     path: 'detail-course',
     component: DetailCourseScreenComponent,
@@ -48,9 +50,7 @@ const routes: Routes = [
   { 
     path: 'lecturer', component: LecturerHomeScreenComponent 
   },
-  { 
-    path: 'edit', component: EditCourseComponent 
-},
+
 {
     path:'wallet', component:WalletScreenComponent
   },
@@ -59,8 +59,10 @@ const routes: Routes = [
   },
   {
     path:'login', component: LoginScreenComponent
-  }
+  },
 
+  { path: 'lecturer', component: LecturerHomeScreenComponent },
+  { path: 'admin/edit', component: EditCourseComponent },
 ];
 
 @NgModule({
