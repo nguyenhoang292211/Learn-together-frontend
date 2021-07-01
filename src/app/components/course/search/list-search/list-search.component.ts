@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/models/course.model';
-import { CourseService } from '../../course.service';
+import { CourseService } from '../../../../service/course.service';
 
 @Component({
   selector: 'app-list-search',

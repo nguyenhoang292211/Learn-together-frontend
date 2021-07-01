@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WalletScreenComponent implements OnInit {
 
+  isHiden: boolean= true;
   constructor() { }
 
   ngOnInit(): void {

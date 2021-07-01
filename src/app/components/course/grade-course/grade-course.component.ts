@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Course } from 'src/app/models/course.model';
 import { GRADES } from 'src/app/models/grades';
-import { CourseService } from 'src/app/components/course/course.service';
+import { CourseService } from 'src/app/service/course.service';
 
 @Component({
   selector: 'app-grade-course',

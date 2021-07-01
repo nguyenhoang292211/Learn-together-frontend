@@ -8,7 +8,7 @@ import { Course } from 'src/app/models/course.model';
 })
 export class ContentCourseComponent implements OnInit {
 
-  @Input() course = new Course();
+  @Input() current_course = new Course();
 
   //Example
   listSection: number[] =[];
