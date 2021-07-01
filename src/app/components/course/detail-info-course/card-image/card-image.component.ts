@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Course } from 'src/app/models/course.model';
 
 @Component({
@@ -10,7 +11,7 @@ export class CardImageComponent implements OnInit {
 
   @Input() course = new Course();
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -18,7 +19,7 @@ export class CardImageComponent implements OnInit {
 
   //Checkout this course is bought by user if user logined
   isBought():boolean{
-    return false;
+    return true;
   }
 
   handlePriceFormat(price:number):any{
@@ -36,6 +37,14 @@ export class CardImageComponent implements OnInit {
     price_format=price.toString()+ price_format+"đ";
 
     return price_format;
+  }
+
+  goToCourse(id: number, name:string){
+    this.router.navigate(['/learning',id, name]);
+  }
+
+  goToWallet(){
+    this.router.navigate(['/wallet'])
   }
 
 }

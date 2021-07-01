@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
 .deposit {
     margin-top: 80px;
     margin-bottom: 200px;
@@ -10,10 +12,14 @@
 .wallet h4 {
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
+    font-size: 25px;
 }
 
 .wallet p {
     margin-top: 15px;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
 }
 
 .btn-deposit {
@@ -28,13 +34,14 @@
     font-weight: 500;
     height: 30px;
     width: 120px;
-    margin-left: 100px;
+    margin-left: 200px;
 }
 
 .deposit-history {
     padding: 15px;
     border-radius: 10px;
-    width: 100%;
+    margin-left: 40px;
+    width: auto;
     background-color: #E5E5E5;
 }
 

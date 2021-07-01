@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
-import { Course } from "../../models/course.model";
-import { levelGrade } from "../../models/levelGrade";
+import { Course } from "../models/course.model";
+import { levelGrade } from "../models/levelGrade";
 
 
 @Injectable({
@@ -24,13 +24,13 @@ export class CourseService{
         },
         {
             id: 2,
-            name: "Tìm diện tích khối trụ",
+            name: "Tìm diện tích khối trụ bằng phương pháp căn bản như trên",
             teacher:"Lê Văn Tâm",
             views:150,
             users: 30,
             isFree: false,
             price:170000,
-            level: levelGrade.grade10,
+            level: levelGrade.grade11,
             totalLecture: 16,
             description: "Description"
         },
