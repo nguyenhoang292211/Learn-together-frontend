@@ -1,3 +1,7 @@
 .table-detail{
     margin-top: 50px;
 }
+
+.modal{
+    z-index: 10000 !important;
+}

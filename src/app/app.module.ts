@@ -40,7 +40,16 @@ import { TableLearnerPaymentComponent } from './components/admin/table-learner-p
 import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
 import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
 import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
+import { FormSendCoinsComponent } from './components/admin/form-send-coins/form-send-coins.component';
+import { AlertComponent } from './components/admin/table-learner-payment/alert/alert.component';
+import { WalletComponent } from './components/admin/wallet/wallet.component';
+import { TableWalletAdminComponent } from './components/admin/wallet/table-wallet-admin/table-wallet-admin.component';
+import { BalanceWalletAdminComponent } from './components/admin/wallet/balance-wallet-admin/balance-wallet-admin.component';
+import { AlertViewImageComponent } from './components/admin/wallet/alert-view-image/alert-view-image.component';
 import { SocialLoginModule } from 'angularx-social-login';
+import { LearnerWalletComponent } from './components/learner-wallet/learner-wallet.component';
+import { TableWalletLearnerComponent } from './components/learner-wallet/table-wallet-learner/table-wallet-learner.component';
+
 
 @NgModule({
   declarations: [
@@ -79,7 +88,15 @@ import { SocialLoginModule } from 'angularx-social-login';
     TableLearnerPaymentComponent,
     TableAdminWalletComponent,
     AdminWalletScreenComponent,
-    AdminWalletCoinsComponent
+    AdminWalletCoinsComponent,
+    FormSendCoinsComponent,
+    AlertComponent,
+    WalletComponent,
+    TableWalletAdminComponent,
+    BalanceWalletAdminComponent,
+    AlertViewImageComponent,
+    LearnerWalletComponent,
+    TableWalletLearnerComponent
   ],
   imports: [
     BrowserModule,
