@@ -2,32 +2,30 @@
     <div class="option">
         <div class="row">
             <div class="col-md-3" >
-                <button class = "btn " (click) = "setChooseOption(0)">
+                <button class = "btn " (click) = "setChooseOption(chooseLearnerManagerment)">
                     Learner Managerment
                 </button>
             </div>
             <div class="col-md-3">
-                <button class = "btn " (click) = "setChooseOption(1)">
+                <button class = "btn " (click) = "setChooseOption(chooseLecturerManagerment)">
                     Lecturer Managerment
                 </button>
             </div>
             <div class="col-md-3">
-                <button class = "btn" (click) = "setChooseOption(2)">
+                <button class = "btn" (click) = "setChooseOption(chooseLearnerPayment)">
                     Learner Payment
                 </button>
             </div>
             <div class="col-md-3">
-                <button class = "btn" (click) = "setChooseOption(3)">
+                <button class = "btn" (click) = "setChooseOption(chooseAdminWallet)">
                     Admin wallet
                 </button>
             </div>
         </div>
     </div>
     <div class="table-detail">
-        <app-table-learner *ngIf = "isUseOptionAdmin(0)"></app-table-learner>
-        <app-table-lecturer *ngIf = "isUseOptionAdmin(1)"></app-table-lecturer>
-        <app-table-learner-payment *ngIf = "isUseOptionAdmin(2)"></app-table-learner-payment>
-        <app-admin-wallet-screen *ngIf = "isUseOptionAdmin(3)"></app-admin-wallet-screen>
+        <app-learner-payment-managerment *ngIf = "isUseOptionAdmin(chooseLearnerPayment)"></app-learner-payment-managerment>
+        <app-wallet *ngIf = "isUseOptionAdmin(chooseAdminWallet)"></app-wallet>
     </div>
     
 </div>

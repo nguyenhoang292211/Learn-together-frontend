@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { learner } from 'src/app/models/learner.model';
 @Component({
   selector: 'app-table-learner-payment',
@@ -8,7 +8,9 @@ import { learner } from 'src/app/models/learner.model';
 export class TableLearnerPaymentComponent implements OnInit {
 
   listLearner: learner[] = [];
-
+ @ViewChild('content') content:any;
+ APPROVE: string = "error";
+ isChange = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -19,4 +21,27 @@ export class TableLearnerPaymentComponent implements OnInit {
       return true;
     return false;
   }
+
+  public open() {
+    if(0){
+      // Dont open the modal
+ 
+    } else {
+       // Open the modal
+       this.content.open();
+    }
+  }
+
+  isChooseChange(){
+    this.isChange = true;
+  }
+
+  show(){
+    return this.isChange;
+  }
+
+  onHandleError(){
+    this.isChange = false;
+  }
+ 
 }

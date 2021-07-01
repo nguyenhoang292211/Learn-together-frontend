@@ -29,18 +29,23 @@ import { ListSearchComponent } from './components/course/search/list-search/list
 import { FilterComponent } from './components/course/search/filter/filter.component';
 import { ItemFilterComponent } from './components/course/search/filter/item-filter/item-filter.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { TableLearnerComponent } from './components/admin/table-learner/table-learner.component';
 
 import { CourseLearningScreenComponent } from './page/course-learning-screen/course-learning-screen.component';
 import { CommentComponent } from './components/comment/comment/comment.component';
 import { SingleCommentComponent } from './components/comment/single-comment/single-comment.component';
 import { WalletScreenComponent } from './page/wallet-screen/wallet-screen.component';
-import { TableLecturerComponent } from './components/admin/table-lecturer/table-lecturer.component';
 import { TableLearnerPaymentComponent } from './components/admin/table-learner-payment/table-learner-payment.component';
-import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
-import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
-import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
+import { AlertComponent } from './components/admin/table-learner-payment/alert/alert.component';
+import { WalletComponent } from './components/admin/wallet/wallet.component';
+import { TableWalletAdminComponent } from './components/admin/wallet/table-wallet-admin/table-wallet-admin.component';
+import { BalanceWalletAdminComponent } from './components/admin/wallet/balance-wallet-admin/balance-wallet-admin.component';
+import { AlertViewImageComponent } from './components/admin/wallet/alert-view-image/alert-view-image.component';
 import { SocialLoginModule } from 'angularx-social-login';
+import { LearnerWalletComponent } from './components/learner-wallet/learner-wallet.component';
+import { TableWalletLearnerComponent } from './components/learner-wallet/table-wallet-learner/table-wallet-learner.component';
+import { LearnerPaymentManagermentComponent } from './components/admin/learner-payment-managerment/learner-payment-managerment.component';
+import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -70,16 +75,20 @@ import { SocialLoginModule } from 'angularx-social-login';
     FilterComponent,
     ItemFilterComponent,
     AdminComponent,
-    TableLearnerComponent,
     CourseLearningScreenComponent,
     CommentComponent,
     SingleCommentComponent,
     WalletScreenComponent,
-    TableLecturerComponent,
     TableLearnerPaymentComponent,
-    TableAdminWalletComponent,
-    AdminWalletScreenComponent,
-    AdminWalletCoinsComponent
+    AlertComponent,
+    WalletComponent,
+    TableWalletAdminComponent,
+    BalanceWalletAdminComponent,
+    AlertViewImageComponent,
+    LearnerWalletComponent,
+    TableWalletLearnerComponent,
+    LearnerPaymentManagermentComponent,
+    NavbarAdminComponent
   ],
   imports: [
     BrowserModule,

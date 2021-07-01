@@ -1,54 +1,53 @@
 <div class="card shadow mb-4 table-detail">
-
+    <div class = "title-table">Learner payment history</div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Email</th>
-                        <th>Name</th>
-                        <th>Coins</th>
-                        <th>Course purchased</th>
-                        
+                        <th>Date Time</th>
+                        <th>Amount</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Email</th>
-                        <th>Name</th>
-                        <th>Coins</th>
-                        <th>Course purchased</th>
-                        
+                        <th>Date Time</th>
+                        <th>Amount</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+
                     </tr>
                 </tfoot>
                 <tbody>
                     <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                       
+                        <td>
+                            <div><span>6/30/2021 3:54:00 PM</span></div>
+                            <div><span>Status: </span>
+                                <div class=" btn-status">Pending</div>
+                            </div>
+                        </td>
+                        <td> <div class="amount">0000</div></td>
+                        <td><button class="btn-admin "(click) = "showImg()"> View </button></td>
+                        <td>
+                            <a type="button" class="btn-admin "> Confirm</a>
+                            <a type="button" class="btn-admin  btn-deny"> Deny</a>
+                        </td>
+
                     </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                       
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                        
-                    </tr>
-                   
-                   
-                   
+                  
                 </tbody>
             </table>
-            <div class="row" *ngIf = "isPaging()">
+
+            <!-- alert-view -->
+            <app-alert-view-image [message] = "message_view_img" [path_img] = "path_img_view" *ngIf = "isShowImg()" (close) = "onHandleError()">
+
+            </app-alert-view-image>
+            <!-- end-alert-view -->
+
+            <div class="row" *ngIf="isPaging()">
                 <div class="col-sm-12 col-md-5">
                     <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to 10 of
                         57 entries</div>
