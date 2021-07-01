@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LearnerWalletComponent implements OnInit {
 
+  balance_learner:number = 10000;
   constructor() { }
 
   ngOnInit(): void {
