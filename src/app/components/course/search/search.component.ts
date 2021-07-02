@@ -14,8 +14,8 @@ export class SearchComponent implements OnInit {
 
   listCourse: Course[] = [];
   titleSearch: string = "";
-  grade: number = -1;
-  category: number = -1;
+  grade: number =0;
+  category: number = 0;
   isUseFilter: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private courseService: CourseService) {
@@ -32,9 +32,10 @@ export class SearchComponent implements OnInit {
     if(this.titleSearch)
     {
       this.courseService.getListCourseByTitle(this.titleSearch).subscribe(list => this.listCourse = list);
+      this.isUseFilter = false;
     }
-
-    if(this.listCourse.length === 0) this.isUseFilter = true;
+    else
+      if(this.listCourse.length === 0) this.isUseFilter = true;
    
   }
 
@@ -65,10 +66,10 @@ export class SearchComponent implements OnInit {
 
  receiveGrade($event: any){
   this.grade = $event;
-  
 }
 
 receiveCategory($event: any){
+ 
   this.category = $event;
   this.reloadRouter();   //end choose filter for search
   this.getListCourseFilter(); // get list by filter
@@ -76,7 +77,7 @@ receiveCategory($event: any){
 
 getListCourseFilter(){
   if(this.isUseFilter)
-  {
+  { 
     this.getFormFilterRouter();
   this.courseService.getListCourseFilter(this.category, this.grade).subscribe(list => this.listCourse = list);
   }

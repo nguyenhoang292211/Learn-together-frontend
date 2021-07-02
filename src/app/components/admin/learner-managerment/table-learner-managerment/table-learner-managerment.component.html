@@ -23,11 +23,11 @@
                 </tfoot>
                 <tbody>
                    
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
+                    <tr *ngFor = "let user of listUsers">
+                        <td>{{user.fullName}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.balance}}</td>
+                        <td>{{userService.getTotalCourses(user.id)}}</td>
                         
                     </tr>
                    

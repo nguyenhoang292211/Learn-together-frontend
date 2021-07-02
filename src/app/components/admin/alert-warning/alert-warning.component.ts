@@ -7,14 +7,23 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class AlertWarningComponent implements OnInit {
 
+  @Output() isAction = new EventEmitter<boolean>();
   @Input() message: string = "hi";
   @Input() actionToAlert: string = "A";
   @Output() close = new EventEmitter<void>();
+  isChooseAction:boolean = false;
+
+
 
   onClose(){
+    this.isAction.emit(this.isChooseAction);
     this.close.emit();
   }
   
+  chooseAction(){
+    this.isChooseAction = true;
+    this.onClose();
+  }
 
   constructor() { }
 
