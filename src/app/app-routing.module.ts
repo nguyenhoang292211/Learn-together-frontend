@@ -11,6 +11,7 @@ import { LearnerPaymentManagermentComponent } from './components/admin/learner-p
 import { WalletComponent } from './components/admin/wallet/wallet.component';
 import { LoginScreenComponent } from './screen/login-screen/login-screen.component';
 import { WalletScreenComponent } from './screen/wallet-screen/wallet-screen.component';
+import { SearchComponent } from './components/course/search/search.component';
 
 
 const routes: Routes = [
@@ -59,12 +60,15 @@ const routes: Routes = [
   },
   {
     path:'login', component: LoginScreenComponent
+  },
+  {
+    path:'search', component:SearchComponent
   }
-
+  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

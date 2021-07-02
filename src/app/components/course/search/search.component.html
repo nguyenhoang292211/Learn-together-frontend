@@ -4,11 +4,20 @@
 <div class="search-main container">
     <div class="row">
         <div class="col-md-3 list-filter-main" >
-            <app-filter></app-filter>
+            <app-filter (sendGradeChoose) = "receiveGrade($event)" (sendCategoryChoose) = "receiveCategory($event)"></app-filter>
         </div>
-        <div class="col-md-9 list-search-main">
-           <app-list-search></app-list-search>
+        <div class = "col-md-9 ">
+            <div  *ngIf = "isFindList()" class="list-search-main">
+                <app-list-search [listCourseResult] = "listCourse"></app-list-search>
+             </div>
+     
+             <div  *ngIf = "!isFindList()">
+                 <div class="not-find">
+                     <div class = "message">Not find course !</div>
+                 </div>
+             </div>
         </div>
+       
     </div>
 </div>
 </div>

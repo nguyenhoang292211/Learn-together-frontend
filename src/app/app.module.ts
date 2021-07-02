@@ -48,6 +48,7 @@ import { TransferInformationComponent } from './screen/wallet-screen/transfer-in
 
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { ShortenPipe } from './components/course/small-course/shorten.pipe';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -104,6 +105,7 @@ import { ShortenPipe } from './components/course/small-course/shorten.pipe';
     NgbModule, 
     FormsModule,
     SocialLoginModule
+  
   ],
   providers: [
     {
