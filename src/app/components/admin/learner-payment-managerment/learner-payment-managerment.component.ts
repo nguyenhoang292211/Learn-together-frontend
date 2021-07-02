@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LearnerPaymentManagermentComponent implements OnInit {
 
+
+  titleSearch:string = "sss";
   constructor() { }
 
   ngOnInit(): void {

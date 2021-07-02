@@ -32,9 +32,9 @@
     <div class="collapse" [id]="'category'+ category">
         <div class="grade-list">
             <ul>
-                <li *ngFor = "let item of listFilterOfCategory">
-                    <input type="radio" class="radio" id="grate-filter" name="category" />
-                <label for="grate-filter">{{item}}</label>
+                <li *ngFor = "let item of listFilterOfCategory, let i = index">
+                    <input type="radio" class="radio" id="grate-filter" value="item" name="category" (change) = "change(i)" #myChoose/>
+                <label for="grate-filter"> Grade {{12 - item }}</label>
                 </li>
                 
             </ul>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output} from '@angular/core';
 import { GRADES } from 'src/app/models/grades';
 
 @Component({
@@ -9,48 +9,27 @@ import { GRADES } from 'src/app/models/grades';
 })
 export class ItemFilterComponent implements OnInit {
 
+  @Output() sendGradeChoose = new EventEmitter<number>();
+  @Output() sendCategoryChoose = new EventEmitter<number>();
   @Input() category :number=0; //enum category
   @Input() filterCategory: string = "Test"; // name category
-  listFilterOfCategory = [GRADES[GRADES.GRADE10], GRADES[GRADES.GRADE11], GRADES[GRADES.GRADE12],
-  GRADES[GRADES.hotestgrade]];
- 
+  listFilterOfCategory = [GRADES.GRADE12,GRADES.GRADE11, GRADES.GRADE10];
+  categoryChoose: Number = 0;
+  grade: number = 12;
   constructor() { 
    
    
   }
 
-//   ngAfterViewInit() {
-//     const selected = (<HTMLElement>this.el.nativeElement)
-//     .querySelector(".selected");
-//     const optionsContainer = (<HTMLElement>this.el.nativeElement)
-//     .querySelector(".options-container");
-
-//     const optionsList =(<HTMLElement>this.el.nativeElement)
-//     .querySelectorAll(".option");
-
-// // this.renderer.listen(selected, 'click', () => {
-// //   // alert('Buton was clicked');
-// //     optionsContainer.classList.toggle("active");
-// // });
-
-
-//   }
-
-  showMenu(){
-   
-  }
-
-  // optionListMenu(o:  ){
-  //   this.selected.innerHTML = o.querySelector("label").innerHTML;
-  //   this.optionsContainer.classList.remove("active");
-    
-  // }
-
   ngOnInit(): void {
   }
 
-//   public itemBeforeEvent (args: MenuEventArgs) {
-//     args.element.getElementsByTagName('a')[0].setAttribute('target', '_blank');
-// }
+  change(grade: number){
+    this.grade = grade;
+    console.log(this.grade);
+    this.sendGradeChoose.emit(this.grade);
+    this.sendCategoryChoose.emit(this.category);
+  }
+
 
 }

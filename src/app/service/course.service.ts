@@ -164,7 +164,18 @@ export class CourseService{
         const course = this.courses.find(cour => cour.id==id)!;
         return of(course);
     }
+
     getCourses(){
         return this.courses;
+    }
+
+    getListCourseFilter(courseType: COURSE_TYPE ,grade: GRADES):Observable<Course[]>{
+        const courses= this.courses.filter(course =>course.grade==grade && course.type == courseType);
+        return of(courses);
+    }
+
+    getListCourseByTitle(title: string):Observable<Course[]>{
+        const courses = this.courses.filter(course => course.title == title);
+        return of(courses);
     }
 }
