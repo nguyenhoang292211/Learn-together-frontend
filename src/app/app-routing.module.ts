@@ -14,9 +14,11 @@ import { WalletScreenComponent } from './screen/wallet-screen/wallet-screen.comp
 import { SearchComponent } from './components/course/search/search.component';
 
 
+
 const routes: Routes = [
-  
- 
+
+  {path:'admin/login', component:LoginScreenComponent},
+  {path:'admin/home', component:LecturerHomeScreenComponent},
   {
     path: 'detail-course',
     component: DetailCourseScreenComponent,
@@ -49,9 +51,7 @@ const routes: Routes = [
   { 
     path: 'lecturer', component: LecturerHomeScreenComponent 
   },
-  { 
-    path: 'edit', component: EditCourseComponent 
-},
+
 {
     path:'wallet', component:WalletScreenComponent
   },
@@ -63,8 +63,10 @@ const routes: Routes = [
   },
   {
     path:'search', component:SearchComponent
-  }
+  },
   
+  { path: 'lecturer', component: LecturerHomeScreenComponent },
+  { path: 'admin/edit', component: EditCourseComponent },
 ];
 
 @NgModule({

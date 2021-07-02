@@ -50,6 +50,9 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 
 import { ShortenPipe } from './components/course/small-course/shorten.pipe';
 import { RouterModule } from '@angular/router';
 
+// import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
+// import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
+// import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
 
 @NgModule({
   declarations: [
