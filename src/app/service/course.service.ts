@@ -1,9 +1,12 @@
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { COURSE_TYPE } from "../models/course-type";
 import { Course } from "../models/course.model";
+import { Enrollment } from "../models/enrollment.model";
 import { GRADES } from "../models/grades";
-
+import {map} from 'rxjs/operators'
+import { Lecture } from "../models/lecture.model";
 
 @Injectable({
     providedIn: 'root'
@@ -20,7 +23,7 @@ export class CourseService{
             grade: GRADES.GRADE10,
             thumbnailUrl: "string",
             createdAt: "Date",
-            updatedAt: "Date",
+            updatedAt: "22/10/2021",
             isHidden: false
         },
         {
@@ -29,15 +32,39 @@ export class CourseService{
             description: "Description",
             price:170000,
             type: COURSE_TYPE.THEORY,
-            grade: GRADES.GRADE11,
+            grade: GRADES.GRADE10,
             thumbnailUrl: "string",
             createdAt: "Date",
-            updatedAt: "Date",
+            updatedAt: "1/8/2020",
             isHidden: false
             
         },
         {
             id: "3",
+            title: "Giai tích căn bản",
+            description: "Description",
+            price:200000,
+            type: COURSE_TYPE.THEORY,
+            grade: GRADES.GRADE10,
+            thumbnailUrl: "string",
+            createdAt: "Date",
+            updatedAt: "20/7/2020",
+            isHidden: false
+        },
+        {
+            id: "4",
+            title: "Giai tích căn bản",
+            description: "Description",
+            price:200000,
+            type: COURSE_TYPE.THEORY,
+            grade: GRADES.GRADE10,
+            thumbnailUrl: "string",
+            createdAt: "Date",
+            updatedAt: "28/3/2020",
+            isHidden: false
+        },
+        {
+            id: "5",
             title: "Giai tích căn bản",
             description: "Description",
             price:200000,
@@ -48,105 +75,22 @@ export class CourseService{
             updatedAt: "Date",
             isHidden: false
         },
-        // {
-        //     id: 4,
-        //     name: "Lượng giác căn bản",
-        //     teacher:"Lê Văn Tâm",
-        //     views:150,
-        //     users: 40,
-        //     isFree: false,
-        //     price:50000,
-        //     level: GRADES.GRADE11,
-        //     totalLecture: 16,
-        //     description: "Description"
-        // },
-        // {
-        //     id: 5,
-        //     name: "Giải Phương trình bậc n",
-        //     teacher:"Lê Văn Tâm",
-        //     views:150,
-        //     users: 100,
-        //     isFree: false,
-        //     price:80000,
-        //     level: GRADES.GRADE12,
-        //     totalLecture: 16,
-        //     description: "Description"
-        // },
-        // {
-        //     id: 6,
-        //     name: "Hình học không gian căn bản",
-        //     teacher:"Lê Văn Tâm",
-        //     views:150,
-        //     users: 150,
-        //     isFree: false,
-        //     price:100000,
-        //     level: GRADES.GRADE10,
-        //     totalLecture: 16,
-        //     description: "Description"
-        // },
-        // {
-        //     id: 7,
-        //     name: "Tích vô hướng nâng cao",
-        //     teacher:"Lê Văn Tâm",
-        //     views:150,
-        //     users: 30,
-        //     isFree: false,
-        //     price:90000,
-        //     level: GRADES.GRADE11,
-        //     totalLecture: 16,
-        //     description: "Description"
-        // },
-        // {
-        //     id: 8,
-        //     name: "Tìm diện tích khối trụ",
-        //     teacher:"Lê Văn Tâm",
-        //     views:150,
-        //     users: 30,
-        //     isFree: false,
-        //     price:80000,
-        //     level: GRADES.GRADE12,
-        //     totalLecture: 16,
-        //     description: "Description"
-        // },
-        // {
-        //     id: 9,
-        //     name: "Tìm diện tích khối trụ",
-        //     teacher:"Lê Văn Tâm",
-        //     views:150,
-        //     users: 170,
-        //     isFree: false,
-        //     price:80000,
-        //     level: GRADES.GRADE11,
-        //     totalLecture: 16,
-        //     description: "Description"
-        // },
-        // {
-        //     id:10,
-        //     name: "Tìm diện tích khối trụ",
-        //     teacher:"Lê Văn Tâm",
-        //     views:150,
-        //     users: 10,
-        //     isFree: false,
-        //     price:130000,
-        //     level: GRADES.GRADE10,
-        //     totalLecture: 16,
-        //     description: "Description"
-        // },
-        // {
-        //     id:11,
-        //     name: "Toán tổng hợp",
-        //     teacher:"Lê Văn Tâm",
-        //     views:150,
-        //     users: 10,
-        //     isFree: false,
-        //     price:130000,
-        //     level: GRADES.GRADE10,
-        //     totalLecture: 16,
-        //     description: "Description"
-        // }
+        {
+            id: "6",
+            title: "Giai tích căn bản",
+            description: "Description",
+            price:200000,
+            type: COURSE_TYPE.THEORY,
+            grade: GRADES.GRADE11,
+            thumbnailUrl: "string",
+            createdAt: "Date",
+            updatedAt: "Date",
+            isHidden: false
+        }
+        
     ];
 
-    constructor(){
+    constructor(private http : HttpClient){
         
     }
 
@@ -166,6 +110,8 @@ export class CourseService{
     }
 
     getCourses(){
+
+
         return this.courses;
     }
 
@@ -177,5 +123,33 @@ export class CourseService{
     getListCourseByTitle(title: string):Observable<Course[]>{
         const courses = this.courses.filter(course => course.title == title);
         return of(courses);
+    }
+    getstudentJoinedNumber(courseId:string){
+        //get enrollment where courseId return list enrollment
+        return this.http
+        .get<Enrollment[]>('url', 
+            {
+                params: new HttpParams().set('courseId', courseId)
+            }
+        )
+        // .pipe(
+        //     map((responseData) =>{
+        //     const enrollments :Enrollment[]=[];
+        //     for(let data in responseData)
+        //      enrollments.push(data);
+            
+        //     return enrollments;
+        // }));
+       
+    }
+
+    //get the number of lecture by courseId
+    getLectureByCourseId(courseId: string){
+        return this.http
+        .get<Lecture[]>('URL', 
+            {
+                params: new HttpParams().set('courseId', courseId)
+            }
+        )
     }
 }

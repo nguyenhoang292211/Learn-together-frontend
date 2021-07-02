@@ -1,9 +1,9 @@
 <div class="container">
     <div class="balance-admin">
-        <app-balance-wallet [balance] = "balance_admin"></app-balance-wallet>
+        <app-balance-wallet [balance]="balance_admin"></app-balance-wallet>
     </div>
     <div class="table-wallet">
-        <app-table-wallet-admin></app-table-wallet-admin>
+        <app-table-wallet-admin [isAdmin]="true"></app-table-wallet-admin>
     </div>
-    
+
 </div>
