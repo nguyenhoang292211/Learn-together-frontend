@@ -48,6 +48,7 @@ import { TransferInformationComponent } from './screen/wallet-screen/transfer-in
 
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { ShortenPipe } from './components/course/small-course/shorten.pipe';
+import {HttpClientModule} from '@angular/common/http'
 
 // import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
 // import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
@@ -106,7 +107,8 @@ import { ShortenPipe } from './components/course/small-course/shorten.pipe';
     CommonModule, 
     NgbModule, 
     FormsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    HttpClientModule
   ],
   providers: [
     {

@@ -13,7 +13,6 @@ import { LoginScreenComponent } from './screen/login-screen/login-screen.compone
 import { WalletScreenComponent } from './screen/wallet-screen/wallet-screen.component';
 
 
-
 const routes: Routes = [
 
   {path:'admin/login', component:LoginScreenComponent},
