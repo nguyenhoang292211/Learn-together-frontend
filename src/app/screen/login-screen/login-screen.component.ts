@@ -20,7 +20,13 @@ export class LoginScreenComponent implements OnInit {
       this.socialUser = user;
       this.isLoggedin = (user != null);
       console.log(this.socialUser);
-      this.authService.storeUser(this.socialUser);
+      if(this.authService.signUp(this.socialUser))
+      {
+        
+      }
+      else{
+
+      } 
       
     });
   }
@@ -31,7 +37,7 @@ export class LoginScreenComponent implements OnInit {
   }
 
   signupWithGoogle(): void{
-
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 
   logOut(): void {

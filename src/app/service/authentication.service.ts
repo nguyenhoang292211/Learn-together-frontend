@@ -18,8 +18,24 @@ export class authenticationService {
       }
   }
 
-  signUp(){
+  signUp(socialUser: SocialUser):boolean{
+    if(this.isExistedAccount(socialUser.email))
+      return false;
+    else{
 
+      this.storeUser(socialUser);
+      return true;
+    }
+
+  }
+
+  signIn(socialUser: SocialUser):boolean{
+      this.storeUser(socialUser);
+      return true;
+  }
+
+  isExistedAccount(email:string):boolean{
+    return false;
   }
 
   

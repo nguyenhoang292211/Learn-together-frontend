@@ -35,7 +35,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'wallet',
+    path: 'wallet/learner',
     component: WalletScreenComponent,
   },
   {
