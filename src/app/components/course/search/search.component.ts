@@ -12,39 +12,52 @@ import { ItemFilterComponent } from './filter/item-filter/item-filter.component'
 })
 export class SearchComponent implements OnInit {
 
-  @ViewChild(FilterComponent) filter: any;
   listCourse: Course[] = [];
   titleSearch: string = "";
-  grade: number = 0;
-  category: number = 0;
+  grade: number = -1;
+  category: number = -1;
+  isUseFilter: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private courseService: CourseService) {
-  
+
    }
 
   ngOnInit(): void {
-    console.log("on");
     this.getTitleFormRouter();
     this.getListSearch();
-  }
-
-  ngAfterViewInit(){
-    console.log(this.filter.categoryr);
+    this.getListCourseFilter();
   }
 
   getListSearch(){
-    this.courseService.getListCourseByTitle(this.titleSearch).subscribe(list => this.listCourse = list);
+    if(this.titleSearch)
+    {
+      this.courseService.getListCourseByTitle(this.titleSearch).subscribe(list => this.listCourse = list);
+    }
+
+    if(this.listCourse.length === 0) this.isUseFilter = true;
+   
   }
 
-  getTitleFormRouter(){
+  getTitleFormRouter(){ //use the title for search
     this.route.queryParams
     .subscribe(
       (queryParams: Params) => {
         this.titleSearch = queryParams['title'];
+      
       }
     );
-    console.log("title: " + this.titleSearch);
   }
+
+  getFormFilterRouter(){ // if change router we use filter for search
+    this.route.queryParams
+    .subscribe(
+      (queryParams: Params) => {
+        this.grade = queryParams['grade'];
+        this.category = queryParams['type'];
+      }
+    );
+  }
+
 
   refreshComponent(){
     this.router.navigate([this.router.url])
@@ -52,19 +65,22 @@ export class SearchComponent implements OnInit {
 
  receiveGrade($event: any){
   this.grade = $event;
-  console.log("qua cha:" + this.grade);
   
 }
 
 receiveCategory($event: any){
   this.category = $event;
-  console.log("qua cha:" + this.category);
-  this.getListCourseFilter();
+  this.reloadRouter();   //end choose filter for search
+  this.getListCourseFilter(); // get list by filter
 }
 
 getListCourseFilter(){
+  if(this.isUseFilter)
+  {
+    this.getFormFilterRouter();
   this.courseService.getListCourseFilter(this.category, this.grade).subscribe(list => this.listCourse = list);
-  this.reloadRouter();
+  }
+  
 }
 
 reloadRouter(){
@@ -74,7 +90,7 @@ reloadRouter(){
 }
 
 isFindList(){
-    if(this.listCourse.length == 0)
+    if(this.listCourse.length === 0)
       return false;
     return true;
 }
