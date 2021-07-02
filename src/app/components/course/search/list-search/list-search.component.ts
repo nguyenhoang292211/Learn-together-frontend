@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Course } from 'src/app/models/course.model';
 import { CourseService } from '../../../../service/course.service';
 
@@ -9,7 +9,7 @@ import { CourseService } from '../../../../service/course.service';
 })
 export class ListSearchComponent implements OnInit {
 
-  listCourseResult: Course[] = [];
+  @Input() listCourseResult: Course[] = [];
 
   constructor(private CourseService:CourseService) { }
 
@@ -18,7 +18,7 @@ export class ListSearchComponent implements OnInit {
   }
 
   getListCourseResult(){
-    this.CourseService.getListCourse().subscribe(course => this.listCourseResult = course);
+    // this.CourseService.getListCourse().subscribe(course => this.listCourseResult = course);
     return this.listCourseResult;
   }
 

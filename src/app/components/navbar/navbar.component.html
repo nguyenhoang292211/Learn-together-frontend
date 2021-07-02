@@ -9,10 +9,19 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
 
             <div class="col-md-8 nav-item">
-                <form class="d-flex form-group ">
-                    <i class="fa fa-search icon"></i>
-                    <input class="form-control search-input " type="text " placeholder="Find a course... ">
-                </form>
+                <div class="d-flex form-group">
+                   <div   type="submit" 
+                   routerLinkActive="active"
+                   (click) = "onLoadSearch()"
+                   rou>
+                   <!-- (click) = "onLoadSearch()" -->
+                  
+            
+                       <i class="fa fa-search icon"></i></div> 
+                    <input class="form-control search-input"  [(ngModel)] = "titleSearch" type="text" placeholder="Find a course... ">
+                    
+                   </div>
+                <Label></Label>
             </div>
             <div class="col-md-4 action-button ">
                 <a routerLink="login" class=" btn-signin">Sign In</a>

@@ -5,6 +5,6 @@ export class Comment{
     userId: string = "";
     lectureId: string = "";
     createdAt: string = "";
-    updateAt: string = "";
+    updatedAt: string = "";
     idHidden: boolean = false;
 }
