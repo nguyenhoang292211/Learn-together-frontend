@@ -40,8 +40,6 @@ import { WalletComponent } from './components/admin/wallet/wallet.component';
 import { TableWalletAdminComponent } from './components/admin/wallet/table-wallet-admin/table-wallet-admin.component';
 import { BalanceWalletAdminComponent } from './components/admin/wallet/balance-wallet-admin/balance-wallet-admin.component';
 import { AlertViewImageComponent } from './components/admin/wallet/alert-view-image/alert-view-image.component';
-import { LearnerWalletComponent } from './components/learner-wallet/learner-wallet.component';
-import { TableWalletLearnerComponent } from './components/learner-wallet/table-wallet-learner/table-wallet-learner.component';
 import { LearnerPaymentManagermentComponent } from './components/admin/learner-payment-managerment/learner-payment-managerment.component';
 import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
 import { TransferInformationComponent } from './screen/wallet-screen/transfer-information/transfer-information.component';
@@ -93,14 +91,13 @@ import { RouterModule } from '@angular/router';
     TableWalletAdminComponent,
     BalanceWalletAdminComponent,
     AlertViewImageComponent,
-    LearnerWalletComponent,
-    TableWalletLearnerComponent,
     LearnerPaymentManagermentComponent,
     NavbarAdminComponent,
     TransferInformationComponent,
    
     TransferInformationComponent,
-    ShortenPipe
+    ShortenPipe,
+    HttpClientModule
   ],
   imports: [
     BrowserModule,
