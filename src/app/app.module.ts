@@ -34,21 +34,20 @@ import { CourseLearningScreenComponent } from './screen/course-learning-screen/c
 import { CommentComponent } from './components/comment/comment/comment.component';
 import { SingleCommentComponent } from './components/comment/single-comment/single-comment.component';
 import { WalletScreenComponent } from './screen/wallet-screen/wallet-screen.component';
-import { TableLearnerPaymentComponent } from './components/admin/table-learner-payment/table-learner-payment.component';
-import { AlertComponent } from './components/admin/table-learner-payment/alert/alert.component';
 import { WalletComponent } from './components/admin/wallet/wallet.component';
 import { TableWalletAdminComponent } from './components/admin/wallet/table-wallet-admin/table-wallet-admin.component';
 import { BalanceWalletAdminComponent } from './components/admin/wallet/balance-wallet-admin/balance-wallet-admin.component';
 import { AlertViewImageComponent } from './components/admin/wallet/alert-view-image/alert-view-image.component';
 import { LearnerWalletComponent } from './components/learner-wallet/learner-wallet.component';
 import { TableWalletLearnerComponent } from './components/learner-wallet/table-wallet-learner/table-wallet-learner.component';
-import { LearnerPaymentManagermentComponent } from './components/admin/learner-payment-managerment/learner-payment-managerment.component';
 import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
 import { TransferInformationComponent } from './screen/wallet-screen/transfer-information/transfer-information.component';
 
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { ShortenPipe } from './components/course/small-course/shorten.pipe';
 import { RouterModule } from '@angular/router';
+import { LearnerManagermentComponent } from './components/admin/learner-managerment/learner-managerment.component';
+import { TableLearnerManagermentComponent } from './components/admin/learner-managerment/table-learner-managerment/table-learner-managerment.component';
 
 // import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
 // import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
@@ -86,20 +85,19 @@ import { RouterModule } from '@angular/router';
     CommentComponent,
     SingleCommentComponent,
     WalletScreenComponent,
-    TableLearnerPaymentComponent,
-    AlertComponent,
     WalletComponent,
     TableWalletAdminComponent,
     BalanceWalletAdminComponent,
     AlertViewImageComponent,
     LearnerWalletComponent,
     TableWalletLearnerComponent,
-    LearnerPaymentManagermentComponent,
     NavbarAdminComponent,
     TransferInformationComponent,
    
     TransferInformationComponent,
-    ShortenPipe
+    ShortenPipe,
+    LearnerManagermentComponent,
+    TableLearnerManagermentComponent
   ],
   imports: [
     BrowserModule,

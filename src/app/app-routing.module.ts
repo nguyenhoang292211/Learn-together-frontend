@@ -6,12 +6,11 @@ import { LecturerHomeScreenComponent } from './screen/lecturer/lecturer-home-scr
 
 import { CourseLearningScreenComponent } from './screen/course-learning-screen/course-learning-screen.component';
 import { DetailCourseScreenComponent } from './screen/detail-course-screen/detail-course-screen.component';
-
-import { LearnerPaymentManagermentComponent } from './components/admin/learner-payment-managerment/learner-payment-managerment.component';
 import { WalletComponent } from './components/admin/wallet/wallet.component';
 import { LoginScreenComponent } from './screen/login-screen/login-screen.component';
 import { WalletScreenComponent } from './screen/wallet-screen/wallet-screen.component';
 import { SearchComponent } from './components/course/search/search.component';
+import { LearnerManagermentComponent } from './components/admin/learner-managerment/learner-managerment.component';
 
 
 
@@ -43,7 +42,7 @@ const routes: Routes = [
      path: 'edit', component: EditCourseComponent
   },
   {
-    path: 'admin/managerment/payment', component: LearnerPaymentManagermentComponent
+    path: 'admin/managerment/learner', component: LearnerManagermentComponent
   },
   {
     path: 'admin/managerment/wallet', component: WalletComponent
