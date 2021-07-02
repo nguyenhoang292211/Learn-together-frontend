@@ -14,10 +14,24 @@
                     <input class="form-control search-input " type="text " placeholder="Find a course... ">
                 </form>
             </div>
-            <div class="col-md-4 action-button ">
-                <a routerLink="login" class=" btn-signin">Sign In</a>
-                <a routerLink="login" class="btn-signup ">Sign Up</a>
-            </div>
+            <div *ngIf="isLoggedin ; then thenBlock else elseBlock"></div>
+            <ng-template #elseBlock>
+                <div class="col-md-4 action-button ">
+                    <a routerLink="login" class="btn-signin">Sign In</a>
+                    <a routerLink="login" class="btn-signup ">Sign Up</a>
+                </div>
+            </ng-template>
+            <ng-template #thenBlock>
+                <div class="col-md-4 action-button ">
+                    <a routerLink="login" class=" btn-mycourse">My course</a>
+                    <a routerLink="login" class="btn-mywallet ">My wallet</a>
+                    <button (click)="logOut()"> Log out</button>
+                    <img [src]="photo" alt="{photo}" class="photo">
+                </div>
+            </ng-template>
+
+
+
         </div>
     </div>
 

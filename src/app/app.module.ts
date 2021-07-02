@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -46,7 +46,7 @@ import { TransferInformationComponent } from './screen/wallet-screen/transfer-in
 
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { ShortenPipe } from './components/course/small-course/shorten.pipe';
-
+import {HttpClientModule} from '@angular/common/http'
 // import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
 // import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
 // import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
@@ -121,6 +121,9 @@ import { ShortenPipe } from './components/course/small-course/shorten.pipe';
       } as SocialAuthServiceConfig,
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }

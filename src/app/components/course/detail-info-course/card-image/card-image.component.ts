@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/models/course.model';
+import { authenticationService } from 'src/app/service/authentication.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-card-image',
@@ -10,16 +12,29 @@ import { Course } from 'src/app/models/course.model';
 export class CardImageComponent implements OnInit {
 
   @Input() course = new Course();
+  isLoggedin: boolean= false;
 
-  constructor(private router:Router) { }
+  constructor(
+    private router:Router,
+    private userService: UserService,
+    private authService: authenticationService ) { }
 
   ngOnInit(): void {
-  }
+    this.authService.checkIsLoggedin().subscribe(isLoggedin => this.isLoggedin= isLoggedin);
 
+  }
 
   //Checkout this course is bought by user if user logined
   isBought():boolean{
-    return true;
+    if(this.isLoggedin)
+    {
+      return false;
+    }
+    else
+     //check is bought
+    if(this.userService.checkCourseBought())
+      return true;
+    else  return false;
   }
 
   handlePriceFormat(price:number):any{
@@ -40,11 +55,17 @@ export class CardImageComponent implements OnInit {
   }
 
   goToCourse(id: string, name:string){
+    
     this.router.navigate(['/learning',id, name]);
   }
 
   goToWallet(){
-    this.router.navigate(['/wallet'])
+    if(this.isLoggedin)
+      this.router.navigate(['/wallet']);
+    else
+      this.router.navigate(['/login']);
   }
+
+
 
 }

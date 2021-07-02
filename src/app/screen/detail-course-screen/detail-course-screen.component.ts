@@ -20,8 +20,9 @@ export class DetailCourseScreenComponent implements OnInit {
 
   ngOnInit(): void {
    
-  //   const id= Number(this.route.snapshot.paramMap.get('id'));
-  //  this.service.getCourseById(id).subscribe(course =>  this.selectedCourse= course);
+    const id= this.route.snapshot.paramMap.get('id');
+    if(id !=null)
+    this.service.getCourseById(id).subscribe(course =>  this.selectedCourse= course);
   }
 
 }

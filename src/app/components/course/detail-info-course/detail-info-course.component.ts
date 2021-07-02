@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Course } from 'src/app/models/course.model';
+import { CourseService } from 'src/app/service/course.service';
 
 @Component({
   selector: 'app-detail-info-course',
@@ -10,9 +11,36 @@ import { Course } from 'src/app/models/course.model';
 export class DetailInfoCourseComponent implements OnInit {
 
   @Input() target_course = new Course();
-  constructor() { }
+  lectureCount:number=0;
+  studentJoined: number=0;
+
+  constructor(public courseService: CourseService) { }
 
   ngOnInit(): void {
+
+    //this.getStudentJoinedNumber();
+    // this.getLectureByCourseId();
+
   }
+
+
+  getStudentJoinedNumber(){
+    this.courseService.getstudentJoinedNumber(this.target_course.id).subscribe(
+      enrollments=>{
+        this.studentJoined= enrollments.length;
+      }
+    )
+  }
+
+  getLectureByCourseId(){
+    this.courseService.getLectureByCourseId(this.target_course.id)
+    .subscribe(lectures=>{
+      this.lectureCount= lectures.length;
+    })
+  }
+
+  
+  
+
 
 }
