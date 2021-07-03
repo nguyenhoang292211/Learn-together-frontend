@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/service/user.service';
 import { PriceFormat } from 'src/app/util/priceformat';
+import {ThemePalette} from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-table-wallet-admin',
@@ -18,18 +20,32 @@ export class TableWalletAdminComponent implements OnInit {
   nameActionToAlert: string = "";
   messageToAction: string = "";
   isAcceptAction: boolean = false;
-  
-  constructor(public userService: UserService) { 
+  userCurrentRow: string = "";
+  isExist: boolean = true;
+  colorSlideFilter: ThemePalette = 'primary';
+  constructor(public userService: UserService, private _snackBar: MatSnackBar) { 
 
+    
    }
 
+   openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+
   ngOnInit(): void {
+  }
+
+  setUpdateStatusForRowUser(){
+    if(this.isAcceptAction)
+      this.isExist = false;
   }
 
   
   getAcceptFromAlert($event: any){
     this.isAcceptAction = $event;
     if(this.isAcceptAction) this.updateStatusUser();
+    
+    
   }
 
 
@@ -44,7 +60,14 @@ export class TableWalletAdminComponent implements OnInit {
 
   updateStatusUser(){
     // confirm or deny
+    this.openSnackBar("Reposit was updated !", "Dance");
+    this.setUpdateStatusForRowUser();
 
+  }
+
+  getUserId(id: string){ // when choose the row
+      this.userCurrentRow = id;
+      console.log("userid: " + id);
   }
 
 

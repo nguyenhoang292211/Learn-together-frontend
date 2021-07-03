@@ -1,6 +1,7 @@
 .table-detail{
-    width: 90vw;
-    margin-left: -5vw;
+    width: 95vw;
+    margin-left: -6vw;
+    box-shadow:0 1px 2px rgba(0, 0, 0, .30) !important ;
 }
 
 .title-table {
@@ -8,6 +9,7 @@
     margin-left: 10px;
     font-weight: 600;
     font-style: inherit;
+    display: block;
 }
 
 .btn-admin {
@@ -42,7 +44,7 @@
 }
 
 td {
-    background-color: #f4f4f4 !important;
+    /* background-color: #f4f4f4 !important; */
     text-align: center;
     vertical-align: middle;
 }
@@ -63,3 +65,22 @@ th:nth-child(1) {
 a {
     text-decoration: none;
 }
+
+/* .......... search component */
+app-search-title{
+   width: 50vw;
+   padding-top: 15px;
+}
+
+.title-table-block{
+    display: inline-block;
+}
+
+mat-slide-toggle{
+    /* background-color: rgba(170, 170, 170, 0.123); */
+    vertical-align: middle;
+    margin-top: 10px;
+    color: #aaa;
+    font-weight: 400;
+}
+

@@ -11,20 +11,20 @@
 }
 .list-search-main{
    
-    margin-top: 100px;
+    margin-top: 106px;
     margin-left: 5vw;
     
 }
 
 .nav-search-blank{
  
-    height: 100px;
+    height: 105px;
     width: 100vw;
     display: block;
     position: fixed;
     z-index: 10;
-    padding-top: 70px;
-    padding-left: 10vw;
+    padding-top: 75px;
+    padding-left: 20vw;
 }
 
 .list-filter-main{
@@ -36,7 +36,7 @@
 .search-screen{
     display: block;
    width: 100%;
-   height: 100%;
+   height: 150%;
 }
 
 .message{
@@ -59,4 +59,7 @@ background-color: #fff;
    font-weight: 400;
    background-color: #fff;
 
+}
+.component-search-screen{
+    display: block;
 }
