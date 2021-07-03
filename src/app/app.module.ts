@@ -62,6 +62,13 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 import { EmptyBlockComponent } from './components/empty-block/empty-block.component';
+import { SearchTitleComponent } from './components/admin/search-title/search-title.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+
 // import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
 // import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
 // import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
@@ -120,7 +127,8 @@ import { EmptyBlockComponent } from './components/empty-block/empty-block.compon
     ShortenDescription,
     AlertWarningComponent,
     AlertWarningComponent,
-    EmptyBlockComponent
+    EmptyBlockComponent,
+    SearchTitleComponent
 
   
   ],
@@ -138,7 +146,12 @@ import { EmptyBlockComponent } from './components/empty-block/empty-block.compon
     MatIconModule, 
     MatButtonModule,
     MatRadioModule,
-    MatCardModule
+    MatCardModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
     
   
   ],
