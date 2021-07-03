@@ -219,5 +219,9 @@ export class CourseService{
         // );
         //Mock data
         return of(this.courses);
+   
     }
+
+    getTotalLeanerOfCourse(id: string):number{
+        return 10;
 }

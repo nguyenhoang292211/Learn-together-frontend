@@ -1,6 +1,8 @@
 
 <div class = "search-screen">
-    <div class = "nav-search-blank"></div>
+    <div class = "nav-search-blank">
+        <span>{{this.listCourse.length}} results for <b>{{textSearch}}</b> </span>
+    </div>
 <div class="search-main container">
     <div class="row">
         <div class="col-md-3 list-filter-main" >
@@ -12,7 +14,7 @@
              </div>
      
              <div  *ngIf = "!isFindList()">
-                 <div class="not-find">
+                 <div class="not-found">
                      <div class = "message">Not find course !</div>
                  </div>
              </div>

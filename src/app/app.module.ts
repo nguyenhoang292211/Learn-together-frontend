@@ -55,6 +55,18 @@ import {HttpClientModule} from '@angular/common/http'
 import {AlertWarningComponent } from './components/admin/alert-warning/alert-warning.component';
 import { MylearingScreenComponent } from './screen/mylearing-screen/mylearing-screen.component'
 import {ShortenDescription} from './components/course/small-course/lecturer-card-course/shortenDescription.pipe'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCardModule} from '@angular/material/card';
+// import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
+// import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
+// import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
+
+//
+
 
 @NgModule({
   declarations: [
@@ -104,7 +116,10 @@ import {ShortenDescription} from './components/course/small-course/lecturer-card
     TableLearnerManagermentComponent,
     ListSearchComponent,
     MylearingScreenComponent,
-    ShortenDescription
+    ShortenDescription,
+    AlertWarningComponent
+
+  
   ],
   imports: [
     BrowserModule,
@@ -113,7 +128,15 @@ import {ShortenDescription} from './components/course/small-course/lecturer-card
     NgbModule, 
     FormsModule,
     SocialLoginModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTreeModule,
+    MatTreeModule,
+    MatIconModule, 
+    MatButtonModule,
+    MatRadioModule,
+    MatCardModule
+    
   
   ],
   providers: [

@@ -38,9 +38,7 @@ export class LearnerManagermentComponent implements OnInit {
   
 
   isPaging(){
-    if (this.listUsers.length > 9)
-      return true;
-    return false;
+    return true;
   }
 
   isChooseChange(){
