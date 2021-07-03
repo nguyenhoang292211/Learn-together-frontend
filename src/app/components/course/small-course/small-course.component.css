@@ -63,7 +63,8 @@
 
 .info-course .course-price {
     text-align: center;
-    color: #FF8F0C;
+    color: #e47900;
     font-weight: 700;
     font-size: 18px;
+    margin-top: 5px;
 }

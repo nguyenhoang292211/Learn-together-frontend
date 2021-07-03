@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400,500;600;700&display=swap');
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 .card {
     margin: 10px;
@@ -6,19 +7,32 @@
     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
     background: #FFFFFF;
     border-radius: 10px;
+    border: none;
 }
+
 .info-course {
     padding-left: 10px;
     padding-right: 10px;
 }
 
+.img-course {
+    border-radius: 10px;
+    padding: 3px;
+}
+
 .info-course .course-name {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     color: black;
     text-decoration: none;
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 5px !important;
     margin-top: 0px;
+}
+
+.name {
+    height: 80px;
+    overflow: hidden;
 }
 
 .info-course .teacher {
@@ -29,16 +43,22 @@
     display: block;
     margin-top: none;
 }
-.info-course .course-description{
+
+.info-course .course-description {
     font-size: 12px;
     margin-bottom: 3px;
-}
-.info-course .more-info{
-    font-size: 12px;
-    margin-left: 0px;
-  font-weight: bold;
+    font-weight: 400;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
 }
 
+.info-course .more-info {
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 0px;
+    font-weight: bold;
+    color: #858585;
+}
 
 .users-count span {
     width: 26px;
@@ -47,13 +67,13 @@
     font-weight: 500;
     font-size: 14px;
     /* identical to box height */
-   
     align-items: center;
     color: #858585;
     padding-left: 5px;
     padding-top: 2px;
 }
-.icon-edit{
+
+.icon-edit {
     width: 20px;
     height: 20px;
 }

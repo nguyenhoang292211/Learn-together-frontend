@@ -23,13 +23,18 @@
                 <ng-template #elseBlock>
 
                     <a routerLink="login" class="btn-signin">Sign In</a>
-                    <a routerLink="login" class="btn-signup ">Sign Up</a>
                 </ng-template>
                 <ng-template #thenBlock>
-                    <a routerLink="login" class=" btn-mycourse">My course</a>
-                    <a routerLink="login" class="btn-mywallet ">My wallet</a>
-                    <button (click)="logOut()"> Log out</button>
-                    <img [src]="photo" alt="{photo}" class="photo">
+                    <a routerLink="/mylearning" fragment="learner" class="btn-mycourse">My course</a>
+                    <a routerLink="/wallet" class="btn-mywallet ">My wallet</a>
+                    <div class="dropdown">
+                        <button class="btn-dropdown dropdown-toggle" data-toggle="dropdown">
+                            <img [src]="photo" alt="{photo}" class="photo">
+                        </button>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-item" (click)="logOut()"> Log out</button>
+                        </div>
+                    </div>
                 </ng-template>
             </div>
         </div>

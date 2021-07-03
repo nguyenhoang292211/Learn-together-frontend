@@ -34,10 +34,11 @@ export class DetailInfoCourseComponent implements OnInit {
   }
 
   getLectureByCourseId(){
-    this.courseService.getLectureByCourseId(this.target_course.id)
-    .subscribe(lectures=>{
-      this.lectureCount= lectures.length;
-    })
+    // this.courseService.getLectureByCourseId(this.target_course.id)
+    // .subscribe(lectures=>{
+    //   this.lectureCount= lectures.length;
+    // })
+    this.lectureCount= 20;
   }
 
 

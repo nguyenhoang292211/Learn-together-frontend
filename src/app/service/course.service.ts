@@ -195,15 +195,29 @@ export class CourseService{
     //TODO: get video of a lecture by its id
     getVideoByLectureId(lectureId: string){
         //TODO: Open command when have
-        return this.http
-        .get<Video>('URL',
-        {
-            params: new HttpParams().set('lectureId', lectureId)
-        }).pipe(
-            map((responseData)=>{ 
-                return responseData;
-            })
-        );
+        // return this.http
+        // .get<Video>('URL',
+        // {
+        //     params: new HttpParams().set('lectureId', lectureId)
+        // }).pipe(
+        //     map((responseData)=>{ 
+        //         return responseData;
+        //     })
+        // );
     }
 
+    getMyCourses(learnerId: string):Observable<Course[]>{
+        //TODO: send request get all course of learner in by id learner
+        // return this.http
+        // .get<Course[]>('URL',
+        // {
+        //     params: new HttpParams().set('learnerId', learnerId)
+        // }).pipe(
+        //     map((responseData)=>{ 
+        //         return responseData;
+        //     })
+        // );
+        //Mock data
+        return of(this.courses);
+    }
 }

@@ -1,15 +1,18 @@
 <div class="card">
     <img class="img-fluid img-course" src="../../../assets/images/img1.jpg" alt="">
     <div class="info-course">
-        <a href="#" class="course-name">{{course.title}}</a>
+        <div class="name">
+            <a routerLink="/detail/{{course.id}}/{{course.title}}" class="course-name">{{course.title |shorten}}</a>
+            <p class="course-description">{{course.description | shortenDescription}}</p>
+        </div>
         <!-- <span class="teacher">{{course.teacher}} </span> -->
-        <p class="course-description">It is a long established fact that a reader will be distracted ...</p>
-        <div class="users-count" style="cursor: pointer;" 
-        (click)= "onEditCourse()">
-        <span class="info-course more-info">Update on: 20/20/2020</span>
 
-        <i class="fa fa-pencil"></i> 
-
+        <div *ngIf="!isLearner" class="users-count" style="cursor: pointer;" (click)="onEditCourse()">
+            <span class="info-course more-info">Update on: {{course.updatedAt}}</span>
+            <i class="fa fa-pencil"></i>
+        </div>
+        <div *ngIf="isLearner" class="users-count" style="cursor: pointer;">
+            <span class="info-course more-info">Purchase on: {{course.updatedAt}}</span>
         </div>
     </div>
 </div>

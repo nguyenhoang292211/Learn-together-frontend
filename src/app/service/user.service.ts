@@ -55,11 +55,24 @@ export class UserService{
     }
 ];
     
+    getUserInLocalStore():User{
+        let learner = new User;
+        let email=localStorage.getItem('uemail')?localStorage.getItem('uemail'):"null";
+        if(email!=null)
+        {
+            console.log(email)
+            this.getUserByEmail(email).subscribe(user=>{
+            learner= user;
+          })
+        }
+        console.log(learner)
+        return learner;
+    }
 
-    checkCourseBought():boolean{
+    checkCourseBought(courseId: string, userId: string):boolean{
         //TODO: interact with database and check that user bought that course or not
 
-        return false
+        return true;
     }
 
     getTotalCourses(userId: string):number{

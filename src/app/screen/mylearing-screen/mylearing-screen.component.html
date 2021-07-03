@@ -1,0 +1,19 @@
+<div class="mylearning">
+    <div class="title">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <h3 class="mycourse-title">My course</h3>
+            </div>
+            <div class="col-md-7"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <app-lecturer-card-course [isLearner]="true" *ngFor="let course of myCourseList" class="col-md-3" [course]="course">
+            </app-lecturer-card-course>
+
+        </div>
+    </div>
+
+</div>

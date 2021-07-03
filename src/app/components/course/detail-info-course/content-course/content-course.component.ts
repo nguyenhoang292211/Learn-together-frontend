@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Course } from 'src/app/models/course.model';
 import { Section } from 'src/app/models/section.model';
 import { CourseService } from 'src/app/service/course.service';
@@ -16,16 +17,19 @@ export class ContentCourseComponent implements OnInit {
   listSection: Section[] =[];
 
   constructor(
-    private courseService: CourseService
+    private courseService: CourseService,
+    private router: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
-    // this.route.fragment.subscribe(
-    //   frag=> {
-    //     this.fragment=frag;
 
-    //   }
-    // );
+    console.log('content:' + this.current_course)
+    this.router.fragment.subscribe(
+      frag=> {
+        this.fragment=frag;
+
+      }
+    );
     this.getListSection();
   }
 

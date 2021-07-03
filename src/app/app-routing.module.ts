@@ -12,6 +12,7 @@ import { LoginScreenComponent } from './screen/login-screen/login-screen.compone
 import { WalletScreenComponent } from './screen/wallet-screen/wallet-screen.component';
 import { SearchComponent } from './components/course/search/search.component';
 import { LearnerManagermentComponent } from './components/admin/learner-managerment/learner-managerment.component';
+import { MylearingScreenComponent } from './screen/mylearing-screen/mylearing-screen.component';
 
 
 
@@ -23,9 +24,8 @@ const routes: Routes = [
   {
     path:'admin/home', component:LecturerHomeScreenComponent
   },
- 
   {
-    path:'learning/:id', component: CourseLearningScreenComponent
+    path:'learning/:id/:name', component: CourseLearningScreenComponent
   },
   {
     path: 'home', component: HomeScreenComponent,
@@ -56,7 +56,7 @@ const routes: Routes = [
     path:'wallet', component:WalletScreenComponent
   },
   {
-    path:'detail/:id/:course-name', component: CourseDetailScreenComponent
+    path:'detail/:id/:name', component: CourseDetailScreenComponent
   },
   {
     path:'login', component: LoginScreenComponent
@@ -70,6 +70,9 @@ const routes: Routes = [
   },
   { 
     path: 'admin/edit', component: EditCourseComponent 
+  },
+  {
+    path: 'mylearning', component: MylearingScreenComponent
   }
 ];
 

@@ -1,8 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
 import { Course } from 'src/app/models/course.model';
+import { User } from 'src/app/models/user.model';
 import { authenticationService } from 'src/app/service/authentication.service';
 import { UserService } from 'src/app/service/user.service';
+import { PriceFormat } from 'src/app/util/priceformat';
 
 @Component({
   selector: 'app-card-image',
@@ -12,7 +15,9 @@ import { UserService } from 'src/app/service/user.service';
 export class CardImageComponent implements OnInit {
 
   @Input() course = new Course();
-  isLoggedin: boolean= false;
+  isBought: boolean= false;
+  isLoggedin!: Observable<boolean>;
+  learner!: User;
   message:string="";
   actionToAlert:string="";
   showInform:boolean= false;
@@ -23,50 +28,80 @@ export class CardImageComponent implements OnInit {
     private authService: authenticationService) { }
 
   ngOnInit(): void {
+
+    //when reloading page, it will not update checkIsLoggedin despite of having subcribe
     if(localStorage.getItem('isLoggedin')=='true')
     {
-      this.isLoggedin=true;
+      this.isLoggedin= of(true);
     } 
-    this.authService.checkIsLoggedin().subscribe(isLoggedin => this.isLoggedin= isLoggedin);
+
+    
+
+    //Subcibe loggedin status
+    this.authService.checkIsLoggedin().subscribe(
+      isLoggedin =>{
+        this.isLoggedin= of(isLoggedin) 
+        
+      });
+
+      if(this.isLoggedin){
+        let email=localStorage.getItem('uemail')?localStorage.getItem('uemail'):"null";
+        if(email!=null)
+        {
+          console.log(email)
+          //get user balance to check
+          this.userService.getUserByEmail(email).subscribe(user=>{
+            this.learner= user;
+          })
+        }
+      }
+
+    //check status of isLoggedin, if it's true, update learner
+    this.isLoggedin.subscribe(isLoggedin_=>{
+      if(isLoggedin_){
+        let email=localStorage.getItem('uemail')?localStorage.getItem('uemail'):"null";
+        if(email!=null)
+        {
+          console.log(email)
+          //get user balance to check
+          this.userService.getUserByEmail(email).subscribe(user=>{
+            this.learner= user;
+          })
+        }
+      }
+
+    })
+
+    this.isBought_();
   }
 
 
-  //Checkout this course is bought by user if user logined
-  isBought():boolean{
-    if(this.isLoggedin)
+  //Checkout this course is bought by user if user loggedin
+  isBought_(){
+
+    console.log(this.course.id)
+    if(!this.isLoggedin)
     {
-      return false;
+      this.isBought= false;
     }
     else
      //check is bought
-    if(this.userService.checkCourseBought())
-      return true;
-    else  return false;
+    if(this.userService.checkCourseBought(this.course.id, this.learner.id))
+      this.isBought=true;
+    else  this.isBought= false;
   }
 
 
 
   handlePriceFormat(price:number):any{
-
-    var price_format="";
-    var zero;
-    while(price%1000==0)
-    {
-      price= price/1000;
-      
-       zero =price_format;
-      price_format = ".000"+price_format;
-    }
-    zero = price_format;
-    price_format=price.toString()+ price_format+"đ";
-
-    return price_format;
+    return PriceFormat(price);
   }
 
   goToCourse(id: string, name:string){
-    this.router.navigate(['/learning',id, name]);
+    this.router.navigate(['/learning',id, name], {fragment: 'learning'} );
   }
 
+  //Check here if user enough money, allow them to buy it, ortherwise, go to wallet page
   goToWallet(){
     if(this.isLoggedin)
       {
@@ -75,24 +110,27 @@ export class CardImageComponent implements OnInit {
         if(email!=null)
         {
           console.log(email)
+          //get user balance to check
           this.userService.getUserByEmail(email).subscribe(user=>
             {
               if(user.balance <this.course.price)
               {
-              // console.log(this.userService.getUserByEmail(email).email)
-                  this.actionToAlert="Your wallet";
-                  this.message="The amount in your wallet is not enough to buy this course? Go to the wallet page to top up your account."
-                  this.showInform=true;
-                  this.action="wallet"
+                // console.log(this.userService.getUserByEmail(email).email)
+                //TODO: show alert to announce
+
+                this.actionToAlert="Your balance";
+                this.message="The amount in your balance is not enough to buy this course? Go to the wallet page to top up your account."
+                this.showInform=true;
+                this.action="wallet"
               }
               else{
+                //TODO: show alert to announce
                 this.showInform= true;
                 this.actionToAlert= "Buy now!"
                 this.message="Are you sure to buy this course?"
                 this.action="buy"
               }
             });
-            
        }
 
       }
@@ -100,12 +138,15 @@ export class CardImageComponent implements OnInit {
       this.router.navigate(['/login']);
   }
 
+  //Close alert
   closeHandler(){
     this.showInform= false;
   }
 
+  /*Check action click, if user click "Your balance", navigate to 
+  wallet page else implement to buy the course */
   implementAction(gotowallet:boolean){
-    this.showInform= true;
+
     if(gotowallet)
     {
       this.router.navigate(["/wallet"]);
@@ -122,10 +163,13 @@ export class CardImageComponent implements OnInit {
             //update at here
             this.userService.buyCourse( user.id ,this.course.id);
             
-            this.action="success_payment";
-            this.actionToAlert=""
-            this.message="Now you can learn this course."
-            this.showInform= true;
+            //TODO: Inform that payment success
+            this.isBought=true;
+            alert("Now you can learn this course");
+            // this.action="success_payment";
+            // this.actionToAlert=""
+            // this.message="Now you can learn this course."
+            // this.showInform= true;
             console.log(this.showInform)
           } 
           
@@ -137,3 +181,7 @@ export class CardImageComponent implements OnInit {
   }
 
 }
+function Of(arg0: boolean): Observable<boolean> {
+  throw new Error('Function not implemented.');
+}
+
