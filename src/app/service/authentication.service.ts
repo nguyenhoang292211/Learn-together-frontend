@@ -1,27 +1,89 @@
 import { Injectable } from '@angular/core';
-import { SocialUser } from 'angularx-social-login';
-
+import { SocialAuthService, SocialUser } from 'angularx-social-login';
+import { Observable, of, Subject } from 'rxjs';
+import { USER_ROLES } from '../models/user-roles';
+import { User } from '../models/user.model';
+import {HttpClient} from '@angular/common/http'
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class authenticationService {
+export  class authenticationService {
 
-  constructor() { }
+  private logger = new Subject<boolean>();
+  private loggedIn = false;
+
+  constructor( 
+    public socialAuthService: SocialAuthService,
+    private http: HttpClient
+    ) {
+    if(localStorage.getItem('isLoggedin'))
+    {
+      let isLoggedin= localStorage.getItem('isLoggedin');
+      if(isLoggedin?.toString()=='true')
+          this.loggedIn= true;
+      else
+         this.loggedIn= false;
+    }
+  }
 
   storeUser(socialUser : SocialUser){
     if(typeof(localStorage))
       {
-        localStorage.setItem('isLogegdin','true');
+        localStorage.setItem('isLoggedin','true');
         localStorage.setItem('uname', socialUser.name);
-        localStorage.setItem('authtoken',socialUser.email);
+        localStorage.setItem('uemail',socialUser.email);
         localStorage.setItem('uphotoUrl',socialUser.photoUrl);
       }
   }
 
-  signUp(){
+  signUp(socialUser: SocialUser): boolean{
+    //handle create new user
+     const user:User = {
+       email:socialUser.email,
+       role: USER_ROLES.LEARNER,
+       balance: 0
+     }
+     this.storeUser(socialUser);
+     //TODO: save user by post method
+    //  this.http
+    //  .post<User>('URL', user)
+    //  .subscribe(responseData=>{
+    //    console.log(responseData);
+    //  })
+
+     this.loggedIn=true;
+     this.logger.next(this.loggedIn);
+     return true;
 
   }
 
-  
+  signIn(socialUser: SocialUser) : boolean{
+
+      this.storeUser(socialUser);
+      this.loggedIn=true;
+     this.logger.next(this.loggedIn);
+      return true;
+  }
+
+  isExistedAccount(email:string):boolean{
+    return false;
+  }
+
+  checkIsLoggedin(): Observable<boolean>{
+     return this.logger.asObservable();
+  }
+
+  logOut(){
+    this.clearLocalStorage();
+    this.socialAuthService.signOut();
+    this.loggedIn= false;
+  }
+
+  clearLocalStorage(){
+    localStorage.clear();
+    localStorage.setItem('isLoggedin','false');
+  }
+
 
 }

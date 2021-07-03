@@ -10,3 +10,4 @@
     </ng-template>
 
 </div>
+<app-alert [actionToAlert]="actionToAlert" [message]="message" [action]="action" *ngIf="showInform" (gotowallet)="implementAction($event)" (close)="closeHandler()"></app-alert>

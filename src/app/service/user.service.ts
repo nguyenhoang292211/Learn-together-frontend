@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
+import { Enrollment } from "../models/enrollment.model";
 import { USER_ROLES } from "../models/user-roles";
 import { User } from "../models/user.model";
 
@@ -40,12 +41,21 @@ export class UserService{
         balance : 20000,
         createdAt : "",
         updatedAt : "",
+    },
+    {
+        id : "user03",
+        fullName  : "Nguyen Thi Minh Hoang",
+        avatarUrl: "",
+        email : "nguyenhoang13166@gmail.com",
+        role :  USER_ROLES.LEARNER,
+        balance : 20000,
+        createdAt : "",
+        updatedAt : "",
+
     }
 ];
-    constructor(){}
-    checkCourseBought():boolean{
-        return false;
-    }
+    
+
 
     getTotalCourses(userId: string):number{
         return 1;
@@ -58,5 +68,22 @@ export class UserService{
     getListUserByTitle(title: string):Observable<User[]>{
         const users = this.users.filter(user => user.fullName == title || user.email == title);
         return of(users);
+    getUserByEmail(email:string): Observable<User>{
+        const user = this.users.find(user=>user.email == email)!;
+       return of(user);
+    }
+
+    buyCourse(userId:string, courseId:string){
+        //create a enrollment
+        const enrollment: Enrollment={
+            courseId:courseId,
+            learnerId: userId,
+            createdAt: Date.now.toString(),
+            updatedAt:Date.now.toString()
+        }
+
+        //update balance of user
+
+
     }
 }

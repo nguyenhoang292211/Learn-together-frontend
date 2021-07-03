@@ -9,7 +9,7 @@ import { HomeScreenComponent } from './screen/home-screen/home-screen.component'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginScreenComponent } from './screen/login-screen/login-screen.component';
-import { DetailCourseScreenComponent } from './screen/detail-course-screen/detail-course-screen.component';
+import { CourseDetailScreenComponent } from './screen/course-detail-screen/course-detail-screen.component';
 import { DetailInfoCourseComponent } from './components/course/detail-info-course/detail-info-course.component';
 import { CardImageComponent } from './components/course/detail-info-course/card-image/card-image.component';
 import { SectionCourseComponent } from './components/course/detail-info-course/section-course/section-course.component';
@@ -43,15 +43,15 @@ import { TableWalletLearnerComponent } from './components/learner-wallet/table-w
 import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
 import { TransferInformationComponent } from './screen/wallet-screen/transfer-information/transfer-information.component';
 
-import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login'
 import { ShortenPipe } from './components/course/small-course/shorten.pipe';
 import { RouterModule } from '@angular/router';
 import { LearnerManagermentComponent } from './components/admin/learner-managerment/learner-managerment.component';
 import { TableLearnerManagermentComponent } from './components/admin/learner-managerment/table-learner-managerment/table-learner-managerment.component';
 
-// import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
-// import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
-// import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
+import {HttpClientModule} from '@angular/common/http'
+import {AlertWarningComponent } from './components/admin/alert-warning/alert-warning.component'
+
 
 @NgModule({
   declarations: [
@@ -62,7 +62,7 @@ import { TableLearnerManagermentComponent } from './components/admin/learner-man
     NavbarComponent,
     FooterComponent,
     LoginScreenComponent,
-    DetailCourseScreenComponent,
+    CourseDetailScreenComponent,
     DetailInfoCourseComponent,
     CardImageComponent,
     SectionCourseComponent,
@@ -72,6 +72,7 @@ import { TableLearnerManagermentComponent } from './components/admin/learner-man
     EditCourseComponent,
     CourseInfoComponent,
     CourseSectionComponent,
+    AlertWarningComponent,
     
     UploadTaskComponent,
    
@@ -97,7 +98,8 @@ import { TableLearnerManagermentComponent } from './components/admin/learner-man
     TransferInformationComponent,
     ShortenPipe,
     LearnerManagermentComponent,
-    TableLearnerManagermentComponent
+    TableLearnerManagermentComponent,
+    List
   ],
   imports: [
     BrowserModule,
@@ -105,7 +107,8 @@ import { TableLearnerManagermentComponent } from './components/admin/learner-man
     CommonModule, 
     NgbModule, 
     FormsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    HttpClientModule
   
   ],
   providers: [

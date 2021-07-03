@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Course } from 'src/app/models/course.model';
-
+import { Section } from 'src/app/models/section.model';
+import { CourseService } from 'src/app/service/course.service';
 @Component({
   selector: 'app-content-course',
   templateUrl: './content-course.component.html',
@@ -9,20 +10,33 @@ import { Course } from 'src/app/models/course.model';
 export class ContentCourseComponent implements OnInit {
 
   @Input() current_course = new Course();
+   fragment: any;
 
   //Example
-  listSection: number[] =[];
+  listSection: Section[] =[];
 
-  constructor() { }
+  constructor(
+    private courseService: CourseService
+    ) { }
 
   ngOnInit(): void {
+    // this.route.fragment.subscribe(
+    //   frag=> {
+    //     this.fragment=frag;
+
+    //   }
+    // );
     this.getListSection();
   }
 
   //Get list section of  current course
-  getListSection():number[]{
-    this.listSection=[1,2,3,4];
-    return this.listSection;
+  getListSection(){
+    this.listSection=this.courseService.getSectionByCourseId(this.current_course.id);
+    
+    //TODO: OPEN COMMAND WHEN HAVE API
+    // this.courseService.getSectionByCourseId(this.current_course.id).subscribe(sections=>
+    //    this.listSection= sections
+    //   )
   }
 
 }
