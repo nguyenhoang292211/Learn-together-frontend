@@ -1,5 +1,5 @@
 <div class="hotest-course">
-    <p class="title">{{getLevelGradeName()}} <a class="viewall" href="#">View all</a></p>
+    <p class="title">{{getLevelGradeName()}} <a class="viewall" (click) = "viewAllCourse()">View all</a></p>
 
     <div class="grade-course row">
         <app-small-course class="col-md-3" *ngFor="let item of smallCourses" [course]="item"></app-small-course>

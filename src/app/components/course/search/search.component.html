@@ -15,11 +15,13 @@
      
              <div  *ngIf = "!isFindList()">
                  <div class="not-found">
-                     <div class = "message">Not find course !</div>
+                     No course found !
                  </div>
              </div>
         </div>
        
     </div>
 </div>
+<app-empty-block  *ngIf = "isFindList()"></app-empty-block>
 </div>
+

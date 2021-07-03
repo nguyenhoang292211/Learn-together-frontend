@@ -61,6 +61,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
+import { EmptyBlockComponent } from './components/empty-block/empty-block.component';
 // import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
 // import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
 // import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
@@ -115,9 +116,14 @@ import {MatCardModule} from '@angular/material/card';
     LearnerManagermentComponent,
     TableLearnerManagermentComponent,
     ListSearchComponent,
+<<<<<<< HEAD
     MylearingScreenComponent,
     ShortenDescription,
     AlertWarningComponent
+=======
+    AlertWarningComponent,
+    EmptyBlockComponent
+>>>>>>> 2a28b68 (design admin)
 
   
   ],

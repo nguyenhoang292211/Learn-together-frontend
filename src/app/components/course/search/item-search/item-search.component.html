@@ -4,7 +4,8 @@
     </div>
     <div class = "content-course">
         <div class = "pull-left">
-            <a href = "#" class = "course-heading">{{courseItem.title}}</a>
+            <a class = "course-heading"
+            routerLink="/detail/{{courseItem.id}}/{{courseItem.title}}" fragment="detail">{{courseItem.title}}</a>
             <!-- <h6 class = "list-group-item-text">{{courseItem.teacher}}</h6> -->
             <p class = "list-group-item-text">{{courseItem.description}}</p>
             <div class = "delail-information-course">

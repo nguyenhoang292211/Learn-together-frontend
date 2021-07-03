@@ -21,13 +21,17 @@ export class LearnerManagermentComponent implements OnInit {
     this.getListUser();
   }
 
-  getListUser(){
+  getListUser(){//
    this.listUsers = this.userService.getAllUser();
   }
 
   searchUser(){
-    this.userService.getListUserByTitle(this.titleSearch).subscribe(users => this.listUsers = users);
-    this.onLoadRouter();
+    if(this.titleSearch == "")  this.getAllUser();
+    else{
+      this.userService.getListUserByTitle(this.titleSearch).subscribe(users => this.listUsers = users);
+      this.onLoadRouter();
+    }
+
   }
 
   getAllUser(){

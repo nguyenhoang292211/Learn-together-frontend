@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { faLeaf } from '@fortawesome/free-solid-svg-icons';
-import * as EventEmitter from 'events';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/service/user.service';
+import { PriceFormat } from 'src/app/util/priceformat';
 
 @Component({
   selector: 'app-table-wallet-admin',
@@ -20,7 +19,7 @@ export class TableWalletAdminComponent implements OnInit {
   messageToAction: string = "";
   isAcceptAction: boolean = false;
   
-  constructor(public userCurrentRow: User, userService: UserService) { 
+  constructor(public userService: UserService) { 
 
    }
 
