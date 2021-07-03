@@ -34,5 +34,9 @@ export class TableLearnerManagermentComponent implements OnInit {
    onHandleError(){
      this.isChange = false;
    }
+
+   getTotalCourses(userId:string):number{
+     return this.userService.getTotalCourses(userId);
+   }
   
 }

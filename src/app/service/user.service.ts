@@ -43,12 +43,12 @@ export class UserService{
         updatedAt : "",
     },
     {
-        id : "user03",
+        id : "user04",
         fullName  : "Nguyen Thi Minh Hoang",
         avatarUrl: "",
         email : "nguyenhoang13166@gmail.com",
         role :  USER_ROLES.LEARNER,
-        balance : 20000,
+        balance : 200000,
         createdAt : "",
         updatedAt : "",
 
@@ -56,6 +56,11 @@ export class UserService{
 ];
     
 
+    checkCourseBought():boolean{
+        //TODO: interact with database and check that user bought that course or not
+
+        return false
+    }
 
     getTotalCourses(userId: string):number{
         return 1;
@@ -68,22 +73,24 @@ export class UserService{
     getListUserByTitle(title: string):Observable<User[]>{
         const users = this.users.filter(user => user.fullName == title || user.email == title);
         return of(users);
-    getUserByEmail(email:string): Observable<User>{
-        const user = this.users.find(user=>user.email == email)!;
-       return of(user);
+        
     }
 
-    buyCourse(userId:string, courseId:string){
+    getUserByEmail(email:string): Observable<User>{
+        const user = this.users.find(user=>user.email == email)!;
+        return of(user);
+    }
+
+    buyCourse(learnerId :string, courseId: string){
         //create a enrollment
         const enrollment: Enrollment={
             courseId:courseId,
-            learnerId: userId,
+            learnerId: learnerId,
             createdAt: Date.now.toString(),
             updatedAt:Date.now.toString()
         }
 
-        //update balance of user
-
+        //update balance of use
 
     }
 }

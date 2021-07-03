@@ -28,10 +28,13 @@
     font-weight: 600;
 }
 
-.btnclose {
-    margin-left: 20px;
+.alert-box-actions {
+    text-align: center;
+    justify-content: space-between;
 }
 
-.alert-box-actions {
-    text-align: right;
+.alert-box-actions button {
+    width: 100px;
+    margin-top: 5px;
+    margin-left: 5px;
 }

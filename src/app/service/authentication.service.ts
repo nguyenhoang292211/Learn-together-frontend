@@ -40,9 +40,12 @@ export  class authenticationService {
   signUp(socialUser: SocialUser): boolean{
     //handle create new user
      const user:User = {
+       id:"",
        email:socialUser.email,
        role: USER_ROLES.LEARNER,
-       balance: 0
+       balance: 0,
+       avatarUrl:socialUser.photoUrl,
+       fullName: socialUser.name
      }
      this.storeUser(socialUser);
      //TODO: save user by post method

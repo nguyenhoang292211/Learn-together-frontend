@@ -48,10 +48,10 @@ import { ShortenPipe } from './components/course/small-course/shorten.pipe';
 import { RouterModule } from '@angular/router';
 import { LearnerManagermentComponent } from './components/admin/learner-managerment/learner-managerment.component';
 import { TableLearnerManagermentComponent } from './components/admin/learner-managerment/table-learner-managerment/table-learner-managerment.component';
+import { AlertComponent } from './components/alert/alert.component'
 
 import {HttpClientModule} from '@angular/common/http'
 import {AlertWarningComponent } from './components/admin/alert-warning/alert-warning.component'
-
 
 @NgModule({
   declarations: [
@@ -94,12 +94,12 @@ import {AlertWarningComponent } from './components/admin/alert-warning/alert-war
     TableWalletLearnerComponent,
     NavbarAdminComponent,
     TransferInformationComponent,
-   
+    AlertComponent,
     TransferInformationComponent,
     ShortenPipe,
     LearnerManagermentComponent,
     TableLearnerManagermentComponent,
-    List
+    ListSearchComponent
   ],
   imports: [
     BrowserModule,

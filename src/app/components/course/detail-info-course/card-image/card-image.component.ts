@@ -45,6 +45,7 @@ export class CardImageComponent implements OnInit {
   }
 
 
+
   handlePriceFormat(price:number):any{
 
     var price_format="";
