@@ -224,4 +224,5 @@ export class CourseService{
 
     getTotalLeanerOfCourse(id: string):number{
         return 10;
+    }
 }

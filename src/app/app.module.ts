@@ -116,14 +116,11 @@ import { EmptyBlockComponent } from './components/empty-block/empty-block.compon
     LearnerManagermentComponent,
     TableLearnerManagermentComponent,
     ListSearchComponent,
-<<<<<<< HEAD
     MylearingScreenComponent,
     ShortenDescription,
-    AlertWarningComponent
-=======
+    AlertWarningComponent,
     AlertWarningComponent,
     EmptyBlockComponent
->>>>>>> 2a28b68 (design admin)
 
   
   ],
