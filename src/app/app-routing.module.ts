@@ -22,8 +22,11 @@ const routes: Routes = [
     path:'admin/login', component:LoginScreenComponent
   },
   {
-    path:'admin/home', component:LecturerHomeScreenComponent
+    path:'admin/home', component:LecturerHomeScreenComponent},
+    {
+    path: 'admin/managerment/wallet', component: WalletComponent
   },
+
   {
     path:'learning/:id/:name', component: CourseLearningScreenComponent
   },
@@ -45,9 +48,7 @@ const routes: Routes = [
   {
     path: 'admin/managerment/learner', component: LearnerManagermentComponent
   },
-  {
-    path: 'admin/managerment/wallet', component: WalletComponent
-  },
+  
   { 
     path: 'lecturer', component: LecturerHomeScreenComponent 
   },

@@ -1,48 +1,62 @@
+*{
+    background-color: #F0F2F5;
+}
 .search-main{
     display: block;
-  
+    padding-left: 15px;
+    width: 100%;
+    margin: 0;
+    background-color: #F0F2F5;
+    padding-left: 10px;
 }
-
 .list-search-main{
    
     margin-top: 100px;
+    margin-left: 5vw;
+    
 }
 
 .nav-search-blank{
-    background-color: white;
+ 
     height: 100px;
-    width: 100%;
+    width: 100vw;
     display: block;
     position: fixed;
     z-index: 10;
-    
+    padding-top: 70px;
+    padding-left: 10vw;
 }
 
 .list-filter-main{
     margin-top: 100px;
+    padding-left: 30px;
+    position: relative;
 }
 
 .search-screen{
     display: block;
-    height: 350vh; 
+   width: 100%;
+   height: 100%;
 }
 
 .message{
     
-    color: black;
-    font-size: 25px;
-    margin-top: 100px;
-    margin-left: 25vw;
-    padding-top: 30vh;
-    font-weight: 500;
+background-color: #fff;
     
 }
 
-.not-find{
-    
+.not-found{
+    border-radius: 8px;
     display: block;
-   background-color: #f4f4f4;
-   height: 100vh;
+   height: 70vh;
+   margin-top: 100px;
    border-radius: 5px;
+   margin-left: 5vw;
+   color: #aaa;
+   font-size: 22px;
+   padding-top: 30vh;
+   padding-left: 20vw;
+   font-weight: 400;
+   background-color: #fff;
 
 }

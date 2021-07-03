@@ -15,8 +15,8 @@ export class FilterComponent implements OnInit {
   @Output() sendCategoryChoose = new EventEmitter<number>();
   grade: number = 0;
   category: number = 0;
-  listFilter = [CategoryFilter[CategoryFilter.Theory], 
-  CategoryFilter[CategoryFilter.ExaminationSolving], CategoryFilter[CategoryFilter.Test]];
+  listFilter = ["Theory", 
+  "Examination Solving", "Test"];
   constructor() { }
 
   ngOnInit(): void {

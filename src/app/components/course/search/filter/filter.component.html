@@ -1,5 +1,6 @@
 <div class = "list-filter">
-<div  *ngFor = "let category of listFilter; let i = index">
-    <app-item-filter [filterCategory] = "category" [category] = "i"  (sendGradeChoose) = "receiveGrade($event)" (sendCategoryChoose) = "receiveCategory($event)"></app-item-filter>   
+<div  *ngFor = "let type of listFilter; let i = index">
+    <app-item-filter [nameFilterCategory] = "type" [category] = "i"  (sendGradeChoose) = "receiveGrade($event)" (sendCategoryChoose) = "receiveCategory($event)"></app-item-filter> 
+    
 </div>
 </div>

@@ -33,4 +33,7 @@
     font-weight: 500;
     text-transform: capitalize;
     padding-right: 30px;
+    cursor:pointer;
+    color: #032e42;
 }
+

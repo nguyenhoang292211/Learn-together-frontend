@@ -2,3 +2,7 @@
     display: block;
     position:absolute;
 }
+
+*{
+    background-color: #F0F2F5;
+}

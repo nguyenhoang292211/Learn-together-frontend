@@ -58,6 +58,8 @@
 
 .navbar-toggler:focus {
     box-shadow: none !important;
+    font-size: 15px;
+    color: rgb(194, 193, 193);
 }
 
 .form-group .form-control {
@@ -123,4 +125,9 @@
     .action-button {
         display: inline-grid;
     }
+}
+
+.form-control:focus{
+    outline: none !important;
+    box-shadow: none !important;
 }

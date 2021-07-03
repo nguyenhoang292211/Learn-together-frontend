@@ -6,21 +6,14 @@
                 <thead>
                     <tr>
                         <th>Date Time</th>
+                        <th *ngIf="isAdmin">Email</th>
+                        <th *ngIf="isAdmin">Name</th>
                         <th>Amount</th>
                         <th>Image</th>
                         <th *ngIf="isAdmin">Actions</th>
 
                     </tr>
                 </thead>
-                <!-- <tfoot>
-                    <tr>
-                        <th>Date Time</th>
-                        <th>Amount</th>
-                        <th>Image</th>
-                        <th>Actions</th>
-
-                    </tr>
-                </tfoot> -->
                 <tbody>
                     <tr>
                         <td>
@@ -29,13 +22,67 @@
                                 <button class="badge btn-status">Pending</button>
                             </div>
                         </td>
+                        <td *ngIf="isAdmin">
+                            <div><span>ngocyen@gmail.com</span></div>
+                        </td>
+                        <td *ngIf="isAdmin">
+                            <div><span>Le Thi Ngoc Yen</span></div>
+                        </td>
                         <td>
                             <div class="amount">0000</div>
                         </td>
                         <td><button class="btn-admin " (click)="showImg()"> View </button></td>
                         <td *ngIf="isAdmin">
-                            <a type="button" class="btn-admin "> Confirm</a>
-                            <a type="button" class="btn-admin  btn-deny"> Deny</a>
+                            <button type="button" class="btn-admin" (click) = "setActionConfirm()"> Confirm</button>
+                            <button type="button" class="btn-admin  btn-deny"  (click) = "setActionDeny()"> Deny</button>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div><span>6/30/2021 3:54:00 PM</span></div>
+                            <div><span>Status: </span>
+                                <button class="badge btn-status">Pending</button>
+                            </div>
+                        </td>
+                        <td *ngIf="isAdmin">
+                            <div><span>ngocyen@gmail.com</span></div>
+                        </td>
+                        <td *ngIf="isAdmin">
+                            <div><span>Le Thi Ngoc Yen</span></div>
+                        </td>
+                        <td>
+                            <div class="amount">0000</div>
+                        </td>
+                        <td><button class="btn-admin " (click)="showImg()"> View </button></td>
+                        <td *ngIf="isAdmin">
+                            <button type="button" class="btn-admin" (click) = "setActionConfirm()"> Confirm</button>
+                            <button type="button" class="btn-admin  btn-deny"  (click) = "setActionDeny()"> Deny</button>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div><span>6/30/2021 3:54:00 PM</span></div>
+                            <div><span>Status: </span>
+                                <button class="badge btn-status">Pending</button>
+                            </div>
+                        </td>
+                        <td *ngIf="isAdmin">
+                            <div><span>ngocyen@gmail.com</span></div>
+                        </td>
+                        <td *ngIf="isAdmin">
+                            <div><span>Le Thi Ngoc Yen</span></div>
+                        </td>
+                        <td>
+                            <div class="amount">0000</div>
+                        </td>
+                        <td><button class="btn-admin " (click)="showImg()"> View </button></td>
+                        <td *ngIf="isAdmin">
+                            <button type="button" class="btn-admin" (click) = "setActionConfirm()"> Confirm</button>
+                            <button type="button" class="btn-admin  btn-deny"  (click) = "setActionDeny()"> Deny</button>
                         </td>
 
                     </tr>
@@ -45,9 +92,13 @@
 
             <!-- alert-view -->
             <app-alert-view-image [message]="message_view_img" [path_img]="path_img_view" *ngIf="isShowImg()" (close)="onHandleError()">
-
             </app-alert-view-image>
             <!-- end-alert-view -->
+
+            <app-alert-warning [message]="messageToAction" [actionToAlert]="nameActionToAlert"   *ngIf = "isCallAlert" (close)="onHandleError()" (isAction) = "getAcceptFromAlert($event)">
+            </app-alert-warning>
+
+            <!-- <app-search></app-search> -->
 
             <div class="row" *ngIf="isPaging()">
                 <div class="col-sm-12 col-md-5">

@@ -13,15 +13,13 @@ export class AlertWarningComponent implements OnInit {
   @Output() close = new EventEmitter<void>();
   isChooseAction:boolean = false;
 
-
-
   onClose(){
-    this.isAction.emit(this.isChooseAction);
+    this.isAction.emit(this.isChooseAction); 
     this.close.emit();
   }
   
   chooseAction(){
-    this.isChooseAction = true;
+    this.isChooseAction = true;  // admin want to action this user
     this.onClose();
   }
 
