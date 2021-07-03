@@ -89,7 +89,46 @@ export class CourseService{
         createdAt: "Date",
         updatedAt: "Date",
         isHidden: false
-    }
+    },
+    // {
+    //     id: "7",
+    //     title: "Tìm diện tích khối trụ bằng phương pháp căn bản như trên",
+    //     description: "Description",
+    //     price:170000,
+    //     type: COURSE_TYPE.THEORY,
+    //     grade: GRADES.GRADE10,
+    //     thumbnailUrl: "string",
+    //     createdAt: "Date",
+    //     updatedAt: "1/8/2020",
+    //     isHidden: false
+        
+    // },
+    // {
+    //     id: "8",
+    //     title: "Tìm diện tích khối trụ bằng phương pháp căn bản như trên",
+    //     description: "Description",
+    //     price:170000,
+    //     type: COURSE_TYPE.THEORY,
+    //     grade: GRADES.GRADE10,
+    //     thumbnailUrl: "string",
+    //     createdAt: "Date",
+    //     updatedAt: "1/8/2020",
+    //     isHidden: false
+        
+    // },
+    // {
+    //     id: "9",
+    //     title: "Tìm diện tích khối trụ bằng phương pháp căn bản như trên",
+    //     description: "Description",
+    //     price:170000,
+    //     type: COURSE_TYPE.THEORY,
+    //     grade: GRADES.GRADE10,
+    //     thumbnailUrl: "string",
+    //     createdAt: "Date",
+    //     updatedAt: "1/8/2020",
+    //     isHidden: false
+        
+    // }
     
 ];
 
