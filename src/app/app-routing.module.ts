@@ -5,7 +5,8 @@ import { EditCourseComponent } from './screen/lecturer/edit-course/edit-course.c
 import { LecturerHomeScreenComponent } from './screen/lecturer/lecturer-home-screen/lecturer-home-screen.component';
 
 import { CourseLearningScreenComponent } from './screen/course-learning-screen/course-learning-screen.component';
-import { DetailCourseScreenComponent } from './screen/detail-course-screen/detail-course-screen.component';
+import { CourseDetailScreenComponent } from './screen/course-detail-screen/course-detail-screen.component';
+
 import { WalletComponent } from './components/admin/wallet/wallet.component';
 import { LoginScreenComponent } from './screen/login-screen/login-screen.component';
 import { WalletScreenComponent } from './screen/wallet-screen/wallet-screen.component';
@@ -16,18 +17,18 @@ import { LearnerManagermentComponent } from './components/admin/learner-managerm
 
 const routes: Routes = [
 
-  {path:'admin/login', component:LoginScreenComponent},
-  {path:'admin/home', component:LecturerHomeScreenComponent},
   {
-    path: 'detail-course',
-    component: DetailCourseScreenComponent,
+    path:'admin/login', component:LoginScreenComponent
   },
   {
-    path:'learning/:id/:name-course', component: CourseLearningScreenComponent
+    path:'admin/home', component:LecturerHomeScreenComponent
+  },
+ 
+  {
+    path:'learning/:id', component: CourseLearningScreenComponent
   },
   {
-    path: 'home',
-    component: HomeScreenComponent,
+    path: 'home', component: HomeScreenComponent,
   },
   {
     path: '',
@@ -55,7 +56,7 @@ const routes: Routes = [
     path:'wallet', component:WalletScreenComponent
   },
   {
-    path:'detail/:id/:name-course', component: DetailCourseScreenComponent
+    path:'detail/:id/:course-name', component: CourseDetailScreenComponent
   },
   {
     path:'login', component: LoginScreenComponent
@@ -64,8 +65,12 @@ const routes: Routes = [
     path:'search', component:SearchComponent
   },
   
-  { path: 'lecturer', component: LecturerHomeScreenComponent },
-  { path: 'admin/edit', component: EditCourseComponent },
+  { 
+    path: 'lecturer', component: LecturerHomeScreenComponent 
+  },
+  { 
+    path: 'admin/edit', component: EditCourseComponent 
+  }
 ];
 
 @NgModule({

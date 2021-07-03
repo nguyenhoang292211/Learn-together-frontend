@@ -2,13 +2,10 @@
     <img class="img-fluid img-course" src="../../../assets/images/img1.jpg" alt="">
     <div class="info-course">
         <div class="name">
-            <a routerLink="/detail/{{course.id}}/{{course.title}}" class="course-name">{{course.title | shorten}}</a>
+            <a routerLink="/detail/{{course.id}}/{{course.title}}" fragment="detail" class="course-name">{{course.title | shorten}}</a>
 
         </div>
         <!-- <span class="teacher"> {{course.teacher}} </span> -->
-        <div class="users-count">
-            <!-- <i class="fa fa-user"></i><span> {{course.users}} </span> -->
-        </div>
         <p class="course-price"> {{handlePriceFormat(course.price)}} </p>
 
     </div>

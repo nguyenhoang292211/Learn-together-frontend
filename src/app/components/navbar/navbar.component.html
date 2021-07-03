@@ -6,29 +6,32 @@
                 <i class="fa fa-bars"></i>
             </span>
           </button>
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <div class="collapse navbar-collapse row" id="navbarSupportedContent">
 
-            <div class="col-md-8 nav-item">
+            <div class="col-md-8">
                 <div class="d-flex form-group">
-                   <div   type="submit" 
-                   routerLinkActive="active"
-                   (click) = "onLoadSearch()"
-                   rou>
-                   <!-- (click) = "onLoadSearch()" -->
-                  
-            
-                       <i class="fa fa-search icon"></i></div> 
-                    <input class="form-control search-input"  [(ngModel)] = "titleSearch" type="text" placeholder="Find a course... ">
-                    
-                   </div>
-                <Label></Label>
+                    <div type="submit" routerLinkActive="active" (click)="onLoadSearch()" rou>
+                        <!-- (click) = "onLoadSearch()" -->
+                        <i class="fa fa-search icon"></i></div>
+                    <input class="form-control search-input" [(ngModel)]="titleSearch" type="text" placeholder="Find a course... ">
+
+                </div>
             </div>
             <div class="col-md-4 action-button ">
-                <a routerLink="login" class=" btn-signin">Sign In</a>
-                <a routerLink="login" class="btn-signup ">Sign Up</a>
+                <div *ngIf="isLoggedin ; then thenBlock else elseBlock"></div>
+
+                <ng-template #elseBlock>
+
+                    <a routerLink="login" class="btn-signin">Sign In</a>
+                    <a routerLink="login" class="btn-signup ">Sign Up</a>
+                </ng-template>
+                <ng-template #thenBlock>
+                    <a routerLink="login" class=" btn-mycourse">My course</a>
+                    <a routerLink="login" class="btn-mywallet ">My wallet</a>
+                    <button (click)="logOut()"> Log out</button>
+                    <img [src]="photo" alt="{photo}" class="photo">
+                </ng-template>
             </div>
         </div>
     </div>
-
-
 </nav>

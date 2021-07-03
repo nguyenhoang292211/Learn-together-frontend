@@ -7,8 +7,8 @@ export class User {
     email: string = "";
     role: USER_ROLES = USER_ROLES.LEARNER;
     balance: number = 0;
-    createdAt: string = "";
-    updatedAt: string = "";
+    createdAt?: string = "";
+    updatedAt?: string = "";
 
     constructor(){
 

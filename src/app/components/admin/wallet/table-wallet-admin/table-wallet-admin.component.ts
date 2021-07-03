@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-table-wallet-admin',
@@ -10,6 +10,7 @@ export class TableWalletAdminComponent implements OnInit {
   message_view_img: string = "Show image deposit !";
   path_img_view:string = "../../../../../assets/images/ck.jpg";
   isViewImg:boolean = false;
+  @Input() isAdmin:boolean= true;
 
   constructor() { }
 
