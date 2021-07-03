@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CourseService } from 'src/app/service/course.service';
 import { Course } from 'src/app/models/course.model';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-course-detail-screen',
@@ -11,17 +12,27 @@ import { Course } from 'src/app/models/course.model';
 export class CourseDetailScreenComponent implements OnInit {
 
   
-  selectedCourse = new Course;
-
+  selectedCourse = new Course();
+  courseId!: Observable<string>;
   constructor(
     private service: CourseService,
     private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {   
-    const id= this.route.snapshot.paramMap.get('id');
-    if(id !=null)
-    this.service.getCourseById(id).subscribe(course =>  this.selectedCourse= course);
+
+   
+    this.route.params.subscribe(params=>{
+      this.courseId= of(params['id']);
+      
+    })
+
+    this.courseId.subscribe(id=>{
+      this.service.getCourseById(id).subscribe(course =>  this.selectedCourse= course);
+
+    })
+
+    console.log(this.courseId)
   }
 
 }

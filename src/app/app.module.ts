@@ -45,13 +45,16 @@ import { TransferInformationComponent } from './screen/wallet-screen/transfer-in
 
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login'
 import { ShortenPipe } from './components/course/small-course/shorten.pipe';
+
 import { RouterModule } from '@angular/router';
 import { LearnerManagermentComponent } from './components/admin/learner-managerment/learner-managerment.component';
 import { TableLearnerManagermentComponent } from './components/admin/learner-managerment/table-learner-managerment/table-learner-managerment.component';
 import { AlertComponent } from './components/alert/alert.component'
 
 import {HttpClientModule} from '@angular/common/http'
-import {AlertWarningComponent } from './components/admin/alert-warning/alert-warning.component'
+import {AlertWarningComponent } from './components/admin/alert-warning/alert-warning.component';
+import { MylearingScreenComponent } from './screen/mylearing-screen/mylearing-screen.component'
+import {ShortenDescription} from './components/course/small-course/lecturer-card-course/shortenDescription.pipe'
 
 @NgModule({
   declarations: [
@@ -99,7 +102,9 @@ import {AlertWarningComponent } from './components/admin/alert-warning/alert-war
     ShortenPipe,
     LearnerManagermentComponent,
     TableLearnerManagermentComponent,
-    ListSearchComponent
+    ListSearchComponent,
+    MylearingScreenComponent,
+    ShortenDescription
   ],
   imports: [
     BrowserModule,

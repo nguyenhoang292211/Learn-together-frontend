@@ -8,8 +8,9 @@ import { Course } from 'src/app/models/course.model';
   styleUrls: ['./lecturer-card-course.component.css']
 })
 export class LecturerCardCourseComponent implements OnInit {
-  @Input() course:Course= new Course();
- 
+  @Input() course= new Course();
+  @Input() isLearner: boolean=false;
+  
   constructor(private route:ActivatedRoute,
     private router:Router) { }
 

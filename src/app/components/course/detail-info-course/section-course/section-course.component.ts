@@ -37,9 +37,9 @@ export class SectionCourseComponent implements OnInit {
 
   //get video of lecture by lecture id
   getVideoByLectureId(lectureId: string): string{
-    this.courseService.getVideoByLectureId(lectureId).subscribe(video=>
-        this.video= video
-    )
+    // this.courseService.getVideoByLectureId(lectureId).subscribe(video=>
+    //     this.video= video
+    // )
     //return this.video.length;
     return "1p30"
   }

@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from 'src/app/service/course.service';
 import { Course } from 'src/app/models/course.model';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-course-learning-screen',
@@ -13,6 +14,7 @@ import { Course } from 'src/app/models/course.model';
 export class CourseLearningScreenComponent implements OnInit {
 
   current_course = new Course();
+  courseId!: Observable<string>;
   videoURL : any;
 
   constructor(
@@ -25,7 +27,16 @@ export class CourseLearningScreenComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    const id= Number(this.route.snapshot.paramMap.get('id'));
+    //Get id course from url and find course by id
+    this.route.params.subscribe(params=>{
+      this.courseId= of(params['id']);
+      
+    })
+
+    this.courseId.subscribe(id=>{
+        this.courseService.getCourseById(id).subscribe(course=>{this.current_course= course})
+    })
+
     this.videoURL= this._sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/zcAalMeaKso");
     // this.courseService.getCourseById(id).subscribe(course => this.current_course= course);
 
