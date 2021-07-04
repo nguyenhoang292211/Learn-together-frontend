@@ -17,16 +17,13 @@ import { MylearingScreenComponent } from './screen/mylearing-screen/mylearing-sc
 
 
 const routes: Routes = [
-
-  {
-    path:'admin/login', component:LoginScreenComponent
-  },
-  {
-    path:'admin/home', component:LecturerHomeScreenComponent},
+  { path: 'admin/course/:id/edit', component: EditCourseComponent },
+  {path:'admin/login', component:LoginScreenComponent},
+  {path:'admin/home', component:LecturerHomeScreenComponent},
+  
     {
     path: 'admin/managerment/wallet', component: WalletComponent
   },
-
   {
     path:'learning/:id/:name', component: CourseLearningScreenComponent
   },
@@ -42,9 +39,7 @@ const routes: Routes = [
     path: 'wallet',
     component: WalletScreenComponent,
   },
-  {
-     path: 'edit', component: EditCourseComponent
-  },
+
   {
     path: 'admin/managerment/learner', component: LearnerManagermentComponent
   },
@@ -74,7 +69,11 @@ const routes: Routes = [
   },
   {
     path: 'mylearning', component: MylearingScreenComponent
-  }
+  },
+
+  { path: 'admin/course/new', component: EditCourseComponent },
+
+ 
 ];
 
 @NgModule({

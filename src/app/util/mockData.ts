@@ -10,8 +10,7 @@ export const sectionList : Section[]=[
         sectionOrder: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
-        lessions:[],
-        name:""
+      
     },
     {
         courseId:'1',
@@ -21,8 +20,7 @@ export const sectionList : Section[]=[
         sectionOrder: 2,
         createdAt:new Date(),
         updatedAt: new Date(),
-        lessions:[],
-        name:""
+    
     },
     {
         courseId:'2',
@@ -32,8 +30,7 @@ export const sectionList : Section[]=[
         sectionOrder: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
-        lessions:[],
-        name:""
+      
     },
     {
         courseId:'2',
@@ -43,8 +40,7 @@ export const sectionList : Section[]=[
         sectionOrder: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
-        lessions:[],
-        name:""
+        
     },
     {
         courseId:'2',
@@ -54,8 +50,7 @@ export const sectionList : Section[]=[
         sectionOrder: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
-        lessions:[],
-        name:""
+    
     },
    
 ]

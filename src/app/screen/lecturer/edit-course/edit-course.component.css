@@ -65,3 +65,21 @@
 .url-video{
     margin-left: 20px;
 }
+.div-contain{
+    display: inline-block;
+    margin-top: 1rem;
+}
+.div-back{
+    
+    font-size: 20px;
+    color: rgb(64, 129, 250);
+}
+
+.div-back:hover{
+    color: red;
+    cursor: pointer;
+}
+.container{
+    
+    margin-top: 55px;
+}
