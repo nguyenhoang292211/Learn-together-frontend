@@ -1,16 +1,25 @@
 <div class="edit-screen container">
+  <div class="div-contain">
+    <div class="div-back">
+      <span> <i class="fa fa-chevron-up icon-decorate" title="Lesson go up" ></i>Back to course</span></div>
+    </div>
+   
   <app-course-info></app-course-info>
 
   <app-course-section
     *ngFor="let section of sections"
-    [section]="section"
+    [sectionDummy]="section"
   ></app-course-section>
   <ul>
-    <button class="btn-create-new">Create new Section</button>
+    <button class="btn-create-new" (click)="onCreateSection()">
+      Create new Section
+    </button>
   </ul>
   <br />
   <div class="div-save">
-    <button class="btn-create-new btn-save">Save Change</button>
+    <button class="btn-create-new btn-save" (click)="onSave()">
+      Save Change
+    </button>
   </div>
 
   <br />
@@ -20,7 +29,10 @@
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title">
-      {{wayModify==0? 'Create': (wayModify==1)?'Edit':'Delete'}}</h4>
+      {{
+        customeTitle()
+      }}
+    </h4>
     <button
       type="button"
       class="btn btn-white close"
@@ -31,34 +43,40 @@
     </button>
   </div>
   <div class="modal-body">
-    <div *ngIf="wayModify == 2">Are you sure delete</div>
-    <div class="mb-3 row " *ngIf="wayModify != 2">
+    <div *ngIf="wayModify != 0 && wayModify != 1">
+      {{
+        customeContent()
+      }}
+    </div>
+    <div class="mb-3 row" *ngIf="wayModify == 0 || wayModify == 1">
       <label for="name" class="col-sm-4 col-form-label">
-        Title {{typeSelection==0?'section':'lession'}}</label>
+        Title {{ typeSelection == 0 ? "section" : "lession" }}</label
+      >
       <div class="col-sm-9">
         <input
           type="text"
           class="form-control"
-          id="name"
+          id="nameTitle"
           [value]="
-            typeSelection == 0 ? sectionCurrent.name : lessionCurrent.title
+            typeSelection == 0 ? sectionCurrent.title : lessionCurrent.title
           "
-          placeholder="Title course"
+          placeholder="Title course" 
+          name="nameTitle" [(ngModel)]="titleBinding"
         />
       </div>
-      <div *ngIf="typeSelection==1">
+      <div *ngIf="typeSelection == 1">
         <input
           #file
           type="file"
           accept="video/mp4,video/x-m4v,video/*"
-          (change)="handleFileInput($event)" 
+          (change)="handleFileInput($event)"
         />
         <button class="btn-upload" (click)="file.click()">
-          Upload thumbnail
+          Upload Video
         </button>
         <span class="url-video">{{ urlVideo }}</span>
       </div>
-      <div class="modal-footer"></div>
+    
     </div>
   </div>
   <div class="modal-footer">
@@ -72,7 +90,8 @@
     <button
       type="button"
       class="btn btn-primary"
-      (click)="modal.close('Close click')"
+      (click)="onConfirmSave()"
+      
     >
       Save
     </button>

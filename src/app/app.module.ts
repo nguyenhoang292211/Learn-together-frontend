@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';  
+import { CommonModule, CurrencyPipe } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GradeCourseComponent } from './components/course/grade-course/grade-course.component';
+import {HttpClientModule} from '@angular/common/http'
 import { SmallCourseComponent } from './components/course/small-course/small-course.component';
 import { HomeScreenComponent } from './screen/home-screen/home-screen.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -51,7 +52,6 @@ import { LearnerManagermentComponent } from './components/admin/learner-managerm
 import { TableLearnerManagermentComponent } from './components/admin/learner-managerment/table-learner-managerment/table-learner-managerment.component';
 import { AlertComponent } from './components/alert/alert.component'
 
-import {HttpClientModule} from '@angular/common/http'
 import {AlertWarningComponent } from './components/admin/alert-warning/alert-warning.component';
 import { MylearingScreenComponent } from './screen/mylearing-screen/mylearing-screen.component'
 import {ShortenDescription} from './components/course/small-course/lecturer-card-course/shortenDescription.pipe'
@@ -151,11 +151,11 @@ import {MatListModule} from '@angular/material/list';
     MatSnackBarModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
     
-  
+    HttpClientModule
   ],
-  providers: [
+  providers: [ CurrencyPipe,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
@@ -169,6 +169,7 @@ import {MatListModule} from '@angular/material/list';
           }
         ]
       } as SocialAuthServiceConfig,
+     
     }
   ],
   bootstrap: [AppComponent]

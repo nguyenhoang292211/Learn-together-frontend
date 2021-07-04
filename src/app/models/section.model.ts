@@ -10,7 +10,4 @@ export class Section{
     updatedAt:Date = new Date();
     isHidden: boolean = false;
 
-    constructor(public name:string,
-                public lessions:Lession[]){
-                }
 }

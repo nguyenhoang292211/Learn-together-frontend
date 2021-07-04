@@ -20,4 +20,18 @@
     display: grid;
   grid-template-columns: 300px 300px 300px 300px;
   grid-gap: 10px;
+  
+}
+.no-found{
+    font-size: x-large;
+   font-weight: bold;
+   color: #c4c4c4;
+   
+   padding: 4rem;
+}
+.div-no-found{
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
 }

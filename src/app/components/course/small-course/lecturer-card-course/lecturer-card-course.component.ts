@@ -17,9 +17,9 @@ export class LecturerCardCourseComponent implements OnInit {
   ngOnInit(): void {
     
   }
-  onEditCourse(){
+  onEditCourse(idItem:string){
    // this.router.navigate(['edit'],{relativeTo:this.route})
-    this.router.navigate(['../','edit'],{relativeTo:this.route})
+    this.router.navigate(['../','course',idItem,'edit'],{relativeTo:this.route})
   }
 
 }
