@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { Enrollment } from "../models/enrollment.model";
-import { USER_ROLES } from "../models/user-roles";
+import { ROLES } from "../models/user-roles";
 import { User } from "../models/user.model";
 
 @Injectable({
@@ -15,10 +15,10 @@ export class UserService{
         fullName  : "Le Thi Ngoc Yen",
         avatarUrl: "",
         email : "ngocyen174308@gmail.com",
-        role :  USER_ROLES.LEARNER,
+        userRole :  ROLES.LEARNER,
         balance : 20000,
-        createdAt : "",
-        updatedAt : "",
+        createdAt :new Date(),
+        updatedAt : new Date()
     },
 
     {
@@ -26,10 +26,10 @@ export class UserService{
         fullName  : "Nguyen Thi Minh Hoang",
         avatarUrl: "",
         email : "hoangnguyen@gmail.com",
-        role :  USER_ROLES.LEARNER,
+        userRole :  ROLES.LEARNER,
         balance : 20000,
-        createdAt : "",
-        updatedAt : "",
+        createdAt : new Date(),
+        updatedAt : new Date(),
     },
 
     {
@@ -37,20 +37,20 @@ export class UserService{
         fullName  : "Le Thi Phuong Thao",
         avatarUrl: "",
         email : "thaole@gmail.com",
-        role :  USER_ROLES.LEARNER,
+        userRole :  ROLES.LEARNER,
         balance : 20000,
-        createdAt : "",
-        updatedAt : "",
+        createdAt : new Date(),
+        updatedAt : new Date(),
     },
     {
         id : "user04",
         fullName  : "Nguyen Thi Minh Hoang",
         avatarUrl: "",
         email : "nguyenhoang13166@gmail.com",
-        role :  USER_ROLES.LEARNER,
+        userRole :  ROLES.LEARNER,
         balance : 200000,
-        createdAt : "",
-        updatedAt : "",
+        createdAt : new Date(),
+        updatedAt : new Date(),
 
     }
 ];
@@ -97,10 +97,11 @@ export class UserService{
     buyCourse(learnerId :string, courseId: string){
         //create a enrollment
         const enrollment: Enrollment={
+            id:"",
             courseId:courseId,
             learnerId: learnerId,
-            createdAt: Date.now.toString(),
-            updatedAt:Date.now.toString()
+            createdAt: new Date(),
+            updatedAt:new Date()
         }
 
         //update balance of use

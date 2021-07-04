@@ -1,4 +1,4 @@
 export enum COURSE_TYPE {
-    THEORY,
-    EXAMINATION_SOLVING
+  THEORY = "theory",
+  EXAMINATION_SOLVING = "examination solving",
   }

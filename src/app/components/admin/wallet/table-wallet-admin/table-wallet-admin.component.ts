@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/service/user.service';
 import { PriceFormat } from 'src/app/util/priceformat';
@@ -23,9 +23,10 @@ export class TableWalletAdminComponent implements OnInit {
   userCurrentRow: string = "";
   isExist: boolean = true;
   colorSlideFilter: ThemePalette = 'primary';
+  content_for_search: string = "Find deposit by course name or email learner";
+  @Input() getCourseByTitleSearch = new EventEmitter<string>();
   constructor(public userService: UserService, private _snackBar: MatSnackBar) { 
 
-    
    }
 
    openSnackBar(message: string, action: string) {
@@ -34,6 +35,10 @@ export class TableWalletAdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // searchDeposit($event: eny){
+  //   this.getCourseByTitleSearch.emit.
+  // }
 
   setUpdateStatusForRowUser(){
     if(this.isAcceptAction)

@@ -5,9 +5,9 @@ export class Section{
     id: string = "";
     title: string = "";
     courseId: string = "";
-    order: number = 0;
-    createdAt: string = "";
-    updatedAt: string = "";
+    sectionOrder: number = 0;
+    createdAt:Date = new Date();
+    updatedAt:Date = new Date();
     isHidden: boolean = false;
 
     constructor(public name:string,

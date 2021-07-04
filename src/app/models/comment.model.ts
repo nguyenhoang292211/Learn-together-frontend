@@ -1,10 +1,10 @@
 export class Comment{
     id: string = "";
-    text: string = "";
+    commentText: string = "";
     parentId: string = "";
     userId: string = "";
     lectureId: string = "";
-    createdAt: string = "";
-    updatedAt: string = "";
+    createdAt: Date = new Date();
+    updatedAt: Date = new Date();
     idHidden: boolean = false;
 }

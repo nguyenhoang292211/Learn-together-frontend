@@ -3,8 +3,8 @@ export class Lecture{
     id: string = "";
     title: string = "";
     sectionId: string = "";
-    order: number = 0;
-    createdAt: string = "";
-    updatedAt: string = "";
+    lectureOrder: number = 0;
+    createdAt: Date = new Date();
+    updatedAt: Date = new Date();
     idHidden: boolean = false;
 }

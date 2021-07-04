@@ -1,5 +1,5 @@
 export enum STATUSES{
-    PENDING,
-    APPROVED,
-    DENIED
+    PENDING = "pending",
+    CONFIRM = "confirmed",
+    DENIED = "denied",
 }

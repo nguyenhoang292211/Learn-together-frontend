@@ -12,7 +12,7 @@ import { CourseService } from 'src/app/service/course.service';
 })
 export class GradeCourseComponent implements OnInit {
 
-  @Input() grade:GRADES=GRADES.GRADE10;
+  @Input() grade:GRADES=GRADES.TENTH;
   @Input() typeCourse: COURSE_TYPE = COURSE_TYPE.THEORY;
   smallCourses:Course[]=[];
   constructor(private CourseService:CourseService, private route: ActivatedRoute, private router: Router) { }
@@ -22,7 +22,7 @@ export class GradeCourseComponent implements OnInit {
   }
 
   getLevelGradeName():any{
-    return GRADES[this.grade];
+    return this.grade;
   }
 
   viewAllCourse(){

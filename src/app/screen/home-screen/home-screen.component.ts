@@ -8,9 +8,9 @@ import { GRADES } from 'src/app/models/grades';
 })
 export class HomeScreenComponent implements OnInit {
 
-  grade10:GRADES =GRADES.GRADE10;
-  grade11:GRADES= GRADES.GRADE11;
-  grade12:GRADES= GRADES.GRADE12;
+  grade10:GRADES =GRADES.TENTH;
+  grade11:GRADES= GRADES.ELEVENTH;
+  grade12:GRADES= GRADES.TWELFTH;
   constructor() { }
 
   ngOnInit(): void {

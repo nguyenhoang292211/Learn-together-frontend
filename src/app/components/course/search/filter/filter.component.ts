@@ -1,5 +1,7 @@
 import { Component, Output, OnInit, ViewChild, EventEmitter } from '@angular/core';
 import { CategoryFilter } from 'src/app/models/categoryFilter';
+import { COURSE_TYPE } from 'src/app/models/course-type';
+import { GRADES } from 'src/app/models/grades';
 import { ItemFilterComponent } from './item-filter/item-filter.component';
 
 @Component({
@@ -11,12 +13,12 @@ export class FilterComponent implements OnInit {
 
 
   @ViewChild(ItemFilterComponent) filter: any;
-  @Output() sendGradeChoose = new EventEmitter<number>();
-  @Output() sendCategoryChoose = new EventEmitter<number>();
-  grade: number = 0;
-  category: number = 0;
-  listFilter = ["Theory", 
-  "Examination Solving", "Test"];
+  @Output() sendGradeChoose = new EventEmitter<string>();
+  @Output() sendCategoryChoose = new EventEmitter<string>();
+  grade: string = GRADES.TWELFTH;
+  category: string = COURSE_TYPE.THEORY;
+  listFilter = ["theory", 
+  "examination solving",];
   constructor() { }
 
   ngOnInit(): void {

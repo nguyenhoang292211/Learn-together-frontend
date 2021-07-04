@@ -3,7 +3,7 @@ export class Video{
     fileName: string = "";
     length: number = 0;
     lectureId: string = "";
-    createdAt: string = "";
-    updatedAt: string = "";
+    createdAt: Date = new Date();
+    updatedAt: Date = new Date();
     idHidden: boolean = false;
 }

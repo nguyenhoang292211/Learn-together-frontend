@@ -1,14 +1,14 @@
-import { USER_ROLES } from "./user-roles"
+import { ROLES } from "./user-roles"
 
 export class User {
     id: string = "";
     fullName:string = "";
     avatarUrl: string = "";
     email: string = "";
-    role: USER_ROLES = USER_ROLES.LEARNER;
+    userRole: ROLES = ROLES.LEARNER;
     balance: number = 0;
-    createdAt?: string = "";
-    updatedAt?: string = "";
+    createdAt?: Date = new Date();
+    updatedAt?: Date = new Date();
 
     constructor(){
 

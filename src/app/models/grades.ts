@@ -1,6 +1,6 @@
 
 export enum GRADES{
-        GRADE12,
-        GRADE11,
-        GRADE10
+        TWELFTH = "12",
+        ELEVENTH = "11",
+        TENTH = "10",
  }
