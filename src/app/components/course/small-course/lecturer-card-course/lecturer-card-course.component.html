@@ -1,22 +1,15 @@
-<div  class="card">
+<div class="card">
     <img class="img-fluid img-course" src="../../../assets/images/img1.jpg" alt="">
     <div class="info-course">
         <div class="name">
             <a routerLink="/detail/{{course.id}}/{{course.title}}" class="course-name">{{course.title |shorten}}</a>
             <p class="course-description">{{course.courseDescription | shortenDescription}}</p>
         </div>
-     
-        <div *ngIf="!isLearner" class="users-count" style="cursor: pointer;" 
-        (click)= "onEditCourse(course.id)">
-        <span class="info-course more-info">Update on: {{course.updatedAt}}</span>
-        <i class="fa fa-pencil"></i> 
 
-<<<<<<< HEAD
-=======
-        <div *ngIf="!isLearner" class="users-count" style="cursor: pointer;" (click)="onEditCourse()">
+        <div *ngIf="!isLearner" class="users-count" style="cursor: pointer;" (click)="onEditCourse(course.id)">
             <span class="info-course more-info">Update on: {{course.updatedAt |date:'yyyy-MM-dd'}}</span>
             <i class="fa fa-pencil"></i>
->>>>>>> d54cf7c... comment by learner
+
         </div>
         <div *ngIf="isLearner" class="users-count" style="cursor: pointer;">
             <span class="info-course more-info">Purchase on: {{course.updatedAt |date:'yyyy-MM-dd'}}</span>
