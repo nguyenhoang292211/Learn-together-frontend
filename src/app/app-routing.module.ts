@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeScreenComponent } from './screen/home-screen/home-screen.component';
-import { EditCourseComponent } from './screen/lecturer/edit-course/edit-course.component';
-import { LecturerHomeScreenComponent } from './screen/lecturer/lecturer-home-screen/lecturer-home-screen.component';
+import { CourseCreationScreenComponent } from './screen/lecturer/course-creation-screen/course-creation-screen.component';
+import { AdminCourseScreenComponent } from './screen/lecturer/admin-course-screen/admin-course-screen.component';
 
 import { CourseLearningScreenComponent } from './screen/course-learning-screen/course-learning-screen.component';
 import { CourseDetailScreenComponent } from './screen/course-detail-screen/course-detail-screen.component';
@@ -17,9 +17,9 @@ import { MylearingScreenComponent } from './screen/mylearing-screen/mylearing-sc
 
 
 const routes: Routes = [
-  { path: 'admin/course/:id/edit', component: EditCourseComponent },
+  { path: 'admin/course/:id/edit', component: CourseCreationScreenComponent },
   {path:'admin/login', component:LoginScreenComponent},
-  {path:'admin/home', component:LecturerHomeScreenComponent},
+  {path:'admin/home', component:AdminCourseScreenComponent},
   
     {
     path: 'admin/managerment/wallet', component: WalletComponent
@@ -45,7 +45,7 @@ const routes: Routes = [
   },
   
   { 
-    path: 'lecturer', component: LecturerHomeScreenComponent 
+    path: 'lecturer', component: AdminCourseScreenComponent 
   },
 
 {
@@ -62,16 +62,16 @@ const routes: Routes = [
   },
   
   { 
-    path: 'lecturer', component: LecturerHomeScreenComponent 
+    path: 'lecturer', component: AdminCourseScreenComponent 
   },
   { 
-    path: 'admin/edit', component: EditCourseComponent 
+    path: 'admin/edit', component: CourseCreationScreenComponent 
   },
   {
     path: 'mylearning', component: MylearingScreenComponent
   },
 
-  { path: 'admin/course/new', component: EditCourseComponent },
+  { path: 'admin/course/new', component: CourseCreationScreenComponent },
 
  
 ];

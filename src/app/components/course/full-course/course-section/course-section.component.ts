@@ -14,12 +14,12 @@ import { UploadService } from '../upload.service';
   styleUrls: ['./course-section.component.css'],
 })
 export class CourseSectionComponent implements OnInit {
-  @Input() section: Section = new Section();
+  
   @Input() sectionDummy: SectionDummy = new SectionDummy("1","default",[]);
  
   urlVideo = '../';
   files?: File;
-  closeResult: string = '';
+  
   fileToUpLoad: File = new File([], 'hinh-a');
   constructor(private modalService: NgbModal,
               private fullCourseService: FullCourseService) {}

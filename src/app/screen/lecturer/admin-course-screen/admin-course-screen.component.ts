@@ -4,11 +4,11 @@ import { FullCourseService } from 'src/app/components/course/full-course/full-co
 import { Course } from 'src/app/models/course.model';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
-  selector: 'app-lecturer-home-screen',
-  templateUrl: './lecturer-home-screen.component.html',
-  styleUrls: ['./lecturer-home-screen.component.css'],
+  selector: 'app-admin-course-screen',
+  templateUrl: './admin-course-screen.component.html',
+  styleUrls: ['./admin-course-screen.component.css'],
 })
-export class LecturerHomeScreenComponent implements OnInit {
+export class AdminCourseScreenComponent implements OnInit {
   courses: Course[]=[];
   //Login check
   public userDetails? = Object;
