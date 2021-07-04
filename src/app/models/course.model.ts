@@ -4,12 +4,12 @@ export class Course{
 
     id:string ="";
     title:string="";
-    description:string ="";
+    courseDescription:string ="";
     price: number = 0;
-    type: COURSE_TYPE = COURSE_TYPE.THEORY;
-    grade: GRADES = GRADES.GRADE10;
+    courseType: COURSE_TYPE = COURSE_TYPE.THEORY;
+    grade: GRADES = GRADES.TENTH;
     thumbnailUrl: string = "url";
-    createdAt: string = "";
-    updatedAt: string = "";
+    createdAt: Date = new Date();
+    updatedAt: Date = new Date();
     isHidden: boolean = false;
 }

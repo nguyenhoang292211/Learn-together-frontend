@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 
 
 @Component({
@@ -10,6 +10,7 @@ export class SearchTitleComponent implements OnInit {
 
   @Output() sendTitleSearch = new EventEmitter<string>();
   titleSearch: string = "";
+  @Input() message: string = "";
   constructor() { }
 
   ngOnInit(): void {

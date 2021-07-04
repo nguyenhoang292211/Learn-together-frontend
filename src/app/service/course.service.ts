@@ -20,112 +20,112 @@ export class CourseService{
     private courses: Course[]=[{
         id: "1",
         title: "Giải phương trình bậc 3",
-        description: "Description",
+        courseDescription: "Description",
         price:150000,
-        type: COURSE_TYPE.THEORY,
-        grade: GRADES.GRADE10,
+        courseType: COURSE_TYPE.THEORY,
+        grade: GRADES.TENTH,
         thumbnailUrl: "string",
-        createdAt: "Date",
-        updatedAt: "22/10/2021",
+        createdAt: new Date(),
+        updatedAt: new Date(),
         isHidden: false
     },
     {
         id: "2",
         title: "Tìm diện tích khối trụ bằng phương pháp căn bản như trên",
-        description: "Description",
+        courseDescription: "Description",
         price:170000,
-        type: COURSE_TYPE.THEORY,
-        grade: GRADES.GRADE10,
+        courseType: COURSE_TYPE.THEORY,
+        grade: GRADES.TENTH,
         thumbnailUrl: "string",
-        createdAt: "Date",
-        updatedAt: "1/8/2020",
+        createdAt:new Date(),
+        updatedAt: new Date(),
         isHidden: false
         
     },
     {
         id: "3",
         title: "Giai tích căn bản",
-        description: "Description",
+        courseDescription: "Description",
         price:200000,
-        type: COURSE_TYPE.THEORY,
-        grade: GRADES.GRADE10,
+        courseType: COURSE_TYPE.THEORY,
+        grade: GRADES.TENTH,
         thumbnailUrl: "string",
-        createdAt: "Date",
-        updatedAt: "20/7/2020",
+        createdAt: new Date(),
+        updatedAt: new Date(),
         isHidden: false
     },
     {
         id: "4",
         title: "Giai tích căn bản",
-        description: "Description",
+        courseDescription: "Description",
         price:200000,
-        type: COURSE_TYPE.THEORY,
-        grade: GRADES.GRADE10,
+        courseType: COURSE_TYPE.THEORY,
+        grade: GRADES.TENTH,
         thumbnailUrl: "string",
-        createdAt: "Date",
-        updatedAt: "28/3/2020",
+        createdAt: new Date(),
+        updatedAt: new Date(),
         isHidden: false
     },
     {
         id: "5",
         title: "Giai tích căn bản",
-        description: "Description",
+        courseDescription: "Description",
         price:200000,
-        type: COURSE_TYPE.THEORY,
-        grade: GRADES.GRADE11,
+        courseType: COURSE_TYPE.THEORY,
+        grade: GRADES.ELEVENTH,
         thumbnailUrl: "string",
-        createdAt: "Date",
-        updatedAt: "Date",
+        createdAt: new Date(),
+        updatedAt: new Date(),
         isHidden: false
     },
     {
         id: "6",
         title: "Giai tích căn bản",
-        description: "Description",
+        courseDescription: "Description",
         price:200000,
-        type: COURSE_TYPE.THEORY,
-        grade: GRADES.GRADE11,
+        courseType: COURSE_TYPE.THEORY,
+        grade: GRADES.ELEVENTH,
         thumbnailUrl: "string",
-        createdAt: "Date",
-        updatedAt: "Date",
+        createdAt: new Date(),
+        updatedAt: new Date(),
         isHidden: false
     },
     {
         id: "7",
         title: "Tìm diện tích khối trụ bằng phương pháp căn bản như trên",
-        description: "Description",
+        courseDescription: "Description",
         price:170000,
-        type: COURSE_TYPE.THEORY,
-        grade: GRADES.GRADE10,
+        courseType: COURSE_TYPE.THEORY,
+        grade: GRADES.TENTH,
         thumbnailUrl: "string",
-        createdAt: "Date",
-        updatedAt: "1/8/2020",
+        createdAt: new Date(),
+        updatedAt: new Date(),
         isHidden: false
         
     },
     {
         id: "8",
         title: "Tìm diện tích khối trụ bằng phương pháp căn bản như trên",
-        description: "Description",
+        courseDescription: "Description",
         price:170000,
-        type: COURSE_TYPE.THEORY,
-        grade: GRADES.GRADE10,
+        courseType: COURSE_TYPE.THEORY,
+        grade: GRADES.TENTH,
         thumbnailUrl: "string",
-        createdAt: "Date",
-        updatedAt: "1/8/2020",
+        createdAt: new Date(),
+        updatedAt: new Date(),
         isHidden: false
         
     },
     {
         id: "9",
         title: "Tìm diện tích khối trụ bằng phương pháp căn bản như trên",
-        description: "Description",
+        courseDescription: "Description",
         price:170000,
-        type: COURSE_TYPE.THEORY,
-        grade: GRADES.GRADE10,
+        courseType: COURSE_TYPE.THEORY,
+        grade: GRADES.TENTH,
         thumbnailUrl: "string",
-        createdAt: "Date",
-        updatedAt: "1/8/2020",
+        createdAt:new Date(),
+        updatedAt: new Date(),
         isHidden: false
         
     }
@@ -155,8 +155,8 @@ export class CourseService{
         return this.courses;
     }
 
-    getListCourseFilter(courseType: COURSE_TYPE ,grade: GRADES):Observable<Course[]>{
-        const courses= this.courses.filter(course =>course.grade==grade && course.type == courseType);
+    getListCourseFilter(courseType: string ,grade: string):Observable<Course[]>{
+        const courses= this.courses.filter(course =>course.grade==grade && course.courseType == courseType);
         return of(courses);
     }
 

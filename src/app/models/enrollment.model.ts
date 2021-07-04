@@ -1,6 +1,7 @@
 export class Enrollment {
+    id: string = "";
     learnerId: string = "";
     courseId: string = "";
-    createdAt: string = "";
-    updatedAt: string = "";
+    createdAt: Date = new Date();
+    updatedAt: Date = new Date();
   }

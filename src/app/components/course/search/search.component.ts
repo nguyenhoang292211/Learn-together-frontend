@@ -14,12 +14,12 @@ export class SearchComponent implements OnInit {
 
       listCourse: Course[] = [];
       titleSearch: string = "";
-      grade: number =0;
-      category: number = 0;
+      grade: string = GRADES.TWELFTH;
+      category: string = COURSE_TYPE.THEORY;
       isUseFilter: boolean = false;
       textSearch: string = "";
-      listFilter = ["Theory", 
-      "Examination Solving", "Test"];
+      listFilter = ["theory", 
+      "examination solving"];
       listGrade = ["Grade 12", "Grade 11", "Grade 10"];
 
       constructor(private route: ActivatedRoute, private router: Router, private courseService: CourseService) {
@@ -102,12 +102,12 @@ export class SearchComponent implements OnInit {
       { 
         this.getFormFilterRouter();
         if(!this.category){ // set default search is title null
-          this.category = COURSE_TYPE.THEORY;
-          this.grade = GRADES.GRADE12;
+          this.category =COURSE_TYPE.THEORY;
+          this.grade = GRADES.TWELFTH;
         }
         
         this.courseService.getListCourseFilter(this.category, this.grade).subscribe(list => this.listCourse = list);
-        this.setTextSearch( this.getNameTypeCourseByEnum(this.category) + " of " + this.getNameGradeByEnum(this.grade) );
+        this.setTextSearch( this.category + " of " + this.grade );
       }
       
     }

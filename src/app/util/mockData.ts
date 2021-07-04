@@ -7,9 +7,9 @@ export const sectionList : Section[]=[
         id:'course1sec1',
         title:'Lý thuyết phương trình',
         isHidden: false,
-        order: 1,
-        createdAt: Date.now.toString(),
-        updatedAt: Date.now.toString(),
+        sectionOrder: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
         lessions:[],
         name:""
     },
@@ -18,9 +18,9 @@ export const sectionList : Section[]=[
         id:'course1sec2',
         title:'Phương trình tuyến tính',
         isHidden: false,
-        order: 2,
-        createdAt: Date.now.toString(),
-        updatedAt: Date.now.toString(),
+        sectionOrder: 2,
+        createdAt:new Date(),
+        updatedAt: new Date(),
         lessions:[],
         name:""
     },
@@ -29,9 +29,9 @@ export const sectionList : Section[]=[
         id:'course2sec1',
         title:'Lý thuyết phương trình',
         isHidden: false,
-        order: 1,
-        createdAt: Date.now.toString(),
-        updatedAt: Date.now.toString(),
+        sectionOrder: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
         lessions:[],
         name:""
     },
@@ -40,9 +40,9 @@ export const sectionList : Section[]=[
         id:'course2sec2',
         title:'Lý thuyết phương trình',
         isHidden: false,
-        order: 2,
-        createdAt: Date.now.toString(),
-        updatedAt: Date.now.toString(),
+        sectionOrder: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
         lessions:[],
         name:""
     },
@@ -51,9 +51,9 @@ export const sectionList : Section[]=[
         id:'course2sec3',
         title:'Giai bai toan vi du',
         isHidden: false,
-        order: 3,
-        createdAt: Date.now.toString(),
-        updatedAt: Date.now.toString(),
+        sectionOrder: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
         lessions:[],
         name:""
     },
@@ -64,101 +64,100 @@ export const lectureList :Lecture[]=[
     {
         id:'co1sec1lec1',
         title:"Video 1",
-        order:1,
+        lectureOrder:1,
         idHidden:false,
         sectionId:'course1sec1',
-        createdAt:'',
-        updatedAt:''
+        createdAt:new Date(),
+        updatedAt:new Date()
     },
     {
         id:'co1sec1lec2',
         title:"Video 2",
-        order:2,
+        lectureOrder:2,
         idHidden:false,
         sectionId:'course1sec1',
-        createdAt:'',
-        updatedAt:''
+        createdAt:new Date(),
+        updatedAt:new Date()
     },
     {
         id:'co1sec2lec1',
         title:"Video 1",
-        order:1,
+        lectureOrder:1,
         idHidden:false,
         sectionId:'course1sec2',
-        createdAt:'',
-        updatedAt:''
-    },
+        createdAt:new Date(),
+        updatedAt:new Date()},
     {
         id:'co1sec2lec2',
         title:"Video 2",
-        order:2,
+        lectureOrder:2,
         idHidden:false,
         sectionId:'course1sec2',
-        createdAt:'',
-        updatedAt:''
+        createdAt:new Date(),
+        updatedAt:new Date()
     },
     {
         id:'co1sec2lec3',
         title:"Video 3",
-        order:3,
+        lectureOrder:3,
         idHidden:false,
         sectionId:'course1sec2',
-        createdAt:'',
-        updatedAt:''
+        createdAt:new Date(),
+        updatedAt:new Date()
     },
     {
         id:'co2sec1lec1',
         title:"Video 1",
-        order:1,
+        lectureOrder:1,
         idHidden:false,
         sectionId:'course2sec1',
-        createdAt:'',
-        updatedAt:''
+        createdAt:new Date(),
+        updatedAt:new Date()
     },
     {
         id:'co2sec1lec2',
         title:"Video 2",
-        order:2,
+        lectureOrder:2,
         idHidden:false,
         sectionId:'course2sec1',
-        createdAt:'',
-        updatedAt:''
+        createdAt:new Date(),
+        updatedAt:new Date()
     },
     {
         id:'co2sec1lec3',
         title:"Video 3",
-        order:3,
+        lectureOrder:3,
         idHidden:false,
         sectionId:'course2sec1',
-        createdAt:'',
-        updatedAt:''
+        createdAt:new Date(),
+        updatedAt:new Date()
     },
     {
         id:'co2sec2lec1',
         title:"Video 1",
-        order:1,
+        lectureOrder:1,
         idHidden:false,
         sectionId:'course2sec2',
-        createdAt:'',
-        updatedAt:''
+        createdAt:new Date(),
+        updatedAt:new Date()
     },
     {
         id:'co2sec3lec1',
         title:"Video 1",
-        order:1,
+        lectureOrder:1,
         idHidden:false,
         sectionId:'course2sec3',
-        createdAt:'',
-        updatedAt:''
+        createdAt:new Date(),
+        updatedAt:new Date()
     },
     {
         id:'co2sec3lec2',
         title:"Video 2",
-        order:2,
+        lectureOrder:2,
         idHidden:false,
         sectionId:'course2sec3',
-        createdAt:'',
-        updatedAt:''
+        createdAt:new Date(),
+        updatedAt:new Date()
     }
 ]
 

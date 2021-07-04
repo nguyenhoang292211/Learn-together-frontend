@@ -2,10 +2,11 @@ import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output} from
 import { GRADES } from 'src/app/models/grades';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
+import { COURSE_TYPE } from 'src/app/models/course-type';
 
 interface Grade {
   name: string;
-  value: GRADES;
+  value: string;
   children?: Grade[];
 }
 
@@ -15,7 +16,7 @@ interface FlatNodeFilterGrade {
   expandable: boolean;
   name: string;
   level: number;
-  value: GRADES;
+  value: string;
 }
 
 @Component({
@@ -26,13 +27,13 @@ interface FlatNodeFilterGrade {
 })
 export class ItemFilterComponent implements OnInit {
 
-  @Output() sendGradeChoose = new EventEmitter<number>();
-  @Output() sendCategoryChoose = new EventEmitter<number>();
-  @Input() category :number=0; //enum category
-  @Input() nameFilterCategory: string = "Test"; // name category
-  listFilterOfCategory = [GRADES.GRADE12,GRADES.GRADE11, GRADES.GRADE10];
-  categoryChoose: Number = 0;
-  grade: number = 12;
+  @Output() sendGradeChoose = new EventEmitter<string>();
+  @Output() sendCategoryChoose = new EventEmitter<string>();
+  @Input() category :string= COURSE_TYPE.THEORY; //enum category
+  @Input() nameFilterCategory:string =  COURSE_TYPE.THEORY; // name category
+  listFilterOfCategory = [GRADES.TWELFTH,GRADES.ELEVENTH, GRADES.TENTH];
+  categoryChoose: string = COURSE_TYPE.THEORY;
+  grade: string = GRADES.TWELFTH;
   TREE_DATA: Grade[] = [];
 
   private _transformer = (node: Grade, level: number) => {
@@ -54,9 +55,9 @@ export class ItemFilterComponent implements OnInit {
         name: this.nameFilterCategory,
         value: this.category,
         children: [
-          {name: 'Grade 12', value: GRADES.GRADE12},
-          {name: 'Grade 11', value: GRADES.GRADE11},
-          {name: 'Grade 10', value: GRADES.GRADE10},
+          {name: 'Grade 12', value: GRADES.TWELFTH},
+          {name: 'Grade 11', value:GRADES.ELEVENTH},
+          {name: 'Grade 10', value: GRADES.TENTH},
         ]
       }
     ]
@@ -82,7 +83,7 @@ export class ItemFilterComponent implements OnInit {
 
   }
 
-  change(gradeIndex: number){
+  change(gradeIndex: string){
     this.grade = gradeIndex;
     console.log(this.grade);
     this.sendGradeChoose.emit(this.grade);
