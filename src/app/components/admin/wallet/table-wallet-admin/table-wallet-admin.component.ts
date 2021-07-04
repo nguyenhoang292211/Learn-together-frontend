@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DepositRequest } from 'src/app/models/deposit-request.model';
 import { DepositRequestService } from 'src/app/service/deposit-request.service';
 import { STATUSES } from 'src/app/models/statuses';
+import { Router } from '@angular/router';
 
 const enum action {
   CONFIRMED,
@@ -37,20 +38,29 @@ export class TableWalletAdminComponent implements OnInit {
   depositRequests: DepositRequest[] = [];
   isConfirmAll: boolean = false;
   constructor(public userService: UserService, private _snackBar: MatSnackBar, 
-    public depositRequestService: DepositRequestService) { 
+    public depositRequestService: DepositRequestService,
+    private router: Router) { 
 
    }
 
-   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+   openSnackBar(message: string, action: string) { // notice success
+    this._snackBar.open(message, action, {
+      duration: 1000
+    });
+    
   }
 
   ngOnInit(): void {
     this.getAllList();
   }
 
+  isDeny(status: STATUSES){
+    if(status == STATUSES.DENIED)
+      return true;
+    return false;
+  }
 
-  setIsConfirmAll(){
+  setIsConfirmAll(){ 
     
     this.isConfirmAll = !this.isConfirmAll;
     if(this.isConfirmAll) this.getListNotYetConfirm();
@@ -66,28 +76,42 @@ export class TableWalletAdminComponent implements OnInit {
   }
 
   searchDeposit($event: any){
-    this.getTitleSearch.emit($event);
+   // const content = this.getTitleSearch.emit($event);
     //get search
+    if($event == "")
+      this.getAllList();
+    else this.depositRequestService.getDepositsByNameOrEmailLearner($event).subscribe(deposit => this.depositRequests = deposit);
   }
 
   
   getAcceptFromAlert($event: any){
     this.isAcceptAction = $event;
     if(this.isAcceptAction) this.updateStatusDeposit();
-    
+    if(this.isAcceptAction && this.isConfirmAll) this.updateStatusAllDepositNotConfirm();
     
   }
 
+  setActionConfirmAll(){ //when click btn confirm all
+    this.setMessageToAlert("Do you want CONFIRM ALL deposit request !", "Confirm All");
+    this.newStatusDeposit = STATUSES.CONFIRM;
+  }
 
   setActionConfirm(){ //when click btn confirm
-    this.setMessageToAlert("Do you want CONFIRM this user !", "Confirm");
+    this.setMessageToAlert("Do you want CONFIRM this deposit request !", "Confirm");
     this.newStatusDeposit = STATUSES.CONFIRM;
 
   }
 
   setActionDeny(){ //when click btn deny
-    this.setMessageToAlert("Do you want DENY this user !", "Deny");
+    this.setMessageToAlert("Do you want DENY this deposit request !", "Deny");
     this.newStatusDeposit = STATUSES.DENIED;
+  }
+
+  updateStatusAllDepositNotConfirm(){ //
+    this.depositRequestService.updateStatusForAllNotConfirm();
+    this.openSnackBar("ALl Reposit request was updated !", "OK");
+    this.reloadPage();
+
   }
 
   updateStatusDeposit(){
@@ -95,7 +119,7 @@ export class TableWalletAdminComponent implements OnInit {
     // get deposit current for update
     this.depositRequestService.updateStatus(this.depositCurrentRow, this.newStatusDeposit);
     this.openSnackBar("Reposit was updated !", "OK");
-
+    this.getListNotYetConfirm(); // check 
   }
 
   getDepositCurrentRow(item: DepositRequest){
@@ -106,6 +130,10 @@ export class TableWalletAdminComponent implements OnInit {
     this.messageToAction = message;
     this.nameActionToAlert = nameAction;
     this.isCallAlert = true;
+  }
+
+  reloadPage(){
+    window.location.reload();
   }
 
   isPaging(){

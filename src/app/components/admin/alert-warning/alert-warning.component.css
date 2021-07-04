@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100%;
-    background-color: rgba(0, 0,0, 0.75);
+    background-color:rgba(0, 0, 0, 0.3);
     z-index: 5000;
 }
 
@@ -15,17 +15,18 @@
     max-width: 50vw;
     padding: 20px;
     z-index: 10000;
-    width: 20vw;
+    width: 30vw;
     box-shadow: 2 1px 2px rgba(0, 0,0, 0.26);
     background-color: white;
     font-weight: 500;
     border-radius: 5px;
     vertical-align: middle;
     align-items: center;
+    text-align: center;
 }
 
 .alert-box-actions{
-    text-align: right;
+    text-align: center;
 }
 
 .img-fluid{
@@ -34,15 +35,19 @@
 }
 
 .btn{
-    margin-top: 10px;
+    margin-top: 20px;
     height: 35px;
     width: 100px;
+    border-radius: 25px;
+    font-weight: 400;
+
+
 }
 
 .btn.btn-danger{
-    margin-left: -30px;
+    margin-left: 10px;
 }
 
 .btn.btn-primary{
-    margin-left: 20px;
+    margin-left: 10px;
 }

@@ -3,6 +3,7 @@ import { Observable, of } from "rxjs";
 import { DepositRequest } from "../models/deposit-request.model";
 import { STATUSES } from "../models/statuses";
 import { User } from "../models/user.model";
+import { UserService } from "./user.service";
 
 @Injectable({
     providedIn: 'root'
@@ -103,6 +104,10 @@ export class DepositRequestService{
     }
 ]
 
+private userService = new UserService();
+private userList: User[] = [];
+private depositRequestList: DepositRequest[] = [];
+
     getAll(): Observable<DepositRequest[]>{
             return of (this.depositRequests);
     }
@@ -138,5 +143,30 @@ export class DepositRequestService{
         // update status
         // add wallet to wallet learner
         // return true;
+    }
+
+    updateStatusForAllNotConfirm(){
+        //get All list not yet confirm
+        // foreach list
+        // update each deposit
+    }
+
+    getDepositsByNameOrEmailLearner(content: string): Observable<DepositRequest[]>{
+       
+         this.userService = new UserService();
+         this.userList = [];
+         this.depositRequestList= [];
+        //depositRequestList
+       this.userService.getListUserByTitle(content).subscribe(user => this.userList = user);
+        for(let user of this.userList){
+            console.log(user.fullName);
+          const depositRequestList = this.depositRequests.filter(deposit => deposit.learnerId == user.id); 
+          if(depositRequestList.length > 0)
+                depositRequestList.forEach(deposit => this.depositRequestList.push(deposit));
+            console.log(depositRequestList.length);
+            console.log("list: " + this.depositRequestList.length);
+        }
+        return of(this.depositRequestList);
+        
     }
 }
