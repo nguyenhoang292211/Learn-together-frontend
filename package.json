@@ -40,7 +40,10 @@
     "@angular-devkit/build-angular": "~12.0.4",
     "@angular/cli": "^12.0.0",
     "@angular/compiler-cli": "^12.0.0",
+<<<<<<< HEAD
     "@types/events": "^3.0.0",
+=======
+>>>>>>> 8dd3881... install module materials
     "@types/jasmine": "^3.5.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "^3.5.0",
@@ -51,4 +54,8 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "typescript": "^4.0.0"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8dd3881... install module materials
