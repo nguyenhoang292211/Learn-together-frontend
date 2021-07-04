@@ -149,8 +149,9 @@ import { key } from './util/google_Key';
     MatSidenavModule,
     MatListModule,
     HttpClientModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    MatCardModule
+      
   ],
   providers: [ CurrencyPipe,
     {

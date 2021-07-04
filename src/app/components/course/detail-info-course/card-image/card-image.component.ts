@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Course } from 'src/app/models/course.model';
@@ -10,7 +10,8 @@ import { PriceFormat } from 'src/app/util/priceformat';
 @Component({
   selector: 'app-card-image',
   templateUrl: './card-image.component.html',
-  styleUrls: ['./card-image.component.css']
+  styleUrls: ['./card-image.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class CardImageComponent implements OnInit {
 
