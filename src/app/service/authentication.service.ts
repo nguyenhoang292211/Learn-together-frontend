@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SocialAuthService, SocialUser } from 'angularx-social-login';
 import { Observable, of, Subject } from 'rxjs';
-import { ROLES } from '../models/user-roles';
+import { USER_ROLES } from '../models/user-roles';
 import { User } from '../models/user.model';
 import {HttpClient} from '@angular/common/http'
 import { map } from 'rxjs/operators';
@@ -42,7 +42,7 @@ export  class authenticationService {
      const user:User = {
        id:"",
        email:socialUser.email,
-       userRole: ROLES.LEARNER,
+       userRole: USER_ROLES.LEARNER,
        balance: 0,
        avatarUrl:socialUser.photoUrl,
        fullName: socialUser.name

@@ -124,7 +124,7 @@ export class CourseService{
         courseType: COURSE_TYPE.THEORY,
         grade: GRADES.TENTH,
         thumbnailUrl: "string",
-        createdAt:new Date(),
+        createdAt: new Date(),
         updatedAt: new Date(),
         isHidden: false
         
@@ -155,8 +155,9 @@ export class CourseService{
         return this.courses;
     }
 
+    //TODO: CHECK PARAM courseType
     getListCourseFilter(courseType: string ,grade: string):Observable<Course[]>{
-        const courses= this.courses.filter(course =>course.grade==grade && course.courseType == courseType);
+        const courses= this.courses.filter(course =>course.grade==grade && course.courseType == COURSE_TYPE.THEORY);
         return of(courses);
     }
 
