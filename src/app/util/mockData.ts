@@ -1,6 +1,6 @@
 import { Lecture } from "../models/lecture.model";
 import { Section } from "../models/section.model";
-
+import { Comment } from "../models/comment.model";
 export const sectionList : Section[]=[
     {
         courseId:'1',
@@ -156,3 +156,78 @@ export const lectureList :Lecture[]=[
     }
 ]
 
+
+export const listComment: Comment[]=[
+    {
+        id: '1',
+        commentText: "Bài giảng của thầy rất bổ ích",
+        parentId: "",
+        userId: "user01",
+        lectureId: 'co1sec1lec1',
+        createdAt: new Date(),
+        updatedAt:  new Date(),
+        idHidden: false
+    },
+    {
+        id: '2',
+        commentText: "Bài giảng của thầy rất bổ ích",
+        parentId: "1",
+        userId: "user02",
+        lectureId: 'co1sec1lec1',
+        createdAt: new Date(),
+        updatedAt:  new Date(),
+        idHidden: false
+    },
+    {
+        id: '3',
+        commentText: "Bài giảng của thầy rất bổ ích",
+        parentId: "1",
+        userId: "user01",
+        lectureId: 'co1sec1lec1',
+        createdAt: new Date(),
+        updatedAt:  new Date(),
+        idHidden: true
+    },
+    {
+        id: '4',
+        commentText: "Helloooooooo",
+        parentId: "",
+        userId: "user03",
+        lectureId: 'co1sec1lec1',
+        createdAt: new Date(),
+        updatedAt:  new Date(),
+        idHidden: true
+    },
+    {
+        id: '5',
+        commentText: "Bài giảng của thầy rất bổ ích",
+        parentId: "4",
+        userId: "user04",
+        lectureId: 'co1sec1lec1',
+        createdAt: new Date(),
+        updatedAt:  new Date(),
+        idHidden: false
+    },
+    {
+        id: '6',
+        commentText: "Bài giảng của thầy rất bổ ích",
+        parentId: "",
+        userId: "user03",
+        lectureId: 'co1sec1lec1',
+        createdAt: new Date(),
+        updatedAt:  new Date(),
+        idHidden: false
+    },
+    {
+        id: '7',
+        commentText: "Bài giảng của thầy rất bổ ích",
+        parentId: "",
+        userId: "user01",
+        lectureId: 'co2sec1lec1',
+        createdAt: new Date(),
+        updatedAt:  new Date(),
+        idHidden: false
+    }
+
+
+]

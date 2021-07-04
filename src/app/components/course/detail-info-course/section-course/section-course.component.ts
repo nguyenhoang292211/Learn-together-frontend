@@ -22,14 +22,13 @@ export class SectionCourseComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLecturesBySectionId(this.section.id);
-    console.log(this.listLecture);
-    console.log(this.section.id)
+    
   }
 
-  //get lectures of section by section id
+  //TODO:get lectures of section by section id
   getLecturesBySectionId( sectionId:string){
     this.listLecture= this.courseService.getLecturesBySectionId(sectionId);
-    //TODO: OPEN COMMAND WHEN HAVE API
+    //! OPEN COMMAND WHEN HAVE API
     // this.courseService.getLectureByCourseId(sectionId).subscribe(lectures=>
     //   this.listLecture= lectures
     //   )
@@ -41,7 +40,7 @@ export class SectionCourseComponent implements OnInit {
     //     this.video= video
     // )
     //return this.video.length;
-    return "1p30"
+    return "1m30s"
   }
 
 }

@@ -8,8 +8,11 @@
 }
 
 .name-course {
+    font-size: 25px;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.8px;
+    line-height: 30px;
 }
 
 .teacher {

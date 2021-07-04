@@ -68,12 +68,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { key } from './util/google_Key';
 
-// import { TableAdminWalletComponent } from './components/admin/table-admin-wallet/table-admin-wallet.component';
-// import { AdminWalletScreenComponent } from './components/admin/admin-wallet-screen/admin-wallet-screen.component';
-// import { AdminWalletCoinsComponent } from './components/admin/admin-wallet-coins/admin-wallet-coins.component';
-
-//
 
 
 @NgModule({
@@ -152,8 +148,10 @@ import {MatListModule} from '@angular/material/list';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule
+      
   ],
   providers: [ CurrencyPipe,
     {
@@ -164,7 +162,7 @@ import {MatListModule} from '@angular/material/list';
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '395648515110-735vd1plqjqb5bp9ihrpdq78d9ro9it7.apps.googleusercontent.com'
+              key
             )
           }
         ]

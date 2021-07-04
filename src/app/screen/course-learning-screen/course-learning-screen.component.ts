@@ -15,6 +15,8 @@ export class CourseLearningScreenComponent implements OnInit {
 
   current_course = new Course();
   courseId!: Observable<string>;
+  sectionId!:Observable<string>;
+  lectureId!:string;
   videoURL : any;
 
   constructor(
@@ -27,10 +29,11 @@ export class CourseLearningScreenComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    //Get id course from url and find course by id
+    //Get id course, section and lecture  from url and find course by id
     this.route.params.subscribe(params=>{
-      this.courseId= of(params['id']);
-      
+      this.courseId= of(params['courseId']);
+      this.lectureId= params['lectureId'];
+      this.sectionId= of(params['sectionId']);
     })
 
     this.courseId.subscribe(id=>{

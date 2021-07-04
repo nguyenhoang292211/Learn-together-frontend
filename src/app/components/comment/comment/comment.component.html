@@ -1,12 +1,13 @@
 <div class="comment-area">
-    <app-single-comment></app-single-comment>
-    <div class="media comment-input">
+    <app-single-comment *ngFor="let commentParent of commentParents" [commentParent]="commentParent" [lectureId]="lectureId" [commentChilds]="commentChilds">
+    </app-single-comment>
+    <div *ngIf="isLoggedin" class="media comment-input">
         <div class="media-left">
-            <img src="../../../../assets/images/img1.jpg" class="media-object">
+            <img [src]="avatarUrl" class="media-object">
         </div>
         <div class="media-body">
-            <form>
-                <input class="form-control comment-text" type="text" name="comment-in" placeholder="Enter your comment ...">
+            <form (submit)="postComment()">
+                <input class="form-control comment-text" type="text" name="comment-in" placeholder="Write your comment ..." [(ngModel)]="commentInput">
                 <button type="submit" class=" btn-comment">Post</button>
             </form>
         </div>

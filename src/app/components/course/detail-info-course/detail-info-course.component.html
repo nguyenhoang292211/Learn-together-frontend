@@ -7,7 +7,7 @@
         <div class="row count-info">
             <div class="col-md-4"> {{studentJoined}} students joined</div>
             <div class="col-md-3">{{lectureCount}} lectures</div>
-            <div class="col-md-5">Last update {{target_course.updatedAt}} </div>
+            <div class="col-md-5">Last update: {{target_course.updatedAt |date:'yyyy-MM-dd'}} </div>
         </div>
     </div>
     <div class="col-md-1"></div>

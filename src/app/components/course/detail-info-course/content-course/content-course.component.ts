@@ -11,7 +11,7 @@ import { CourseService } from 'src/app/service/course.service';
 export class ContentCourseComponent implements OnInit {
 
   @Input() current_course = new Course();
-   fragment: any;
+  @Input() fragment: string= "learning";
 
   //Example
   listSection: Section[] =[];
@@ -23,21 +23,13 @@ export class ContentCourseComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log('content:' + this.current_course)
-    this.router.fragment.subscribe(
-      frag=> {
-        this.fragment=frag;
-
-      }
-    );
     this.getListSection();
   }
 
-  //Get list section of  current course
+  //TODO: get list  section of a course
   getListSection(){
     this.listSection=this.courseService.getSectionByCourseId(this.current_course.id);
-    
-    //TODO: OPEN COMMAND WHEN HAVE API
+    console.log(this.listSection)
     // this.courseService.getSectionByCourseId(this.current_course.id).subscribe(sections=>
     //    this.listSection= sections
     //   )

@@ -35,7 +35,7 @@ export class CourseService{
         courseDescription: "Description",
         price:170000,
         courseType: COURSE_TYPE.THEORY,
-        grade: GRADES.TENTH,
+        grade: GRADES.TWELFTH,
         thumbnailUrl: "string",
         createdAt:new Date(),
         updatedAt: new Date(),
@@ -48,7 +48,7 @@ export class CourseService{
         courseDescription: "Description",
         price:200000,
         courseType: COURSE_TYPE.THEORY,
-        grade: GRADES.TENTH,
+        grade: GRADES.TWELFTH,
         thumbnailUrl: "string",
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -60,7 +60,7 @@ export class CourseService{
         courseDescription: "Description",
         price:200000,
         courseType: COURSE_TYPE.THEORY,
-        grade: GRADES.TENTH,
+        grade: GRADES.TWELFTH,
         thumbnailUrl: "string",
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -96,7 +96,7 @@ export class CourseService{
         courseDescription: "Description",
         price:170000,
         courseType: COURSE_TYPE.THEORY,
-        grade: GRADES.TENTH,
+        grade: GRADES.TWELFTH,
         thumbnailUrl: "string",
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -124,7 +124,7 @@ export class CourseService{
         courseType: COURSE_TYPE.THEORY,
         grade: GRADES.TENTH,
         thumbnailUrl: "string",
-        createdAt:new Date(),
+        createdAt: new Date(),
         updatedAt: new Date(),
         isHidden: false
         
@@ -137,7 +137,7 @@ export class CourseService{
     }
 
     getListCourseGrade(level_: GRADES):Observable<Course[]>{
-        const courses= this.courses.filter(course =>course.grade==level_);
+        const courses= this.courses.filter(course =>course.grade===level_);
         return of(courses);
     }
 
@@ -147,7 +147,7 @@ export class CourseService{
     }
 
     getCourseById(id : string):Observable<Course>{
-        const course = this.courses.find(course => course.id==id)!;
+        const course = this.courses.find(course => course.id===id)!;
         return of(course);
     }
 
@@ -155,16 +155,18 @@ export class CourseService{
         return this.courses;
     }
 
+    //TODO: CHECK PARAM courseType
     getListCourseFilter(courseType: string ,grade: string):Observable<Course[]>{
-        const courses= this.courses.filter(course =>course.grade==grade && course.courseType == courseType);
+        const courses= this.courses.filter(course =>course.grade===grade && course.courseType === COURSE_TYPE.THEORY);
         return of(courses);
     }
 
     getListCourseByTitle(title: string):Observable<Course[]>{
-        const courses = this.courses.filter(course => course.title == title);
+        const courses = this.courses.filter(course => course.title === title);
         return of(courses);
     }
 
+    //TODO: Get student join  in a course
     getstudentJoinedNumber(courseId:string){
         //get enrollment where courseId return list enrollment
         return this.http
@@ -184,10 +186,8 @@ export class CourseService{
        
     }
 
-    //get the number of lecture by courseId
+    //TODO: get the number of lecture by courseId
     getLectureByCourseId(courseId: string){
-
-        //TODO: consider return value
         return this.http
         .get<Lecture[]>('URL', 
             {
@@ -196,10 +196,14 @@ export class CourseService{
         )
     }
 
-    //get section of course by course id
-    //TODO: REMOVE RETURN TYPE
+    //TODO: get section of course by course id
+    /**
+     * REMOVE RETURN TYPE
+     * @param courseId 
+     * @returns 
+     */
     getSectionByCourseId(courseId: string):Section[]{
-        //TODO: open command when have API
+       
        /*return this.http
         .get<Section[]>('URL',
         {
@@ -209,13 +213,13 @@ export class CourseService{
                 return responseData;
             })
         );*/
-
-        return sectionList.filter(section=> section.courseId == courseId);
+        return sectionList.filter(section=> section.courseId === courseId);
     }
 
-    //get lecture list by section id
+    // use http open command when have API
+    //TODO : get lecture list by section id
     getLecturesBySectionId(sectionId: string):Lecture[]{
-        //TODO: use http open command when have API
+        
         /*return this.http
         .get<Lecture[]>('URL',
         {
@@ -228,12 +232,12 @@ export class CourseService{
 
         //use mockup data- temperory
         console.log(lectureList)
-        return lectureList.filter(lecture=>lecture.sectionId == sectionId )
+        return lectureList.filter(lecture=>lecture.sectionId === sectionId )
     }
 
     //TODO: get video of a lecture by its id
     getVideoByLectureId(lectureId: string){
-        //TODO: Open command when have
+        // Open command when have
         // return this.http
         // .get<Video>('URL',
         // {
@@ -245,8 +249,14 @@ export class CourseService{
         // );
     }
 
+
+    //TODO: send request get all course of learner in by id learner
+    /**
+     * Send request to enrollment, get enrollment by learnerId
+     * @param learnerId 
+     * @returns Observable<Course[]>
+     */
     getMyCourses(learnerId: string):Observable<Course[]>{
-        //TODO: send request get all course of learner in by id learner
         // return this.http
         // .get<Course[]>('URL',
         // {
@@ -261,7 +271,18 @@ export class CourseService{
    
     }
 
+    //TODO:send request get list learner of a course and count
+    /**
+     * 
+     * @param id
+     * @returns total learner
+     */
     getTotalLeanerOfCourse(id: string):number{
         return 10;
+    }
+
+    //TODO: get lecture by section
+    getLectureBySectionId(sectionId:string){
+
     }
 }

@@ -90,7 +90,7 @@ export class UserService{
     }
 
     getUserByEmail(email:string): Observable<User>{
-        const user = this.users.find(user=>user.email == email)!;
+        const user = this.users.find(user=>user.email === email)!;
         return of(user);
     }
 
@@ -106,5 +106,10 @@ export class UserService{
 
         //update balance of use
 
+    }
+
+    //TODO:SEND GET METHOD TO GET USER BY USER ID
+    getUserById(learnerId:string):Observable<User>{
+        return of(this.users.find(user=> user.id===learnerId)!);
     }
 }
