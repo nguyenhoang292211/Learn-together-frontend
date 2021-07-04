@@ -11,7 +11,8 @@
   <div class="div-main">
     <ul class="list-group flex-fill">
       <li class="list-group-item d-flex label-section border-radius">
-        <input class="form-control w-50 clean-border" [value]="section.name" disabled/>
+        <input class="form-control w-50 clean-border"
+         [value]="sectionDummy.section_title" disabled/>
         <div class="div-icon" title="Edit section" (click)="onEditSection()">
           <i class="fa fa-pencil icon-decorate"></i>
         </div>
@@ -22,21 +23,21 @@
       </li>
 
       <li
-        *ngFor="let lession of section.lessions; let i = index; let len = count"
+        *ngFor="let lecture of sectionDummy.lecturer; let i = index; let len = count"
         class="
           list-group-item
           d-flex
           justify-content-between
           align-items-center
           container
-          border-radius
-        "
+          border-radius"
+        
       >
         <div class="div-updown">
-          <div class="div-icon-mini" (click)="onUpLession('idherer')">
+          <div class="div-icon-mini" (click)="onUpLession(lecture.id)">
             <i class="fa fa-chevron-up icon-decorate" title="Lesson go up" ></i>
           </div>
-          <div class="div-icon-mini" (click)="onDownLession('idHere')">
+          <div class="div-icon-mini" (click)="onDownLession(lecture.id)">
             <i
               class="fa fa-chevron-down icon-decorate"
               title="Lesson go down"
@@ -48,22 +49,22 @@
             <div class="div-session-contain d-flex form-row">
               <input
                 class="form-control contain-title w-25 clean-border"
-                [value]="lession.title" disabled
+                [value]="lecture.title" disabled
               />
 
-              <span class="contain-video"> {{ lession.url }}</span>
+              <span class="contain-video"> </span>
               <span class="contain-video-time">{{ i }}</span>
             </div>
             <div class="div-edit">
               <div
                 class="div-icon-mini"
                 title="Edit lession"
-                (click)="onEditLession('edit')"
+                (click)="onEditLession(lecture.id)"
               >
                 <i class="fa fa-pencil icon-decorate"></i>
               </div>
               <div class="div-icon-mini" title="Delete lession" 
-              (click)="onDeleteLession('dele')">
+              (click)="onDeleteLession(lecture.id)">
                 <i class="fa fa-trash icon-decorate"></i>
               </div>
             </div>
@@ -71,14 +72,22 @@
 
           <div>
             <ul>
-              <button *ngIf="i == len - 1" class="btn-create-new" 
-              (click)="onCreateLession()">
+              <button *ngIf="i == len - 1 " class="btn-create-new" 
+              (click)="onCreateLession(sectionDummy.section_id)">
                 Create new lession
               </button>
-            </ul>
+            </ul>  
           </div>
         </div>
       </li>
+      <div>
+        <ul>
+          <button *ngIf="!sectionDummy.lecturer.length" class="btn-create-new" 
+          (click)="onCreateLession(sectionDummy.section_id)">
+            Create new lession
+          </button>
+        </ul>  
+      </div>
     </ul>
   </div>
 </div>
