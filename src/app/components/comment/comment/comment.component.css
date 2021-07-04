@@ -58,5 +58,10 @@
     font-size: 14px;
     font-family: sans-serif;
     outline: none;
-    border: 1px grey solid;
+    border: 1px rgb(173, 173, 173) solid;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    outline: 1px rgb(41, 41, 41);
 }

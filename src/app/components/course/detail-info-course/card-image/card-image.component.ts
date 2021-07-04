@@ -2,8 +2,11 @@ import { Component, Input, OnInit, Output, ViewEncapsulation } from '@angular/co
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Course } from 'src/app/models/course.model';
+import { Lecture } from 'src/app/models/lecture.model';
+import { Section } from 'src/app/models/section.model';
 import { User } from 'src/app/models/user.model';
 import { authenticationService } from 'src/app/service/authentication.service';
+import { CourseService } from 'src/app/service/course.service';
 import { UserService } from 'src/app/service/user.service';
 import { PriceFormat } from 'src/app/util/priceformat';
 
@@ -19,25 +22,33 @@ export class CardImageComponent implements OnInit {
   isBought: boolean= false;
   isLoggedin!: Observable<boolean>;
   learner!: User;
+
+  //*inform alert
   message:string="";
   actionToAlert:string="";
   showInform:boolean= false;
   action:string="";
 
+  section: Section[]=[];
+  lecture:Lecture[]=[];
+  lectureId: string="";
+  sectionId:string="";
+
   constructor(private router:Router,
     private userService: UserService,
+    private courseService: CourseService,
     private authService: authenticationService) { }
 
   ngOnInit(): void {
 
+    console.log(this.course);
+    
     //when reloading page, it will not update checkIsLoggedin despite of having subcribe
     if(localStorage.getItem('isLoggedin')=='true')
     {
       this.isLoggedin= of(true);
     } 
-
-    
-
+ 
     //Subcibe loggedin status
     this.authService.checkIsLoggedin().subscribe(
       isLoggedin =>{
@@ -58,22 +69,13 @@ export class CardImageComponent implements OnInit {
       }
 
     //check status of isLoggedin, if it's true, update learner
-    this.isLoggedin.subscribe(isLoggedin_=>{
-      if(isLoggedin_){
-        let email=localStorage.getItem('uemail')?localStorage.getItem('uemail'):"null";
-        if(email!=null)
-        {
-          console.log(email)
-          //get user balance to check
-          this.userService.getUserByEmail(email).subscribe(user=>{
-            this.learner= user;
-          })
-        }
-      }
 
-    })
 
     this.isBought_();
+    this.getFirstSection(this.course.id);
+    console.log(this.sectionId)
+    this.getFirstLecture(this.sectionId);
+    console.log(this.lectureId)
   }
 
 
@@ -93,16 +95,50 @@ export class CardImageComponent implements OnInit {
   }
 
 
-
+  /**
+   * Format price like 100.000đ
+   * @param price 
+   * @returns 
+   */
   handlePriceFormat(price:number):any{
     return PriceFormat(price);
   }
 
-  goToCourse(id: string, name:string){
-    this.router.navigate(['/learning',id, name], {fragment: 'learning'} );
+  /**
+   * Navigate to learning screen
+   * @param courseId 
+   * @param sectionId 
+   * @param lectureId 
+   */
+  goToCourse( courseId: string,sectionId:string, lectureId:string){
+    this.router.navigate(['/learning',courseId,sectionId,lectureId]);
   }
 
-  //Check here if user enough money, allow them to buy it, ortherwise, go to wallet page
+  /**
+   * Get fisrt section of a course by id
+   * @param courseId 
+   */
+  getFirstSection(courseId:string ){
+
+    this.section=this.courseService.getSectionByCourseId(courseId);
+    if(this.section.length>0)
+     this.sectionId= this.section.sort((a)=>a.sectionOrder)[0].id;
+  }
+
+  /**
+   * Get first lecture of an section like default lecture when navigate from detail page
+   * @param sectionId 
+   */
+  getFirstLecture(sectionId: string){
+
+    this.lecture= this.courseService.getLecturesBySectionId(sectionId);
+    if(this.lecture.length>0)
+     this.lectureId= this.lecture.sort((a)=>a.lectureOrder)[0].id;
+  }
+
+  /**
+   * Check here if user enough money, allow them to buy it, ortherwise, go to wallet page
+  */
   goToWallet(){
     if(this.isLoggedin)
       {
@@ -144,8 +180,11 @@ export class CardImageComponent implements OnInit {
     this.showInform= false;
   }
 
-  /*Check action click, if user click "Your balance", navigate to 
-  wallet page else implement to buy the course */
+  /**
+   * Check action click, if user click "Your balance", navigate to 
+    wallet page else implement to buy the course
+   * @param gotowallet 
+   */
   implementAction(gotowallet:boolean){
 
     if(gotowallet)
@@ -182,6 +221,7 @@ export class CardImageComponent implements OnInit {
   }
 
 }
+
 function Of(arg0: boolean): Observable<boolean> {
   throw new Error('Function not implemented.');
 }

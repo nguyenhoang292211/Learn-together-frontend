@@ -25,7 +25,7 @@ const routes: Routes = [
     path: 'admin/managerment/wallet', component: WalletComponent
   },
   {
-    path:'learning/:id/:name', component: CourseLearningScreenComponent
+    path:'learning/:courseId/:sectionId/:lectureId', component: CourseLearningScreenComponent
   },
   {
     path: 'home', component: HomeScreenComponent,

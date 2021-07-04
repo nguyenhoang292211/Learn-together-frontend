@@ -49,11 +49,11 @@ export  class authenticationService {
      }
      this.storeUser(socialUser);
      //TODO: save user by post method
-    //  this.http
-    //  .post<User>('URL', user)
-    //  .subscribe(responseData=>{
-    //    console.log(responseData);
-    //  })
+     this.http
+     .post<User>('URL', user)
+     .subscribe(responseData=>{
+       console.log(responseData);
+     })
 
      this.loggedIn=true;
      this.logger.next(this.loggedIn);

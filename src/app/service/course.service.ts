@@ -185,10 +185,9 @@ export class CourseService{
        
     }
 
-    //get the number of lecture by courseId
     getLectureByCourseId(courseId: string){
 
-        //TODO: consider return value
+        //TODO: get the number of lecture by courseId
         return this.http
         .get<Lecture[]>('URL', 
             {
@@ -197,10 +196,14 @@ export class CourseService{
         )
     }
 
-    //get section of course by course id
-    //TODO: REMOVE RETURN TYPE
+    //TODO: get section of course by course id
+    /**
+     * REMOVE RETURN TYPE
+     * @param courseId 
+     * @returns 
+     */
     getSectionByCourseId(courseId: string):Section[]{
-        //TODO: open command when have API
+       
        /*return this.http
         .get<Section[]>('URL',
         {
@@ -210,13 +213,13 @@ export class CourseService{
                 return responseData;
             })
         );*/
-
         return sectionList.filter(section=> section.courseId == courseId);
     }
 
-    //get lecture list by section id
+    // use http open command when have API
+    //TODO : get lecture list by section id
     getLecturesBySectionId(sectionId: string):Lecture[]{
-        //TODO: use http open command when have API
+        
         /*return this.http
         .get<Lecture[]>('URL',
         {
@@ -246,8 +249,14 @@ export class CourseService{
         // );
     }
 
+
+    //TODO: send request get all course of learner in by id learner
+    /**
+     * 
+     * @param learnerId 
+     * @returns Observable<Course[]>
+     */
     getMyCourses(learnerId: string):Observable<Course[]>{
-        //TODO: send request get all course of learner in by id learner
         // return this.http
         // .get<Course[]>('URL',
         // {
@@ -262,7 +271,17 @@ export class CourseService{
    
     }
 
+    //TODO:send get http list learner of a course and count
+    /**
+     * 
+     * @param id
+     * @returns total learner
+     */
     getTotalLeanerOfCourse(id: string):number{
         return 10;
+    }
+
+    getLectureBySectionId(sectionId:string){
+
     }
 }

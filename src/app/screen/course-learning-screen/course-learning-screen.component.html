@@ -5,10 +5,10 @@
         </div>
         <div class="comment-area">
             <h4>Comments</h4>
-            <app-comment></app-comment>
+            <app-comment [course]="current_course"></app-comment>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 content">
         <app-content-course [current_course]="current_course"></app-content-course>
     </div>
 </div>

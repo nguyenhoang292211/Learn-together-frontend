@@ -1,12 +1,12 @@
 <div class="comment-area">
     <app-single-comment></app-single-comment>
-    <div class="media comment-input">
+    <div *ngIf="isLoggedin" class="media comment-input">
         <div class="media-left">
-            <img src="../../../../assets/images/img1.jpg" class="media-object">
+            <img [src]="avatarUrl" class="media-object">
         </div>
         <div class="media-body">
             <form>
-                <input class="form-control comment-text" type="text" name="comment-in" placeholder="Enter your comment ...">
+                <input class="form-control comment-text" type="text" name="comment-in" placeholder="Write your comment ...">
                 <button type="submit" class=" btn-comment">Post</button>
             </form>
         </div>

@@ -48,6 +48,8 @@ export class NavbarComponent implements OnInit {
     //this.authService.clearLocalStorage();
     this.authService.logOut();
     this.isLoggedin= false;
+    window.location.reload();
+  
     
   }
 

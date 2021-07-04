@@ -1,7 +1,6 @@
 .sign-in {
     text-align: center;
     margin-top: 200px;
-    margin-bottom: 100px;
 }
 
 .sign-in .btn button {
@@ -26,10 +25,7 @@
 
 .app-title {
     font-weight: 800;
-}
-
-.btn-signup {
-    background-color: rgb(199, 12, 12);
+    font-size: 28px;
 }
 
 .btn-signin:focus {
@@ -38,4 +34,9 @@
 
 .btn-signin {
     background-color: #4EBEE1;
+}
+
+.btn-signin i {
+    font-size: 20px;
+    padding-right: 5px;
 }
