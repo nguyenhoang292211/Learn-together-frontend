@@ -160,72 +160,72 @@ export const lectureList :Lecture[]=[
 export const listComment: Comment[]=[
     {
         id: '1',
-        text: "Bài giảng của thầy rất bổ ích",
-        parentId: "1",
+        commentText: "Bài giảng của thầy rất bổ ích",
+        parentId: "",
         userId: "user01",
         lectureId: 'co1sec1lec1',
-        createdAt: Date.now.toString(),
-        updatedAt:  "date",
+        createdAt: new Date(),
+        updatedAt:  new Date(),
         idHidden: false
     },
     {
         id: '2',
-        text: "Bài giảng của thầy rất bổ ích",
+        commentText: "Bài giảng của thầy rất bổ ích",
         parentId: "1",
         userId: "user02",
         lectureId: 'co1sec1lec1',
-        createdAt: Date.now.toString(),
-        updatedAt:  "date",
+        createdAt: new Date(),
+        updatedAt:  new Date(),
         idHidden: false
     },
     {
         id: '3',
-        text: "Bài giảng của thầy rất bổ ích",
+        commentText: "Bài giảng của thầy rất bổ ích",
         parentId: "1",
         userId: "user01",
         lectureId: 'co1sec1lec1',
-        createdAt: Date.now.toString(),
-        updatedAt:  "date",
-        idHidden: false
+        createdAt: new Date(),
+        updatedAt:  new Date(),
+        idHidden: true
     },
     {
         id: '4',
-        text: "Bài giảng của thầy rất bổ ích",
-        parentId: "4",
+        commentText: "Helloooooooo",
+        parentId: "",
         userId: "user03",
         lectureId: 'co1sec1lec1',
-        createdAt: Date.now.toString(),
-        updatedAt:  "date",
-        idHidden: false
+        createdAt: new Date(),
+        updatedAt:  new Date(),
+        idHidden: true
     },
     {
         id: '5',
-        text: "Bài giảng của thầy rất bổ ích",
+        commentText: "Bài giảng của thầy rất bổ ích",
         parentId: "4",
         userId: "user04",
         lectureId: 'co1sec1lec1',
-        createdAt: Date.now.toString(),
-        updatedAt:  "date",
+        createdAt: new Date(),
+        updatedAt:  new Date(),
         idHidden: false
     },
     {
         id: '6',
-        text: "Bài giảng của thầy rất bổ ích",
-        parentId: "6",
+        commentText: "Bài giảng của thầy rất bổ ích",
+        parentId: "",
         userId: "user03",
         lectureId: 'co1sec1lec1',
-        createdAt: Date.now.toString(),
-        updatedAt:  "date",
+        createdAt: new Date(),
+        updatedAt:  new Date(),
         idHidden: false
     },
     {
         id: '7',
-        text: "Bài giảng của thầy rất bổ ích",
-        parentId: "7",
+        commentText: "Bài giảng của thầy rất bổ ích",
+        parentId: "",
         userId: "user01",
         lectureId: 'co2sec1lec1',
-        createdAt: Date.now.toString(),
-        updatedAt:  "date",
+        createdAt: new Date(),
+        updatedAt:  new Date(),
         idHidden: false
     }
 

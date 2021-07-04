@@ -16,7 +16,7 @@ export class CourseLearningScreenComponent implements OnInit {
   current_course = new Course();
   courseId!: Observable<string>;
   sectionId!:Observable<string>;
-  lectureId!:Observable<string>;
+  lectureId!:string;
   videoURL : any;
 
   constructor(
@@ -32,7 +32,7 @@ export class CourseLearningScreenComponent implements OnInit {
     //Get id course, section and lecture  from url and find course by id
     this.route.params.subscribe(params=>{
       this.courseId= of(params['courseId']);
-      this.lectureId= of(params['lectureId']);
+      this.lectureId= params['lectureId'];
       this.sectionId= of(params['sectionId']);
     })
 

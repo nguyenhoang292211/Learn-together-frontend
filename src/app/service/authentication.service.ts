@@ -61,6 +61,7 @@ export  class authenticationService {
 
   }
 
+  
   signIn(socialUser: SocialUser) : boolean{
 
       this.storeUser(socialUser);

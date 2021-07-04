@@ -11,9 +11,15 @@
         <span class="info-course more-info">Update on: {{course.updatedAt}}</span>
         <i class="fa fa-pencil"></i> 
 
+<<<<<<< HEAD
+=======
+        <div *ngIf="!isLearner" class="users-count" style="cursor: pointer;" (click)="onEditCourse()">
+            <span class="info-course more-info">Update on: {{course.updatedAt |date:'yyyy-MM-dd'}}</span>
+            <i class="fa fa-pencil"></i>
+>>>>>>> d54cf7c... comment by learner
         </div>
         <div *ngIf="isLearner" class="users-count" style="cursor: pointer;">
-            <span class="info-course more-info">Purchase on: {{course.updatedAt}}</span>
+            <span class="info-course more-info">Purchase on: {{course.updatedAt |date:'yyyy-MM-dd'}}</span>
         </div>
     </div>
 </div>

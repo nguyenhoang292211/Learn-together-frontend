@@ -14,10 +14,10 @@ export class CommentService{
     /**
      * 
      * @param comment 
-     * @param parentId 
      */
-    createSubComment(comment: Comment, parentId:string){
-
+    saveComment(comment: Comment):Observable<Comment[]>{
+      listComment.push(comment)
+      return of(listComment);
     }
 
   

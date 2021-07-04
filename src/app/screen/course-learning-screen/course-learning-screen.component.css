@@ -11,13 +11,14 @@
 
 .comment-area {
     margin: 10px;
+    margin-right: 30px;
 }
 
 .comment-area h4 {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     margin-left: 20px;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 21px;
     font-family: 'Roboto', sans-serif;
 }
 
