@@ -10,8 +10,8 @@
   </div>
   <div class="div-main">
     <ul class="list-group flex-fill">
-      <li class="list-group-item d-flex label-section border-radius">
-        <input class="form-control w-50 clean-border"
+      <li class="list-group-item title-section d-flex label-section border-radius">
+        <input class="form-control w-50 title-section clean-border"
          [value]="sectionDummy.section_title" disabled/>
         <div class="div-icon" title="Edit section" (click)="onEditSection()">
           <i class="fa fa-pencil icon-decorate"></i>
@@ -61,17 +61,17 @@
                 title="Edit lession"
                 (click)="onEditLession(lecture.id)"
               >
-                <i class="fa fa-pencil icon-decorate"></i>
+                <i class="fa fa-pencil icon-decorate icon-edit"></i>
               </div>
               <div class="div-icon-mini" title="Delete lession" 
               (click)="onDeleteLession(lecture.id)">
-                <i class="fa fa-trash icon-decorate"></i>
+                <i class="fa fa-trash icon-decorate icon-delete"></i>
               </div>
             </div>
           </div>
 
           <div>
-            <ul>
+            <ul class="ul-deco">
               <button *ngIf="i == len - 1 " class="btn-create-new" 
               (click)="onCreateLession(sectionDummy.section_id)">
                 Create new lession
@@ -81,7 +81,7 @@
         </div>
       </li>
       <div>
-        <ul>
+        <ul class="ul-deco">
           <button *ngIf="!sectionDummy.lecturer.length" class="btn-create-new" 
           (click)="onCreateLession(sectionDummy.section_id)">
             Create new lession
@@ -89,6 +89,7 @@
         </ul>  
       </div>
     </ul>
+    <hr>
   </div>
 </div>
 <app-upload-task></app-upload-task>

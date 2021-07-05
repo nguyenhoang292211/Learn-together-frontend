@@ -13,7 +13,7 @@
    margin-left: 15px;
    margin-top: 10px;
    margin-bottom: 10px;
-   
+   display: flex;
    font-size: large;
 }
 .div-icon:hover, .div-icon-mini:hover{
@@ -47,6 +47,7 @@
 .div-session-contain{
     flex-grow: 11;
     display: table-row;
+    align-items: center;
 }
 .div-edit{
     border-radius: 15px;
@@ -70,22 +71,21 @@
     flex-grow: 2;
     margin-left: 15px;
     color: #0093D1;
+    align-items: center;
 }
-.clean-border{
-    border: none;
-}
+
 .border-radius{
     border-radius: 7px;
 }
 .btn-create-new{
-    width: 200px;
+    width: 180px;
     background: rgb(64, 129, 250);
     border-radius: 10px;
-    margin-left: 5px;
+    
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: large;
-    padding: 4px;
+    padding: 10px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     outline: none;
@@ -112,5 +112,33 @@
   .light-blue-backdrop {
     background-color: #5cb3fd;
   }
+
+  .label-section{
+      align-items: center;
+  }
   
- 
+ .title-section{
+    background: #90caf9;
+    align-items: center;
+ }
+
+.icon-delete{
+color: #f06292;
+}
+
+.icon-edit{
+    color: #005cb2;
+}
+.ul-deco{
+padding:0px;
+}
+.clean-border{
+    border: none;
+    border-radius: 45px;
+    background: #fff;
+   
+}
+
+.alert-body{
+    font-size: x-large;
+}

@@ -75,7 +75,7 @@ export class CourseInfoComponent implements OnInit {
       VideoType.course,
       ModifyType.delete
     );
-    this.fullCourseService.onDeleteContent();
+    this.fullCourseService.onNotifyContent();
   }
 
   validateInput() {

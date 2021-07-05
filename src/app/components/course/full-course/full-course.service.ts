@@ -51,9 +51,8 @@ export class FullCourseService {
   idCourse: string = 'default';
   wayModify = ModifyType.new;
   typeSelection = VideoType.lession;
-  invokeEditModal = new EventEmitter();
-  invokeDeleteModal = new EventEmitter();
-  invokeValidModal = new EventEmitter();
+  invokeNotifyModal = new EventEmitter();
+  invokeValidModal= new EventEmitter();
   subsEdit?: Subscription;
   subsDelete?: Subscription;
   subsValid?: Subscription;
@@ -111,15 +110,10 @@ export class FullCourseService {
   }
   //================================= METHOD =========================
 
-  onEditContent() {
-    this.invokeEditModal.emit();
+  onNotifyContent() {
+    this.invokeNotifyModal.emit();
   }
-  onDeleteContent() {
-    this.invokeDeleteModal.emit();
-  }
-  onNewLession() {
-    this.invokeEditModal.emit();
-  }
+
   onValidateInput() {
     this.invokeValidModal.emit();
   }

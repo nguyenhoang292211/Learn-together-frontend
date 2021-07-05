@@ -98,16 +98,11 @@ export class CourseCreationScreenComponent implements OnInit {
 
     if (this.fullCourseService.subsEdit == null) {
       this.fullCourseService.subsEdit =
-        this.fullCourseService.invokeEditModal.subscribe((content: any) => {
+        this.fullCourseService.invokeNotifyModal.subscribe((content: any) => {
           this.openVerticallyCentered();
         });
     }
-    if (this.fullCourseService.subsDelete == null) {
-      this.fullCourseService.subsDelete =
-        this.fullCourseService.invokeDeleteModal.subscribe((content: any) => {
-          this.openVerticallyCentered();
-        });
-    }
+   
       
   }
   onSave(){
@@ -209,5 +204,8 @@ export class CourseCreationScreenComponent implements OnInit {
       }
      
   }
-
+  goBack(){
+    this.router.navigateByUrl('/admin/home').then();
+    console.log("Thao");
+  }
 }
