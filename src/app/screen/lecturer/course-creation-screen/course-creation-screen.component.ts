@@ -14,11 +14,11 @@ import { SectionDummy } from 'src/app/models/sectionDummy.model';
 import {  NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-edit-course',
-  templateUrl: './edit-course.component.html',
-  styleUrls: ['./edit-course.component.css'],
+  selector: 'app-course-creation-screen',
+  templateUrl: './course-creation-screen.component.html',
+  styleUrls: ['./course-creation-screen.component.css'],
 })
-export class EditCourseComponent implements OnInit {
+export class CourseCreationScreenComponent implements OnInit {
   @ViewChild('content', { static: true }) content?: ElementRef;
   // @ViewChild('nameTitle', { read: NgForm  }) nameTitle?: ElementRef;
   sections: SectionDummy[] = [];
@@ -32,6 +32,8 @@ export class EditCourseComponent implements OnInit {
   isValid=true;
   idCourse:string='default'
   titleBinding='';
+  loadingSpinner=false;
+  isNotify=false;
   constructor(
     private router:Router,
     private route:ActivatedRoute,
@@ -61,6 +63,13 @@ export class EditCourseComponent implements OnInit {
 
   openVerticallyCentered() {  
     this.titleBinding=this.fullCourseService.getTitleContent();
+    if(this.typeSelection==VideoType.course && ( this.wayModify==ModifyType.save || this.wayModify== ModifyType.errorValid)){
+      this.isNotify=true;
+    }
+    else
+    {
+      this.isNotify=false;
+    }
     this.modalService.open(this.content, { centered: true, size:'lg' });
   }
 
@@ -89,16 +98,11 @@ export class EditCourseComponent implements OnInit {
 
     if (this.fullCourseService.subsEdit == null) {
       this.fullCourseService.subsEdit =
-        this.fullCourseService.invokeEditModal.subscribe((content: any) => {
+        this.fullCourseService.invokeNotifyModal.subscribe((content: any) => {
           this.openVerticallyCentered();
         });
     }
-    if (this.fullCourseService.subsDelete == null) {
-      this.fullCourseService.subsDelete =
-        this.fullCourseService.invokeDeleteModal.subscribe((content: any) => {
-          this.openVerticallyCentered();
-        });
-    }
+   
       
   }
   onSave(){
@@ -196,9 +200,12 @@ export class EditCourseComponent implements OnInit {
           this.modalService.dismissAll();
       }
       else{
-        window.location.reload();
+        // window.location.reload();
       }
      
   }
-
+  goBack(){
+    this.router.navigateByUrl('/admin/home').then();
+    console.log("Thao");
+  }
 }

@@ -16,7 +16,7 @@ import { FullCourseService } from '../full-course.service';
 })
 export class CourseInfoComponent implements OnInit {
   @ViewChild('infoCourse', { read: NgForm }) infoCourse!: any;
-  @Input() lessionInfo :Course= {
+  @Input() course :Course= {
     id: '',
     title: '',
     courseDescription: '',
@@ -63,7 +63,7 @@ export class CourseInfoComponent implements OnInit {
       var reader = new FileReader();
       //update Image to UI
       reader.onload = (event: any) => {
-        this.lessionInfo.thumbnailUrl = event.target.result;
+        this.course.thumbnailUrl = event.target.result;
       };
       reader.readAsDataURL(this.fileToUpLoad);
     }
@@ -75,14 +75,13 @@ export class CourseInfoComponent implements OnInit {
       VideoType.course,
       ModifyType.delete
     );
-    this.fullCourseService.onDeleteContent();
+    this.fullCourseService.onNotifyContent();
   }
 
   validateInput() {
-    this.fullCourseService.setCourse(this.lessionInfo);
-      console.log(this.lessionInfo);
-     console.log(this.selectedValue);
-    if(this.lessionInfo.title  && this.lessionInfo.courseDescription ){
+    this.fullCourseService.setCourse(this.course);
+
+    if(this.course.title  && this.course.courseDescription ){
        this.fullCourseService.setIsValid(true);
     }
       else{
@@ -93,7 +92,7 @@ export class CourseInfoComponent implements OnInit {
     while (this.priceFormat.charAt(0) === '0') {
       this.priceFormat = this.priceFormat.substring(1);
     }
-    this.lessionInfo.price=parseInt(this.priceFormat.replace(/\D/g, ''));
+    this.course.price=parseInt(this.priceFormat.replace(/\D/g, ''));
     this.priceFormat = this.priceFormat
       .replace(/\D/g, '')
       .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -106,11 +105,10 @@ export class CourseInfoComponent implements OnInit {
     return grade;
   }
   changeType(e:any) {
-    //console.log(e.target.value);
-    this.lessionInfo.courseType= e.target.value;
+    this.course.courseType= e.target.value;
   }
   changeGrade(e:any){
-    this.lessionInfo.grade= e.target.value;
-    // console.log(this.lessionInfo);
+    this.course.grade= e.target.value;
+  
   }
 }

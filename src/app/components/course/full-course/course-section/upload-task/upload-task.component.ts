@@ -11,7 +11,6 @@ import { UploadService } from '../../upload.service';
 })
 export class UploadTaskComponent implements OnInit {
 
-  
   constructor() { }
 
   ngOnInit() {

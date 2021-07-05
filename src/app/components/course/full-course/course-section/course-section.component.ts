@@ -14,12 +14,12 @@ import { UploadService } from '../upload.service';
   styleUrls: ['./course-section.component.css'],
 })
 export class CourseSectionComponent implements OnInit {
-  @Input() section: Section = new Section();
+  
   @Input() sectionDummy: SectionDummy = new SectionDummy("1","default",[]);
  
   urlVideo = '../';
   files?: File;
-  closeResult: string = '';
+  
   fileToUpLoad: File = new File([], 'hinh-a');
   constructor(private modalService: NgbModal,
               private fullCourseService: FullCourseService) {}
@@ -28,37 +28,37 @@ export class CourseSectionComponent implements OnInit {
 
   onEditLession(id:string) {
     this.fullCourseService.setSelection(id, VideoType.lession, ModifyType.edit);
-    this.fullCourseService.onEditContent();
+    this.fullCourseService.onNotifyContent();
     console.log(id);
   }
   onEditSection(){
    
     this.fullCourseService.setSelection(this.sectionDummy.section_id, VideoType.section, ModifyType.edit);
-    this.fullCourseService.onEditContent();
+    this.fullCourseService.onNotifyContent();
   }
   onDeleteLession(id:string){
     this.fullCourseService
     .setSelection(id, VideoType.lession, ModifyType.delete);
-    this.fullCourseService.onDeleteContent();
+    this.fullCourseService.onNotifyContent();
   }
   onDeleteSection(){
     this.fullCourseService.setSelection(this.sectionDummy.section_id, VideoType.section, ModifyType.delete);
-    this.fullCourseService.onDeleteContent();
+    this.fullCourseService.onNotifyContent();
   }
   onCreateLession(idSection:string){
     //handle something
     // this.fullCourseService.setCurrentSectionSelection(idSection);
     console.log(idSection);
     this.fullCourseService.setSelection(idSection, VideoType.lession, ModifyType.new);
-    this.fullCourseService.onEditContent();
+    this.fullCourseService.onNotifyContent();
   }
   onUpSection(){
     this.fullCourseService.setSelection(this.sectionDummy.section_id, VideoType.section, ModifyType.goUp);
-    this.fullCourseService.onEditContent();
+    this.fullCourseService.onNotifyContent();
   }
   onDownSection(){
     this.fullCourseService.setSelection(this.sectionDummy.section_id, VideoType.section, ModifyType.goDown);
-    this.fullCourseService.onEditContent();
+    this.fullCourseService.onNotifyContent();
   }
   onUpLession(id:string){
        //handle something
@@ -66,11 +66,11 @@ export class CourseSectionComponent implements OnInit {
       //  this.fullCourseService.setSelection("", VideoType.lession, ModifyType.new);
       //  this.fullCourseService.onEditContent();
       this.fullCourseService.setSelection(id, VideoType.lession, ModifyType.goUp);
-      this.fullCourseService.onEditContent();
+      this.fullCourseService.onNotifyContent();
   }
   onDownLession(id:string){
     this.fullCourseService.setSelection(id, VideoType.lession, ModifyType.goDown);
-    this.fullCourseService.onEditContent();
+    this.fullCourseService.onNotifyContent();
   }
 
   handleFileInput(event: Event) {

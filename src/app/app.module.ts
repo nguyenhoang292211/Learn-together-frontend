@@ -15,9 +15,9 @@ import { DetailInfoCourseComponent } from './components/course/detail-info-cours
 import { CardImageComponent } from './components/course/detail-info-course/card-image/card-image.component';
 import { SectionCourseComponent } from './components/course/detail-info-course/section-course/section-course.component';
 import { ContentCourseComponent } from './components/course/detail-info-course/content-course/content-course.component';
-import { LecturerHomeScreenComponent } from './screen/lecturer/lecturer-home-screen/lecturer-home-screen.component';
+import { AdminCourseScreenComponent } from './screen/lecturer/admin-course-screen/admin-course-screen.component';
 import { LecturerCardCourseComponent } from './components/course/small-course/lecturer-card-course/lecturer-card-course.component';
-import { EditCourseComponent } from './screen/lecturer/edit-course/edit-course.component';
+import { CourseCreationScreenComponent } from './screen/lecturer/course-creation-screen/course-creation-screen.component';
 import { CourseInfoComponent } from './components/course/full-course/course-info/course-info.component';
 import { CourseSectionComponent } from './components/course/full-course/course-section/course-section.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -69,6 +69,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { key } from './util/google_Key';
+import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
 
 
 
@@ -86,15 +87,13 @@ import { key } from './util/google_Key';
     CardImageComponent,
     SectionCourseComponent,
     ContentCourseComponent,
-    LecturerHomeScreenComponent,
+    AdminCourseScreenComponent,
     LecturerCardCourseComponent,
-    EditCourseComponent,
+    CourseCreationScreenComponent,
     CourseInfoComponent,
     CourseSectionComponent,
     AlertWarningComponent,
-    
     UploadTaskComponent,
-   
     SearchComponent,
     ItemSearchComponent,
     ListSearchComponent,
@@ -124,7 +123,8 @@ import { key } from './util/google_Key';
     AlertWarningComponent,
     AlertWarningComponent,
     EmptyBlockComponent,
-    SearchTitleComponent
+    SearchTitleComponent,
+    LoadingSpinnerComponent
 
   
   ],

@@ -51,9 +51,8 @@ export class FullCourseService {
   idCourse: string = 'default';
   wayModify = ModifyType.new;
   typeSelection = VideoType.lession;
-  invokeEditModal = new EventEmitter();
-  invokeDeleteModal = new EventEmitter();
-  invokeValidModal = new EventEmitter();
+  invokeNotifyModal = new EventEmitter();
+  invokeValidModal= new EventEmitter();
   subsEdit?: Subscription;
   subsDelete?: Subscription;
   subsValid?: Subscription;
@@ -63,26 +62,58 @@ export class FullCourseService {
   sbjIdItem = new Subject<string>();
 
   constructor(private http: HttpClient) {}
-  setIsValid(flat: boolean) {
-    
-    this.isValid = flat;
-  }
-  //================================= Method =========================
+ 
+  //================================= GET =========================
   getLecturesCourse() {
     return this.lectures;
   }
   getCourseInfo() {
     return this.course;
   }
-  onEditContent() {
-    this.invokeEditModal.emit();
+  getValidate() {
+    return this.isValid;
   }
-  onDeleteContent() {
-    this.invokeDeleteModal.emit();
+  getLectureSelection() {
+    //TODO: update way get when have API
+  
+    return this.lectures.filter((lecture:Lecture) => (lecture.id === this.idItem))[0];
   }
-  onNewLession() {
-    this.invokeEditModal.emit();
+  getSectionSelection() {
+    return this.sections.filter((section) => (section.id == this.idItem));
   }
+  getCurrentSelection(): Observable<VideoType> {
+    return this.sbjTypeSelection.asObservable();
+  }
+  getWayModify() {
+    return this.sbjWayModify.asObservable();
+  }
+  //================================= SET =========================
+  setIsValid(flat: boolean) {
+    this.isValid = flat;
+  }
+  setCurrentSectionSelection(idSection: string) {
+    this.getSectionSelection()[0].id = idSection;
+  }
+  setSelection(id: string, type: VideoType, way: ModifyType) {
+    this.idItem = id;
+    console.log(this.idItem);
+    this.sbjIdItem.next(this.idItem);
+    this.typeSelection = type;
+    this.sbjTypeSelection.next(this.typeSelection);
+
+    this.wayModify = way;
+    this.sbjWayModify.next(this.wayModify);
+
+  }
+  setIdCourse(id: string) {
+    this.idCourse = id;
+  }
+  //================================= METHOD =========================
+
+  onNotifyContent() {
+    this.invokeNotifyModal.emit();
+  }
+
   onValidateInput() {
     this.invokeValidModal.emit();
   }
@@ -194,70 +225,57 @@ export class FullCourseService {
     })
 
   }
-  setCurrentSectionSelection(idSection: string) {
-    this.getSectionSelection()[0].id = idSection;
-  }
-  setSelection(id: string, type: VideoType, way: ModifyType) {
-    this.idItem = id;
-    console.log(this.idItem);
-    this.sbjIdItem.next(this.idItem);
-    this.typeSelection = type;
-    this.sbjTypeSelection.next(this.typeSelection);
-
-    this.wayModify = way;
-    this.sbjWayModify.next(this.wayModify);
-
-  }
-  setIdCourse(id: string) {
-    this.idCourse = id;
-  }
-  getValidate() {
-    return this.isValid;
-  }
-  getLectureSelection() {
-    //TODO: update way get when have API
-    return this.lectures.filter((lecture) => (lecture.id == this.idItem))[0];
-  }
-  getSectionSelection() {
-    return this.sections.filter((section) => (section.id == this.idItem));
-  }
-  getCurrentSelection(): Observable<VideoType> {
-    return this.sbjTypeSelection.asObservable();
-  }
-  getWayModify() {
-    return this.sbjWayModify.asObservable();
-  }
+  
+  
   //================ HTTP ===============
   private apiUrlCourse = 'http://localhost:5000/courses';
   private apiUrlSection = 'http://localhost:5000/sections';
   private apiUrlLecture = 'http://localhost:5000/lectures';
   getCourses(): Observable<Course[]> {
-    return this.http.get<Course[]>(this.apiUrlCourse);
+    // return this.http.get<Course[]>(this.apiUrlCourse);
+    return of(this.mcourses);
   }
   getData() {
-    this.http
-      .get<Section[]>(this.apiUrlSection)
-      .toPromise()
-      .then((sectionsData) => {
-        this.sections = sectionsData;
-        this.http
-          .get<Lecture[]>(this.apiUrlLecture)
-          .toPromise()
-          .then((lecturesData) => {
-            this.lectures = lecturesData;
-            console.log(this.lectures);
-            this.sections.forEach((section) => {
-              console.log(section);
-              let tmpLecturers: Lecture[] = this.lectures.filter(
-                lecture => lecture.sectionId == section.id
-              );
-              console.log(tmpLecturers);
-              this.listDeepSection.push(
-                new SectionDummy(section.id, section.title, tmpLecturers)
-              );
-            });
-          });
-      });
+    // this.http
+    //   .get<Section[]>(this.apiUrlSection)
+    //   .toPromise()
+    //   .then((sectionsData) => {
+    //     this.sections = sectionsData;
+    //     this.http
+    //       .get<Lecture[]>(this.apiUrlLecture)
+    //       .toPromise()
+    //       .then((lecturesData) => {
+    //         this.lectures = lecturesData;
+    //         console.log(this.lectures);
+    //         this.sections.forEach((section) => {
+    //           console.log(section);
+    //           let tmpLecturers: Lecture[] = this.lectures.filter(
+    //             lecture => lecture.sectionId == section.id
+    //           );
+    //           console.log(tmpLecturers);
+    //           this.listDeepSection.push(
+    //             new SectionDummy(section.id, section.title, tmpLecturers)
+    //           );
+    //         });
+    //       });
+    //   });
+    this.sections= this.mSectionList;
+    this.lectures= this.mLectureList;
+
+      
+    this.sections.forEach((section) => {
+               // console.log(section);
+                let tmpLecturers: Lecture[] = this.lectures.filter(
+                  lecture => lecture.sectionId == section.id
+                );
+               // console.log(tmpLecturers);
+                this.listDeepSection.push(
+                  new SectionDummy(section.id, section.title, tmpLecturers)
+                );
+    })
+    console.log(this.listDeepSection);
+    
+
   }
   getLectures(): Observable<Lecture[]> {
     return this.http.get<Lecture[]>(this.apiUrlLecture);
@@ -331,8 +349,6 @@ export class FullCourseService {
 
       this.getData();
     }
-
-
     }
   
   //Another
@@ -378,18 +394,19 @@ export class FullCourseService {
   handleUpdate(title: string) {
     if (this.wayModify == ModifyType.edit) {
       if (this.typeSelection == VideoType.lession) {
-        var tmpSection = this.getSectionSelection()[0];
+        var tmpLecturer = this.getLectureSelection();
 
+        if (tmpLecturer != null) {
+          tmpLecturer.title = title;
+          this.onSaveLecture(tmpLecturer);
+        }
+      } else {
+        
+        var tmpSection = this.getSectionSelection()[0];
+       console.log(tmpSection);
         if (tmpSection != null) {
           tmpSection.title = title;
           this.onSaveSection(this.idItem,tmpSection);
-        }
-      } else {
-        var tmpLecture = this.getLectureSelection();
-       
-        if (tmpLecture != null) {
-          tmpLecture.title = title;
-          this.onSaveLecture(tmpLecture);
         }
       }
     } else if (this.wayModify == ModifyType.new) {
@@ -415,9 +432,15 @@ export class FullCourseService {
 
     console.log('Save section ');
     console.log(section);
-    const url = `${this.apiUrlSection}/${sectionId}`;
-    return this.http.put<Section>(url, section,httpOptions);
+    // const url = `${this.apiUrlSection}/${sectionId}`;
+    // return this.http.put<Section>(url, section,httpOptions);
 
+    this.mSectionList.forEach((dataSection)=>{
+        if(dataSection.id== sectionId){
+          dataSection.title=section.title;
+        }
+    })
+    return of(section);
   }
   onSaveLecture( lecturer: Lecture): Observable<Lecture> {
     //TODO: Http
@@ -425,6 +448,8 @@ export class FullCourseService {
     console.log(lecturer);
     const url = `${this.apiUrlLecture}/${lecturer.id}`;
     return this.http.put<Lecture>(url, lecturer, httpOptions);
+
+    
   }
   onSaveCourse(): Observable<Course> {
     //TODO: Http
@@ -443,7 +468,7 @@ export class FullCourseService {
   }
   onDeleteLecture() {
     //TODO: Http
-    console.log("Delete Lecturer :"+this.course.id);
+    console.log("Delete Lecturer :"+this.idItem);
   }
   onCreateSection(section: Section) {
     console.log('Create section '+section.title);
@@ -458,4 +483,89 @@ export class FullCourseService {
     return this.http.post<Lecture>(this.apiUrlLecture, lecturer);
   }
   //=============== Create HTTP===================
+
+  //================ Mockup data ==================
+  private mcourses: Course[]=[{
+    id: "1",
+    title: "Giải phương trình bậc 3",
+    courseDescription: "Description",
+    price:150000,
+    courseType: COURSE_TYPE.THEORY,
+    grade: GRADES.TENTH,
+    thumbnailUrl: "string",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    isHidden: false
+  },]
+  private mSectionList : Section[]=[
+    {
+        courseId:'1',
+        id:'course1sec1',
+        title:'Lý thuyết phương trình',
+        isHidden: false,
+        sectionOrder: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      
+    },
+    {
+        courseId:'1',
+        id:'course1sec2',
+        title:'Phương trình tuyến tính',
+        isHidden: false,
+        sectionOrder: 2,
+        createdAt:new Date(),
+        updatedAt: new Date(),
+    
+    }
+  ]
+  private  mLectureList :Lecture[]=[
+    {
+        id:'co1sec1lec1',
+        title:"Video 1",
+        lectureOrder:1,
+        idHidden:false,
+        sectionId:'course1sec1',
+        createdAt:new Date(),
+        updatedAt:new Date()
+    },
+    {
+        id:'co1sec1lec2',
+        title:"Video 2",
+        lectureOrder:2,
+        idHidden:false,
+        sectionId:'course1sec1',
+        createdAt:new Date(),
+        updatedAt:new Date()
+    },
+    {
+        id:'co1sec2lec1',
+        title:"Video 1",
+        lectureOrder:1,
+        idHidden:false,
+        sectionId:'course1sec2',
+        createdAt:new Date(),
+        updatedAt:new Date()},
+    {
+        id:'co1sec2lec2',
+        title:"Video 2",
+        lectureOrder:2,
+        idHidden:false,
+        sectionId:'course1sec2',
+        createdAt:new Date(),
+        updatedAt:new Date()
+    },
+    {
+        id:'co1sec2lec3',
+        title:"Video 3",
+        lectureOrder:3,
+        idHidden:false,
+        sectionId:'course1sec2',
+        createdAt:new Date(),
+        updatedAt:new Date()
+    },
+ 
+]
+
+
 }

@@ -6,13 +6,14 @@
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: large;
-    padding: 4px;
+   
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     outline: none;
     border: none;
     color: white;
     border: solid 1px #ffff;
+    padding: 10px;
 }
 .btn-create-new:hover{
     color: rgb(64, 129, 250);
@@ -26,6 +27,7 @@
 }
 .btn-save{
     background: #4EBEE1;
+    padding: 13px;
 
 }
 .btn-save:hover{
@@ -55,11 +57,11 @@
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: large;
-    padding: 4px;
+    padding: 10px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     outline: none;
-    border: none;
+    border: 10px;
     color: white;
 }
 .url-video{
@@ -72,14 +74,30 @@
 .div-back{
     
     font-size: 20px;
-    color: rgb(64, 129, 250);
+    color: #5cb3fd;
 }
 
 .div-back:hover{
-    color: red;
+    color: #f06292 ;
     cursor: pointer;
 }
 .container{
     
     margin-top: 55px;
+}
+.custome-dialog-title{
+    font-size: x-large;
+}
+.icon-decorate{
+    margin-right: 2rem;
+}
+.section-title{
+ font-weight: bold;
+ font-size: 22px;
+
+}
+
+.custome-dialog-title{
+  margin-left: 3rem;
+  padding-bottom: 0px;
 }
