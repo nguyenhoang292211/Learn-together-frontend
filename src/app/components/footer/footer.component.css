@@ -5,15 +5,11 @@
     background-color: rgb(102, 102, 102);
     color: white;
     /* position: absolute; */
-<<<<<<< HEAD
     width: 100%;
     bottom: 0;
     left: 0;
     right: 0;
     
-=======
-    width: 100vw;
->>>>>>> 5306354 (home)
 }
 
 .footer p {
