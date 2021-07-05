@@ -112,4 +112,10 @@ export class UserService{
     getUserById(learnerId:string):Observable<User>{
         return of(this.users.find(user=> user.id===learnerId)!);
     }
+
+    
+    getUserByUserId(id:string): User{
+        const user = this.users.find(user=>user.id == id)!;
+        return user;
+    }
 }

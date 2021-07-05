@@ -126,3 +126,27 @@ mat-slide-toggle{
     background-color: #ffe066;
 }
 
+.btn-confirm-all{
+    margin-left: 10px;
+    border-radius: 3px;
+    border: solid 0.5px #070f1f;
+    font-size: 14px;
+    background-color: #fff;
+    color: #070f1f;
+    height: 25px;
+    margin-top: 10px;
+    font-weight: 600;
+    text-align: center;
+    padding: 5px 5px 5px 5px!important;
+    padding-top: 2px !important;
+    vertical-align: middle;
+    transition: all 1s;
+}
+
+.btn-confirm-all:hover{
+    color: #fff;
+    background-color: #070f1f;
+    border: solid 0.5px #fff;
+    font-weight: 400;
+}
+
