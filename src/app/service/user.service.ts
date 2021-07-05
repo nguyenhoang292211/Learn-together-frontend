@@ -16,7 +16,7 @@ export class UserService{
         avatarUrl: "",
         email : "ngocyen174308@gmail.com",
         userRole :  ROLES.LEARNER,
-        balance : 20000,
+        balance : 200000,
         createdAt :new Date(),
         updatedAt : new Date()
     },
