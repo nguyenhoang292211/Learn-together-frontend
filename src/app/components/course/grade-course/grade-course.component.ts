@@ -22,7 +22,7 @@ export class GradeCourseComponent implements OnInit {
   }
 
   getLevelGradeName():any{
-    return this.grade;
+    return "Grade " +  this.grade;
   }
 
   viewAllCourse(){

@@ -10,8 +10,8 @@
 
             <form class = "col-md-8 category-course " style="margin-left: 20px;">
                 <a class = "btn-category" >Courses</a>
-                <a class = "btn-category" routerLink = "admin/managerment/learner">Learner Managerment</a>
-                <a class = "btn-category" routerLink = "admin/managerment/wallet">Wallet</a>
+                <a class = "btn-category" [routerLink] = "['admin/managerment/learner']" routerLinkActive="active">Learner Managerment</a>
+                <a class = "btn-category" [routerLink] = "['admin/managerment/wallet']" routerLinkActive="active">Wallet</a>
             </form>
             <!-- <div class="col-md-4 action-button ">
                 <a href="#" class=" btn-signin">Sign In</a>

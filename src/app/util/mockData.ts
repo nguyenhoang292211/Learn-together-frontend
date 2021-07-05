@@ -5,7 +5,7 @@ export const sectionList : Section[]=[
     {
         courseId:'1',
         id:'course1sec1',
-        title:'Lý thuyết phương trình',
+        title:'Lý thuyết phương trình Phương trình tuyến tính Phương trình tuyến tính Phương trình tuyến tính',
         isHidden: false,
         sectionOrder: 1,
         createdAt: new Date(),
@@ -15,7 +15,7 @@ export const sectionList : Section[]=[
     {
         courseId:'1',
         id:'course1sec2',
-        title:'Phương trình tuyến tính',
+        title:'Phương trình tuyến tính Phương trình tuyến tính Phương trình tuyến tính Phương trình tuyến tính Phương trình tuyến tính',
         isHidden: false,
         sectionOrder: 2,
         createdAt:new Date(),
@@ -25,7 +25,7 @@ export const sectionList : Section[]=[
     {
         courseId:'2',
         id:'course2sec1',
-        title:'Lý thuyết phương trình',
+        title:'Lý thuyết phương trình Phương trình tuyến tính Phương trình tuyến tính Phương trình tuyến tính Phương trình tuyến tính',
         isHidden: false,
         sectionOrder: 1,
         createdAt: new Date(),

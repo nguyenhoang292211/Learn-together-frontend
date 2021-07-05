@@ -1,12 +1,13 @@
-<div class="card">
-    <img class="img-fluid img-course" src="../../../assets/images/img1.jpg" alt="">
-    <div class="info-course">
-        <div class="name">
-            <a routerLink="/detail/{{course.id}}/{{course.title}}" class="course-name">{{course.title | shorten}}</a>
 
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="../../../assets/images/img1.jpg" alt="Card image cap">
+    <div class="card-body">
+        <div class = "card-content">
+            <a routerLink="/detail/{{course.id}}/{{course.title}}" > <h5 class="card-title">{{course.title | shorten}}</h5></a> 
+            <p class="card-text">{{course.courseDescription}}</p>
         </div>
-        <!-- <span class="teacher"> {{course.teacher}} </span> -->
-        <p class="course-price"> {{handlePriceFormat(course.price)}} </p>
-
+    
+      <p class="course-price"> {{handlePriceFormat(course.price)}} </p>
     </div>
-</div>
+  </div>

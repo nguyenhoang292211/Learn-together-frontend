@@ -16,7 +16,7 @@ export class UserService{
         avatarUrl: "",
         email : "ngocyen174308@gmail.com",
         userRole :  ROLES.LEARNER,
-        balance : 20000,
+        balance : 200000,
         createdAt :new Date(),
         updatedAt : new Date()
     },
@@ -111,5 +111,11 @@ export class UserService{
     //TODO:SEND GET METHOD TO GET USER BY USER ID
     getUserById(learnerId:string):Observable<User>{
         return of(this.users.find(user=> user.id===learnerId)!);
+    }
+
+    
+    getUserByUserId(id:string): User{
+        const user = this.users.find(user=>user.id == id)!;
+        return user;
     }
 }

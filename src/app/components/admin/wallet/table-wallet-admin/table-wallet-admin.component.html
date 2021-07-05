@@ -1,11 +1,17 @@
 <div class="card shadow mb-4 table-detail">
     <div class = "title-table-block">
         <div class="title-table pull-left"> <span>Learner payment history</span> <br/>
-            <mat-slide-toggle [color]="colorSlideFilter" 
+            <mat-slide-toggle [color]="colorSlideFilter" (click) = "setIsConfirmAll()"
             >Not yet confirmed</mat-slide-toggle>
+            <button *ngIf = "isConfirmAll" class = " btn-confirm-all" (click) = "setActionConfirmAll()"> Confirm All</button>
+            <app-alert-warning [message]="messageToAction" [actionToAlert]="nameActionToAlert"   *ngIf = "isCallAlert" (close)="onHandleError()" (isAction) = "getAcceptFromAlert($event)">
+            </app-alert-warning>
+
         </div>
         <!-- ------ search -->
-    <app-search-title class = "pull-right" [message] = "content_for_search"></app-search-title> 
+    <app-search-title class = "pull-right"
+     [message] = "content_for_search"
+     (sendTitleSearch) = "searchDeposit($event)"></app-search-title> 
 
     </div>
     
@@ -15,35 +21,36 @@
                 <thead>
                     <tr>
                         <th>Date Time</th>
-                        <th *ngIf="isAdmin">Email</th>
-                        <th>Course</th>
+                        <th>Name</th>
+                        <th>Email</th>
                         <th>Amount</th>
                         <th>Image</th>
-                        <th *ngIf="isAdmin">Actions</th>
+                        <th >Actions</th>
 
                     </tr>
                 </thead>
                 <tbody>
                    
-                    <tr>
+                    <tr *ngFor = "let item of depositRequests">
                         <td>
-                            <div><span>6/30/2021 3:54:00 PM</span></div>
+                            <div><span>{{item.createdAt}}</span></div>
                             <div><span>Status: </span>
-                                <button class="badge btn-status">Pending</button>
+                                <button *ngIf = "!isDeny(item.depositRequestStatus)" class="badge btn-status">{{depositRequestService.setStatusName(item)}}</button>
+                                <button *ngIf = "isDeny(item.depositRequestStatus)" class="badge btn-status" style="background-color: crimson;">{{depositRequestService.setStatusName(item)}}</button>
                             </div>
                         </td>
-                        <td *ngIf="isAdmin">
-                            <div><span>Le Thi Ngoc Yen</span></div>
+                        <td>
+                            <div><span>{{userService.getUserByUserId(item.learnerId).fullName}}</span></div>
                         </td>
                         <td >
-                            <div><span>Giai tich hinh hoc</span></div>
+                            <div><span>{{userService.getUserByUserId(item.learnerId).email}}</span></div>
                         </td>
                         <td>
                             <div class="amount">0000</div>
                         </td>
                         <td><button class="btn-admin " (click)="showImg()"> View </button></td>
-                        <td>
-                            <div *ngIf="isExist">
+                        <td (click) = "getDepositCurrentRow(item)">
+                            <div *ngIf="depositRequestService.isPending(item)">
                             <button type="button" class="btn-admin" (click) = "setActionConfirm()"> Confirm</button>
                             <button type="button" class="btn-admin  btn-deny"  (click) = "setActionDeny()"> Deny</button>
                         </div>
@@ -62,6 +69,8 @@
             </app-alert-warning>
 
             <!-- <app-search></app-search> -->
+
+            
 
             <div class="row" *ngIf="isPaging()">
                 <div class="col-sm-12 col-md-5">
